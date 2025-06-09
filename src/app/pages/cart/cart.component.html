@@ -11,8 +11,8 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <div class="table-content table-responsive cart-table">
-          <table class="table table-hover">
+        <div class="table-content  cart-table">
+          <table class="">
             <thead class="cart-header text-center">
             <tr>
               <th class="product-thumbnail">Images</th>
@@ -24,6 +24,7 @@
             </tr>
             </thead>
             <tbody class="text-center align-middle">
+           
             <tr *ngIf="!carts || carts.length === 0">
               <td colspan="10" class="empty-cart-message">
                 <div class="d-flex justify-content-center align-items-center ">
@@ -67,12 +68,12 @@
           <div class="col-12 col-md-8">
             <div class="coupon">
               <input id="coupon_code" class="form-control coupon-input" name="coupon_code" placeholder="Coupon code" type="text" aria-label="Coupon code">
-              <button class="btn custom-btn coupon-btn">Apply Coupon</button>
+              <button class="btn ">Apply Coupon</button>
             </div>
           </div>
           <div class="col-12 col-md-4 mt-3 mt-md-0 pe-md-5">
             <div class="coupon">
-              <button class="btn btn-lg custom-btn coupon-btn w-100" name="apply_coupon" routerLink="/choose_category"><i class="ri-add-circle-fill"></i> More Items</button>
+              <button class="btn btn-lg w-100" name="apply_coupon" routerLink="/choose_category"><i class="ri-add-circle-fill"></i> More Items</button>
             </div>
           </div>
         </div>
@@ -83,7 +84,7 @@
             <div class="cart-page-total shadow-lg p-4 rounded">
               <h4 class="mb-4">Cart Total</h4>
               <ul class="list-group mb-4">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center total-amt">
                   Total <span>&#8377;{{ total }}</span>
                 </li>
               </ul>

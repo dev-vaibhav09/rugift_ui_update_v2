@@ -3,28 +3,47 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  background: transparent;
+  margin-bottom: 4.3rem;
+}
+
+table{
+    background: var(--light-primary-color);
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(35, 150, 189, 0.1);
+    overflow: hidden;
 }
 
 /* Product Images */
 .cart-img {
   max-width: 80px;
   transition: transform 0.3s ease;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 .cart-img:hover {
   transform: scale(1.1);
 }
+thead {
+  background: var(--primary-color-light);
+}
+thead tr th {
+  padding: 1rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
 
-/* Buttons */
-.custom-btn {
-  background-color: #3444F1;
-  color: white;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  padding: 6px 12px;
-}
-.custom-btn:hover {
-  background-color: #3444F1;
-}
+
+
 
 /* Quantity Controls */
 .product-quantity-form {
@@ -43,14 +62,9 @@
 .coupon-input {
   margin-right: 10px;
   max-width: 300px;
+  padding: 8px 12px;
 }
-.coupon-btn {
-  background: var(--back-theme); /* Elegant gradient background */
-  color: #fff;
-}
-.coupon-btn:hover {
-  background: var(--back-hover-theme); /* Elegant gradient background */
-}
+
 .update-cart-btn:hover {
   background-color: #e0a800;
 }
@@ -65,17 +79,13 @@
   padding-bottom: 15px;
   margin-bottom: 20px;
 }
-.proceed-checkout-btn {
-  background: var(--back-hover-theme); /* Elegant gradient background */
-  color: white;
-  border-radius: 5px;
-  padding: 12px 0;
+.proceed-checkout-btn .btn {
+  width: 100%;
 }
-
 
 /* Hover Effects */
 .cart-product-link {
-  color: #3444F1;
+  color: #3444f1;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -84,11 +94,17 @@
 }
 
 .remove-item {
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
+  cursor: pointer;
+  font-size: 1.4rem;
+  // transition: font-size 0.1s ease;
+  // -webkit-transition: font-size 0.1s ease;
+  // -moz-transition: font-size 0.1s ease;
+  // -ms-transition: font-size 0.1s ease;
+  // -o-transition: font-size 0.1s ease;
 }
-.remove-item:hover {
-  color: #ff5f5f;
+.remove-item:hover{
+  font-size: 1.5rem;
+ 
 }
 
 .cart-table th {
@@ -99,13 +115,13 @@
 .cart-table a:hover {
   color: #e0d7c6; /* Slightly lighter color on hover */
 }
-.cart-table th{
+.cart-table th {
   background: var(--back-hover-theme); /* Elegant gradient background */
 }
 
-
-
-
+.total-amt{
+  font-weight: 800;
+}
 
 /* Container for the entire quantity input (in row layout) */
 .qty-container {
@@ -114,7 +130,6 @@
   justify-content: center;
   padding: 8px 15px;
 }
-
 
 /* Input field styling */
 .qty-container .input-qty {
@@ -171,57 +186,101 @@
 
 /* Optional: Adjust the typography for the entire form */
 .qty-container {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-
 
 /* Empty Cart Message Styling */
 .empty-cart-message {
   text-align: center;
   padding: 50px;
-  background-color: #ffffff; /* White background to match the order section */
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border: 1px solid #ddd; /* Match the border of other elements */
+  background-color: #ffffff;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ 
+
+ 
+}
+tbody, td, tfoot, th, thead, tr {
+    border-color: none !important;
+     border-style: none; 
+    border-width: 0; 
+}
+
+
+tbody tr{
+  border-bottom: 1px solid var(--primary-color-light); /* Light border for rows */
+
 }
 
 .empty-cart-message .message-container {
   max-width: 400px;
-  margin:auto;
+  margin: auto;
   align-content: center;
   justify-content: center;
+  padding: 16px 8px;
+}
+
+.cart-item td{
+  padding: 1rem;
 }
 
 .empty-cart-message .icon {
   font-size: 32px;
-  color: #4CA1AF; /* Match the gradient colors used in the buttons */
+  color: #4ca1af; /* Match the gradient colors used in the buttons */
   margin-bottom: 20px;
 }
 
 .empty-cart-message .message {
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
-  color: #333333; /* Dark grey for readability */
+  color: var(--primary-color); /* Dark grey for readability */
   margin-bottom: 20px;
+  margin: 10px 0;
+}
+
+.btn{
+ 
+  // width: 100%;
+  background-color: var(--primary-color);
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+
+
+}
+.btn:hover {
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
 }
 
 .empty-cart-message .btn {
-  display: inline-block;
-  background: var(--back-theme); /* Elegant gradient background */
-  color: #ffffff;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
+    padding: 6px 40px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(35, 150, 189, 0.3);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    border: none;
 }
-
-
 
 /* General table styling for small devices */
 @media (max-width: 768px) {
+
+  thead tr th {
+  padding: 1.2rem;
+  font-size: 1rem;
+ 
+}
   .cart-table table {
     font-size: 14px;
   }
@@ -229,7 +288,6 @@
   .cart-table th,
   .cart-table td {
     padding: 8px;
-    text-align: left;
   }
 
   .cart-table .product-thumbnail img {
@@ -241,7 +299,7 @@
     margin-bottom: 10px;
   }
 
-  .coupon .coupon-btn {
+  .coupon .btn {
     width: 100%;
   }
 
@@ -254,6 +312,7 @@
     width: 100%;
     padding: 10px;
   }
+  
 }
 
 /* Extra small devices (phones) */
@@ -262,6 +321,7 @@
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+    padding: 0;
   }
 
   .coupon-area {
@@ -269,8 +329,26 @@
   }
 
   .qty-container {
-    flex-direction: column;
     gap: 8px;
   }
+  
+  .qty-btn-minus,
+.qty-btn-plus {
+  font-size: 15px;
+}
 
+.qty-container .input-qty {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 40px;
+  height: 30px;
+  padding: 1px;
+  margin: 0 12px;
+  border-radius: 8px;
+  border: 2px solid #b0bec5;
+  background-color: #fff;
+  color: #2c3e50; /* Darker text for contrast */
+  transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
 }

@@ -3,41 +3,56 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
+  // background: linear-gradient(135deg, #f0f8ff, #e6f2ff);
   padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-:root {
-  --primary-color: #ffffff;
-  --secondary-color: #2396BD;
-  --tertiary-color: #1D2757;
-  --light-bg: #f5f9fc;
-  --border-color: #e4eaf1;
-  --text-color: #333;
-  --text-light: #6c757d;
-  --error-color: #dc3545;
-  --success-color: #28a745;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
-  background: var(--primary-color);
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(29, 39, 87, 0.1);
+  position: relative;
   max-width: 1200px;
   width: 100%;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 15px 35px rgba(35, 150, 189, 0.1);
 
+  overflow: hidden;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 8px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--tertiary-color));
+    background: linear-gradient(
+      90deg,
+      var(--secondary-color),
+      var(--tertiary-color)
+    );
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    top: 0%;
+    right: -12%;
+    background: rgb(223, 28, 213);
+    opacity: 0.1;
+    filter: blur(80px);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-transform: translate(-50% -50%);
+    -moz-transform: translate(-50% -50%);
+    -ms-transform: translate(-50% -50%);
+    -o-transform: translate(-50% -50%);
+    -webkit-filter: blur(80px);
   }
 }
 
@@ -54,7 +69,7 @@
   }
 
   p {
-    color: var(--text-light);
+    color: var(--primary-color);
     font-size: 16px;
   }
 }
@@ -68,17 +83,6 @@
   padding: 0;
   position: relative;
   border: none;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 1px;
-    background-color: var(--border-color);
-  }
 }
 
 .nav-item {
@@ -102,17 +106,18 @@
   border: 2px solid transparent;
 
   &:hover {
+    box-shadow: var(--btn-box-shadow);
     color: var(--secondary-color);
   }
 
   &.active {
-    color: var(--primary-color);
-    background: linear-gradient(135deg, var(--secondary-color), var(--tertiary-color));
+    color: var(--text-color);
+    background: var(--secondary-color);
     box-shadow: 0 5px 15px rgba(35, 150, 189, 0.3);
     border: none;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -10px;
       left: 50%;
@@ -146,38 +151,33 @@
   }
 }
 
+.content {
+  z-index: 2;
+}
 .content form {
   display: flex;
   flex-direction: column;
 }
 
 .card {
-  background: var(--primary-color);
   border-radius: 16px;
   padding: 30px;
   margin-bottom: 35px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(35, 150, 189, 0.1);
-    border-color: rgba(35, 150, 189, 0.2);
-  }
 }
 
 .card-header {
   font-size: 18px;
   font-weight: 600;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   margin-bottom: 24px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-color);
+
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: -1px;
@@ -195,36 +195,38 @@
   margin-bottom: 20px;
 }
 
+.card-body p {
+  color: var(--primary-color);
+}
+
 .input-box {
   display: flex;
   flex-direction: column;
-  color: var(--text-color);
+  color: var(--primary-color);
   margin-bottom: 8px;
 
   .details {
     font-weight: 500;
     font-size: 15px;
-    color: var(--tertiary-color);
+    color: var(--primary-color);
     margin-bottom: 8px;
     display: flex;
     align-items: center;
   }
 
   input {
-    background: var(--light-bg);
-    border: 1px solid black;
+    border: 1px solid var(--tertiary-color);
     border-radius: 8px;
     padding: 14px 18px;
     font-size: 15px;
     transition: all 0.3s ease;
-    color: var(--text-color);
+    color: var(--primary-color);
 
     &::placeholder {
-      color: #adb5bd;
+      color: var(--placeholder-color);
     }
 
     &:focus {
-      background: var(--primary-color);
       border: 1px solid var(--secondary-color);
       box-shadow: 0 0 0 4px rgba(35, 150, 189, 0.1);
       outline: none;
@@ -257,7 +259,7 @@
     width: 16px;
     height: 16px;
     background-color: var(--error-color);
-    color: white;
+    color: var(--text-color);
     border-radius: 50%;
     margin-right: 6px;
     font-size: 10px;
@@ -286,8 +288,8 @@
     width: 50%;
     height: 54px;
     border-radius: 50px;
-    background: linear-gradient(135deg, var(--secondary-color), var(--tertiary-color));
-    color: #fff;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
@@ -298,13 +300,18 @@
     overflow: hidden;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.2), rgba(255,255,255,0));
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0)
+      );
       transition: all 0.6s ease;
     }
 
@@ -346,7 +353,7 @@
     position: relative;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 0;
       height: 1px;
@@ -370,6 +377,12 @@
 @media (max-width: 768px) {
   .container {
     padding: 30px 20px;
+
+    &::after {
+      width: 200px;
+      height: 200px;
+      right: -18%;
+    }
   }
 
   .nav-item {

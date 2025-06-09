@@ -1,4 +1,4 @@
-<div class="container mt-80 mb-100">
+<div class=" shadow-lg container mt-80 mb-100">
   <!-- Tabs -->
   <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -10,7 +10,7 @@
   </ul>
 
   <!-- Registration Form -->
-  <div *ngIf="selectedTab === 'registration'">
+  <div   *ngIf="selectedTab === 'registration'">
     <div class="content">
       <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
         <!-- Card 1 -->
@@ -94,7 +94,7 @@
   </div>
 
   <!-- Login Form -->
-  <div *ngIf="selectedTab === 'api'">
+  <div   *ngIf="selectedTab === 'api'">
     <div class="content">
       <div class="card">
         <div class="card-header">API Integration Details</div>

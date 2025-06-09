@@ -1,0 +1,130 @@
+.why-choose-area {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 4.5rem;
+  color: var(--primary-color);
+}
+.why-choose-area-section {
+  margin-top: 0;
+}
+.why-choose-area .content-box {
+  position: relative;
+}
+
+.why-choose-area .text-box p {
+  color: var(--primary-color);
+}
+.why-choose-area .text-box h3 {
+  color: var(--primary-color);
+}
+.why-choose-area .content-box .line-shape {
+  position: absolute;
+  left: 50%;
+  top: 26%;
+  transform: translate(-50%, -50%);
+}
+.why-choose-area .content-box h4 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  color: #000;
+}
+.why-choose-area .content-box p {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--primary-color);
+}
+
+.why-choose-area .image-box img {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border-radius: 18%;
+}
+
+.ab-sec .content-box h4 {
+  margin-bottom: 1.7rem;
+}
+
+.ab-sec .content-box p {
+  font-size: 14px;
+  color: var(--theme-text-color);
+  position: relative;
+  z-index: 1;
+}
+
+.section-title h2 {
+  color: var(--primary-color);
+  text-align: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.section-title h2::before {
+  content: "";
+  position: absolute;
+  // left: 0;
+  bottom: -7px;
+  width: 89px;
+  height: 3px;
+  background: var(--secondary-color);
+  border-radius: 10px;
+}
+
+.about-us-card-container-section {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.about-us-card {
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 359px;
+  transition: all 0.5s ease;
+  background: white;
+  position: relative;
+  color: var(--primary-color);
+  font-weight: 700;
+  overflow: hidden;
+  border: 1px solid rgb(194 192 255 / 90%);
+  border-top: 5px solid #af65e0;
+  box-shadow: var(--btn-box-shadow);
+}
+
+.about-us-card .img-con {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  align-items: end;
+}
+.about-us-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center;
+}
+.about-us-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .why-choose-area .row {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .image-box {
+    margin-bottom: 20px;
+  }
+  .ab-sec {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1200px) {
+  .about-us-card-container-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

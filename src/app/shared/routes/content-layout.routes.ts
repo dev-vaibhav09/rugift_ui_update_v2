@@ -81,4 +81,9 @@ export const CONTENT_LAYOUT_ROUTES: Route[] = [
     loadComponent: () => import('./../../pages/corporate-business/corporate-business.component').then(c => c.CorporateBusinessComponent),
     data: {title: 'Business'},
   },
+  {
+    path: 'about',
+    loadComponent: () => import('./../../pages/about/about.component').then(c => c.AboutComponent),
+    data: {title: 'About'},
+  },
 ]
