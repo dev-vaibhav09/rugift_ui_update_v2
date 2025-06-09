@@ -1,0 +1,63 @@
+
+.signin-card {
+  background: linear-gradient(135deg, #2C3E50, #4CA1AF);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 960px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.signin-vector {
+  object-fit: fill;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 10px;
+}
+
+.sign__wrapper h2 {
+  font-weight: 700; /* Bold title */
+  color: #2d3436; /* Dark gray for better readability */
+  font-size: 1.8rem; /* Slightly larger title font */
+}
+
+label {
+  font-weight: 500; /* Medium weight for labels */
+  color: #34495e; /* Darker color for labels */
+}
+
+.form-control {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #dfe6e9;
+  font-size: 1rem; /* Ensure inputs are easy to read */
+}
+
+.form-control:focus {
+  border-color: #0984e3; /* Highlight color on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(9, 132, 227, 0.5); /* Subtle focus effect */
+}
+
+.btn-primary {
+  background: linear-gradient(0deg, #2C3E50, #4CA1AF);
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(235deg, #2C3E50, #4CA1AF);
+}
+
+@media (max-width: 768px) {
+  .signin-card {
+    flex-direction: column;
+  }
+
+  .signin-vector {
+    display: none;
+  }
+}
+

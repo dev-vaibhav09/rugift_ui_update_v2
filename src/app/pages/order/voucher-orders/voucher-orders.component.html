@@ -1,0 +1,178 @@
+<app-header></app-header>
+
+<app-breadcrumb title="Vouchers" subtitle="Transactions" subtitle_link="/your-order"  ></app-breadcrumb>
+
+
+<div class="d-flex justify-content-center pt-20">
+  <div class="card rounded-4 col-md-10">
+    <div class="card-header pd-3 ">
+      <div class="row pt-20">
+        <div class="col-12">
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="search-box w-50 px-2">
+              <input type="text" class="form-control rounded-pill" placeholder="Search Transaction Id, Category, Remark" #search (keyup)="onSearch(search.value)" />
+            </div>
+            <i class="ri-search-line search-icon px-5 bg-dark-subtle rounded-pill f">Search</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="row p-2">
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <div class="d-flex align-items-center justify-content-center">
+              <label for="page" class="me-2">Show</label>
+              <select name="page" id="page" class="form-select rounded-4 bg-light px-4 py-1" [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              <label for="page" class="ms-2">entries</label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body border border-dashed border-start-0 border-end-0">
+      <div class="table-responsive">
+        <table class="table align-middle table-nowrap" id="customerTable">
+          <thead>
+          <tr class="text-center">
+            <th>SR</th>
+            <th>Date</th>
+            <th>Transaction Id</th>
+            <th>Invoice No</th>
+            <th>Order Id</th>
+            <th>Ref No</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngIf="!transactions || transactions.length === 0">
+            <td colspan="10" class="text-center">No transactions found.</td>
+          </tr>
+          <tr *ngFor="let transaction of paginatedTransactions let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{transaction.created_date || ' '}}</td>
+            <td>{{ transaction.transaction_id || ' '}}</td>
+            <td>{{ transaction.invoice_no || ' '}}</td>
+            <td>{{ transaction.order_id || ' '}}</td>
+            <td>{{ transaction.req_id || ' '}}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>
+              <span *ngIf="  transaction?.transaction_status=='SUCCESS'"
+                    class="badge bg-success rounded-pill"> SUCCESS</span>
+              <span *ngIf="  transaction?.transaction_status=='FAILED'"
+                    class="badge bg-danger rounded-pill"> FAILED</span>
+              <span *ngIf="  transaction?.transaction_status=='INPROCESS'"
+                    class="badge bg-warning rounded-pill"> INPROCESS</span>
+            </td>
+
+            <td>
+              <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" (click)="openOffcanvas(transaction.response.data.request_ref_no,transaction.response.data.order_id)">
+                Check Status
+              </a>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Check Voucher Status</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+    <!-- Display Response Data in Vertical Table Format -->
+    <div *ngIf="responseData ; else noData" class="mt-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Voucher Details</h5>
+
+          <!-- Responsive Table with Scroll -->
+          <div class="table-responsive" >
+            <ng-scrollbar
+              visibility="hover"
+              track="vertical"
+              style="max-height: 400px; width: 100%;"
+              class="custom-scrollbar"
+            >
+            <table class="table">
+              <tbody>
+              <tr>
+                <td><strong>Balance Total:</strong></td>
+                <td>{{ responseData.balanceTotal }}</td>
+              </tr>
+              <tr>
+                <td><strong>Deal No:</strong></td>
+                <td>{{ responseData.dealNo }}</td>
+              </tr>
+              <tr>
+                <td><strong>Card Number:</strong></td>
+                <td>{{ responseData.getCardNo }}</td>
+              </tr>
+              <tr>
+                <td><strong>Card PIN:</strong></td>
+                <td>{{ responseData.getCardPin || 'N/A' }}</td>
+              </tr>
+              <tr>
+                <td><strong>Card Status:</strong></td>
+                <td>{{ responseData.getCardStatus }}</td>
+              </tr>
+              <tr>
+                <td><strong>Expiry Date:</strong></td>
+                <td>{{ responseData.getExpiryDate }}</td>
+              </tr>
+              <tr>
+                <td><strong>Product Name:</strong></td>
+                <td>{{ responseData.product_name }}</td>
+              </tr>
+              <tr>
+                <td><strong>Receipt No:</strong></td>
+                <td>{{ responseData.receiptNo }}</td>
+              </tr>
+              <tr>
+                <td><strong>Voucher Name:</strong></td>
+                <td>{{ responseData.voucher_name }}</td>
+              </tr>
+              </tbody>
+            </table>
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div>
+  </div>
+  <ng-template #noData>
+    <div class="alert alert-warning mt-4">
+      {{error_message}}
+    </div>
+  </ng-template>
+</div>
+
+
+<!-- Add Custom Styles for Mobile -->
+<style>
+  @media (max-width: 576px) {
+    .card {
+      padding: 15px;
+    }
+    .search-box input {
+      width: 100%;
+    }
+    .table thead th, .table tbody td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+</style>

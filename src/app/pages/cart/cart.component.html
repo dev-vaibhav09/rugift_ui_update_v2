@@ -1,0 +1,99 @@
+
+<app-breadcrumb
+  [title]="'Cart'"
+  [subtitle]="'Voucher'"
+  [subtitle_link]="'/choose_category'"
+  [subsubtitle]="'Cart'">
+</app-breadcrumb>
+
+
+<section class="cart-area pt-100 pb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="table-content table-responsive cart-table">
+          <table class="table table-hover">
+            <thead class="cart-header text-center">
+            <tr>
+              <th class="product-thumbnail">Images</th>
+              <th class="cart-product-name">Product</th>
+              <th class="product-subtotal">Price</th>
+              <th class="product-subtotal">Quantity</th>
+              <th class="product-subtotal">Subtotal</th>
+              <th class="product-remove">Remove</th>
+            </tr>
+            </thead>
+            <tbody class="text-center align-middle">
+            <tr *ngIf="!carts || carts.length === 0">
+              <td colspan="10" class="empty-cart-message">
+                <div class="d-flex justify-content-center align-items-center ">
+                  <div class="text-center message-container">
+                    <i class="ri-gift-line icon mb-3" style="font-size: 48px;"></i>
+                    <p class="message mb-3">No vouchers have been added yet.</p>
+                    <a href="/choose_category" class="btn btn-primary">Browse Vouchers</a>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+            <tr *ngFor="let item of carts" class="cart-item">
+              <td class="product-thumbnail">
+                <a>
+                  <img [src]="item.image_url?item.image_url:'img/contact/default_img.png'" class="img-fluid cart-img" alt="{{ item.brand_name }} Image">
+                </a>
+              </td>
+              <td class="product-name">
+                <a class="cart-product">{{ item.brand_name }}</a>
+              </td>
+              <td class="product-price">&#8377;{{ item.selectedDenomination }}</td>
+              <td>
+                <div class="qty-container">
+                  <button class="qty-btn-minus btn btn-light" type="button" (click)="decreaseQuantity(item)"><i class="fa fa-minus"></i></button>
+                  <input type="text" name="qty" value="{{item.no_of_card}}" class="input-qty" readonly />
+                  <button class="qty-btn-plus btn btn-light" type="button" (click)="increaseQuantity(item)"><i class="fa fa-plus"></i></button>
+                </div>
+              </td>
+              <td>{{item.subtotal}}</td>
+              <td class="product-remove">
+                <a class="remove-item text-danger" (click)="removeItem(item)"><i class="ri-delete-bin-6-fill"></i></a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Coupon Section -->
+        <div class="row mt-4 coupon-area pb-10">
+          <div class="col-12 col-md-8">
+            <div class="coupon">
+              <input id="coupon_code" class="form-control coupon-input" name="coupon_code" placeholder="Coupon code" type="text" aria-label="Coupon code">
+              <button class="btn custom-btn coupon-btn">Apply Coupon</button>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 mt-3 mt-md-0 pe-md-5">
+            <div class="coupon">
+              <button class="btn btn-lg custom-btn coupon-btn w-100" name="apply_coupon" routerLink="/choose_category"><i class="ri-add-circle-fill"></i> More Items</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Totals -->
+        <div class="row mt-5">
+          <div class="col-12 col-md-5 ms-auto">
+            <div class="cart-page-total shadow-lg p-4 rounded">
+              <h4 class="mb-4">Cart Total</h4>
+              <ul class="list-group mb-4">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  Total <span>&#8377;{{ total }}</span>
+                </li>
+              </ul>
+              <div class="proceed-checkout-btn text-center mt-4" *ngIf="carts.length !== 0">
+                <button class="btn text-white" type="button" (click)="isButtonDisabled = true; onCheckout()" [disabled]="isButtonDisabled">Proceed to Checkout</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

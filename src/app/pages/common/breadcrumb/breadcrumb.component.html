@@ -1,0 +1,9 @@
+<div class="navigation-container">
+  <div class="main-navigation">
+    <div class="nav-item" *ngFor="let category of category_list">
+      <a (click)="router_link(category)" class="nav-link">
+        <span class="nav-label">{{ formatName(category) }}</span>
+      </a>
+    </div>
+  </div>
+</div>

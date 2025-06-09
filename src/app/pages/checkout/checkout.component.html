@@ -1,0 +1,99 @@
+
+<app-breadcrumb
+  [title]="'Checkout'"
+  [subtitle]="'Cart'"
+  [subtitle_link]="'/cart'"
+  [subsubtitle]="'Checkout'"
+  [subsubtitle_link]="'/checkout'">
+</app-breadcrumb>
+@if(is_loading){
+  <app-progress-spinner *ngIf="is_loading"></app-progress-spinner>
+}@else{
+<section class="checkout-area py-5">
+  <div class="container">
+    <form action="#">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="your-order mb-4 p-5 shadow-lg rounded bg-light">
+            <h3 class="order-title mb-4 ">Your Order</h3>
+
+            <!-- Table for Order Items -->
+            <div class="order-items-table table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead>
+                <tr class="table-header">
+                  <th>Brand</th>
+                  <th>Discount</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngIf="!carts || carts.length === 0">
+                  <td colspan="10" class="empty-cart-message">
+                    <div class="message-container">
+                      <i class="ri-gift-line icon"></i>
+                      <p class="message">No vouchers have been added yet.</p>
+                      <a href="/choose_category" class="btn">Browse Vouchers</a>
+                    </div>
+                  </td>
+                </tr>
+                <tr *ngFor="let item of carts">
+                  <td>{{ item.brand_name }}</td>
+                  <td>
+                    @if (item.is_discount_applicable){
+                      {{ item.outward_discount }} %
+                    }
+                    @else{
+                      0 %
+                    }
+                    </td>
+                  <td>{{ item.no_of_card }}</td>
+                  <td>₹{{ item.selectedDenomination.toFixed(2) }}</td>
+                  <td>₹{{ item.subtotal.toFixed(2) }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Order Summary Section -->
+            <div class="order-summary mt-6 p-4 shadow-lg rounded bg-light text-dark">
+
+              <!-- Order Details Table -->
+              <table class="table table-striped">
+                <tbody>
+                <tr>
+                  <th class="text-start">Actual Value</th>
+                  <td class="text-end fw-semibold">₹{{ actualValue | number:'1.2-2' || '0.00' }}</td>
+                </tr>
+                <tr>
+                  <th class="text-start">Discounted Amount</th>
+                  <td class="text-end text-danger fw-semibold">₹{{ totaldiscountedAmount | number:'1.2-2' || '0.00' }}</td>
+                </tr>
+                <tr>
+                  <th class="text-start">Total</th>
+                  <td class="text-end text-success fw-bold">₹{{ totalWishlistPrice | number:'1.2-2' || '0.00' }}</td>
+                </tr>
+                </tbody>
+              </table>
+
+              <!-- Divider -->
+              <hr class="my-4">
+
+              <!-- Place Order Button -->
+              <div class="order-button-payment text-center mt-4" *ngIf="carts.length!==0">
+                <button class="btn btn-primary" type="button" (click)="isButtonDisabled = true; placeOrder()"
+                        [disabled]="isButtonDisabled">Place Order</button>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+}
+

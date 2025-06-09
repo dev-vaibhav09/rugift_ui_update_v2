@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rucards Vouchers</title>
+  </head>
+  <body style="margin: 0; padding: 0; background: linear-gradient(0deg, #2C3E50, #4CA1AF); font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
+
+    <div class="email-container" style="max-width: 600px; margin: 40px auto; background-color: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); overflow: hidden;">
+
+      <!-- Header Section -->
+      <div class="header" style="background-color: #2C3E50; padding: 20px; text-align: center;">
+        <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: bold;">Your Vouchers Are Ready!</h1>
+      </div>
+
+      <!-- Content Section -->
+      <div class="content" style="padding: 30px;">
+        <p style="font-size: 16px; margin-bottom: 20px;">Hello <strong>{{ user.firstname }}</strong>,</p>
+        <p style="font-size: 16px; margin-bottom: 20px;">
+          Thank you for choosing <strong>Rucards</strong>! We're excited to let you know that your voucher purchases have been successful. Below are the details of your vouchers:
+        </p>
+
+        <!-- Voucher List -->
+        <div class="voucher-list">
+
+          <!-- Loop through each transaction -->
+          {% for transaction in data %}
+
+          <div class="voucher-card" style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+            <div class="voucher-details" style="display: flex; flex-direction: column; gap: 8px;">
+              <h4 style="margin: 0; font-size: 18px; color: #4CA1AF;">Product Name: <strong>{{ transaction["product_name"] }}</strong></h4>
+              <p style="margin: 0; font-size: 14px;">Voucher Name: <strong>{{ transaction['voucher_name'] }}</strong></p>
+              <p style="margin: 0; font-size: 14px;">Voucher Code: <strong>{{ transaction['getCardNo'] }}</strong></p>
+              <p style="margin: 0; font-size: 14px;">Voucher Pin: <strong>{{ transaction['getCardPin'] }}</strong></p>
+              <p style="margin: 0; font-size: 14px;">Expiry Date: <strong>{{ transaction['getExpiryDate'] }}</strong></p>
+              <p style="margin: 0; font-size: 14px;">Status: <strong>{{ transaction['getCardStatus'] }}</strong></p>
+              <p style="margin: 0; font-size: 14px;">Amount: <strong>₹{{ transaction['balanceTotal'] }}</strong></p>
+              <p style="margin: 0; font-size: 14px;">Receipt No: <strong>{{ transaction['receiptNo'] }}</strong></p>
+            </div>
+          </div>
+
+          {% endfor %}
+
+        </div>
+
+        <hr style="border: none; border-top: 1px solid #ddd; margin: 20px 0;" />
+
+        <p style="font-size: 14px; margin-bottom: 20px;">
+          If you need any assistance, feel free to contact our support team. Just click
+          <a href="" style="color: #4CA1AF; text-decoration: none; font-weight: bold;">here</a> to get in touch.
+        </p>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="footer" style="background-color: #2C3E50; color: #ffffff; text-align: center; padding: 15px;">
+        <p style="margin: 5px 0;">&copy; 2024 Rucards. All Rights Reserved.</p>
+        <p style="margin: 5px 0; font-size: 14px;">
+          <a href="" style="color: #4CA1AF; text-decoration: none;">Contact Us</a> |
+          <a href="#" style="color: #4CA1AF; text-decoration: none;">Privacy Policy</a>
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

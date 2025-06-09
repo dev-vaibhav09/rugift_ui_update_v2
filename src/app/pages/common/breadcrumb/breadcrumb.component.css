@@ -1,0 +1,43 @@
+.page__title-area {
+  position: relative; /* Position for overlay */
+  color: #fff; /* Default text color */
+}
+
+.overlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.page__title-wrapper {
+  position: relative; /* Relative positioning for the text to sit above the overlay */
+  z-index: 2; /* Text above the overlay */
+}
+
+.page__title {
+  font-size: 2.5rem; /* Adjust font size for prominence */
+  font-weight: bold; /* Bold text for emphasis */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Text shadow for better readability */
+}
+
+.breadcrumb-item {
+  margin-right: 15px; /* Space between breadcrumb items */
+}
+
+.separator {
+  margin: 0 5px; /* Space around the separator */
+  color: #e7e7e7; /* Adjust color as needed */
+}
+
+/* Optional: Style for hover effect on links */
+.breadcrumb-item a {
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.breadcrumb-item a:hover {
+  color: #ffffff; /* Change color on hover */
+}
+
+/*# sourceMappingURL=breadcrumb.component.css.map */

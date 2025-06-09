@@ -1,0 +1,58 @@
+<div class="why-choose-us-section">
+  <div class="section-heading">
+    <h2>Check why you <span class="highlight">Should</span><br/>Choose us</h2>
+  </div>
+
+  <div class="features-container">
+    <div class="feature-card" [class.selected]="selectedCard === 0" (click)="selectCard(0)">
+      <div class="accent-square" *ngIf="selectedCard === 0"></div>
+      <div class="feature-icon-wrapper">
+        <div class="feature-icon" [ngClass]="{'pink-icon': selectedCard === 0}"></div>
+      </div>
+      <h3 class="feature-title">Web Store</h3>
+      <p class="feature-description">
+        Built Wicket longer admire do barton vanity itself do in it.
+      </p>
+    </div>
+
+    <div class="feature-card" [class.selected]="selectedCard === 1" (click)="selectCard(1)">
+      <div class="accent-square" *ngIf="selectedCard === 1"></div>
+      <div class="feature-icon-wrapper">
+        <div class="feature-icon" [ngClass]="{'pink-icon': selectedCard === 1}"></div>
+      </div>
+      <h3 class="feature-title">Corporate Gifting</h3>
+      <p class="feature-description">
+        Engrossed listening. Park gate sell they west hard for the.
+      </p>
+    </div>
+
+    <div class="feature-card" [class.selected]="selectedCard === 2" (click)="selectCard(2)">
+      <div class="accent-square" *ngIf="selectedCard === 2"></div>
+      <div class="feature-icon-wrapper">
+        <div class="feature-icon" [ngClass]="{'pink-icon': selectedCard === 2}"></div>
+      </div>
+      <h3 class="feature-title">App Integrations</h3>
+      <p class="feature-description">
+        Barton vanity itself do in it. Preferd to men it engrossed listening.
+      </p>
+    </div>
+
+    <div class="feature-card" [class.selected]="selectedCard === 3" (click)="selectCard(3)">
+      <div class="accent-square" *ngIf="selectedCard === 3"></div>
+      <div class="feature-icon-wrapper">
+        <div class="feature-icon" [ngClass]="{'pink-icon': selectedCard === 2}"></div>
+      </div>
+      <h3 class="feature-title">Let's Start Your Own</h3>
+      <p class="feature-description">
+        We deliver outsourced aviation services for military customers
+      </p>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <div class="page-indicator" [class.active]="selectedCard === 0" (click)="selectCard(0)">+</div>
+    <div class="page-indicator" [class.active]="selectedCard === 1" (click)="selectCard(1)">+</div>
+    <div class="page-indicator" [class.active]="selectedCard === 2" (click)="selectCard(2)">+</div>
+    <div class="page-indicator" [class.active]="selectedCard === 3" (click)="selectCard(3)">+</div>
+  </div>
+</div>

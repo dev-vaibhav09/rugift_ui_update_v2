@@ -1,0 +1,152 @@
+
+
+<!--@if(is_loading){-->
+<!--  <app-progress-spinner *ngIf="is_loading"></app-progress-spinner>-->
+<!--}@else{-->
+<!--<div class="page-wrapper pt-150 pb-100">-->
+
+<!--  <div class="ticket-system rounded-4" *ngIf="transactionData">-->
+<!--    <div class="receipts-wrapper">-->
+<!--      <div class="receipts">-->
+<!--        &lt;!&ndash; Receipt &ndash;&gt;-->
+<!--        <div class="receipt">-->
+<!--          <div class="receipt-header d-flex align-items-center justify-content-center mb-4">-->
+<!--            <div class="row text-center">-->
+<!--              <div class="col-12">-->
+<!--                <img src="img/Rugift_logoG.png" alt="Logo" class="logo img-fluid mb-2" style="width: 200px;">-->
+<!--              </div>-->
+<!--              <div class="col-12">-->
+<!--                  <div class="col-12 text-center fs-2">-->
+<!--                   Your Transaction Details-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--          <div class="container mt-4">-->
+<!--            <table class="table table-bordered table-hover shadow-sm rounded-3">-->
+<!--              <thead class="table-dark">-->
+<!--              <tr>-->
+<!--                <th colspan="2" class="text-center">Transaction Details</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr><td><strong>Name</strong></td><td>{{ transactionData.name }}</td></tr>-->
+<!--              <tr><td><strong>Mobile No</strong></td><td>{{ transactionData.mobile }}</td></tr>-->
+<!--              <tr><td><strong>Transaction ID</strong></td><td>{{ transactionData.transaction_id }}</td></tr>-->
+<!--              <tr><td><strong>Invoice No</strong></td><td>{{ transactionData.invoice_no }}</td></tr>-->
+<!--              <tr><td><strong>Reference ID</strong></td><td>{{ transactionData.reference_id }}</td></tr>-->
+<!--              <tr><td><strong>Amount</strong></td><td>&#8377;{{ transactionData.amount }}</td></tr>-->
+<!--              <tr><td><strong>Payment Date</strong></td><td>{{ transactionData.payment_date }}</td></tr>-->
+<!--              <tr><td><strong>Payment Time</strong></td><td>{{ transactionData.payment_time  }}</td></tr>-->
+<!--              <tr><td><strong>Payment ID</strong></td><td>{{ transactionData.payment_id }}</td></tr>-->
+<!--              <tr><td><strong>Status Code</strong></td><td>{{ transactionStatusDetails?.status }}</td></tr>-->
+<!--              <tr><td><strong>Description</strong></td><td>{{ transactionStatusDetails?.description }}</td></tr>-->
+<!--              <tr *ngIf="transactionData.errorMessage"><td><strong>Error Message</strong></td><td>{{ transactionData.errorMessage }}</td></tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; QR Code Section &ndash;&gt;-->
+<!--        <div class="receipt qr-code mt-4">-->
+<!--          <div class="container text-center">-->
+<!--            <p class="text-muted small">-->
+<!--              <span class="text-danger">Note:</span> If you don’t receive your voucher email, check your spam folder or verify your email. Refunds will be processed within 3-4 business days if the issue persists.-->
+<!--            </p>-->
+<!--            <div class="col-12 d-flex justify-content-evenly d-print-none">-->
+<!--              <button class="button back_button rounded-4 text-white mt-3" routerLink="/">-->
+<!--                Back to Home-->
+<!--              </button>-->
+<!--              <button class="button back_button rounded-4 text-white mt-3" (click)="print()">-->
+<!--                Print Receipt-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--</div>-->
+
+
+<!--}-->
+
+
+<div class="page-wrapper">
+  <app-header></app-header>
+
+  <div class="ticket-system" *ngIf="transactionData">
+    <div class="top d-print-none">
+      <h1 class="title text-dark">Wait a second, your Voucher is being printed</h1>
+      <div class="printer"></div>
+    </div>
+
+    <div class="receipts-wrapper">
+      <div class="receipts">
+        <!-- Receipt with Transaction Details -->
+        <div class="receipt">
+          <div class="receipt-header d-flex align-items-center justify-content-center mb-4">
+            <div class="row text-center">
+              <div class="col-12">
+                <img src="img/Rugift_logo.png" alt="Logo" class="logo img-fluid mb-2" style="width: 200px;">
+              </div>
+              <div class="col-12">
+                <div class="col-12 text-center fs-2">
+                  Your Transaction Details
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+                    <div class="container mt-4">
+                      <table class="table table-bordered table-hover shadow-sm rounded-3">
+                        <thead class="table-dark">
+                        <tr>
+                          <th colspan="2" class="text-center">Transaction Details</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr><td><strong>Name</strong></td><td>{{ transactionData.name }}</td></tr>
+                        <tr><td><strong>Mobile No</strong></td><td>{{ transactionData.mobile }}</td></tr>
+                        <tr><td><strong>Transaction ID</strong></td><td>{{ transactionData.transaction_id }}</td></tr>
+                        <tr><td><strong>Invoice No</strong></td><td>{{ transactionData.invoice_no }}</td></tr>
+                        <tr><td><strong>Reference ID</strong></td><td>{{ transactionData.reference_id }}</td></tr>
+                        <tr><td><strong>Amount</strong></td><td>&#8377;{{ transactionData.amount }}</td></tr>
+                        <tr><td><strong>Payment Date</strong></td><td>{{ transactionData.payment_date }}</td></tr>
+                        <tr><td><strong>Payment Time</strong></td><td>{{ transactionData.payment_time  }}</td></tr>
+                        <tr><td><strong>Payment ID</strong></td><td>{{ transactionData.payment_id }}</td></tr>
+                        <tr><td><strong>Status Code</strong></td><td>{{ transactionStatusDetails?.status }}</td></tr>
+                        <tr><td><strong>Description</strong></td><td>{{ transactionStatusDetails?.description }}</td></tr>
+                        <tr *ngIf="transactionData.errorMessage"><td><strong>Error Message</strong></td><td>{{ transactionData.errorMessage }}</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+        </div>
+
+        <div class="receipt qr-code mt-4 d-print-none">
+          <div class="container text-center">
+            <p class="text-muted small">
+              <span class="text-danger">Note:</span> If you don’t receive your voucher email, check your spam folder or verify your email. Refunds will be processed within 3-4 business days if the issue persists.
+            </p>
+            <div class="col-12 d-flex justify-content-evenly d-print-none">
+              <button class="button back_button rounded-4 text-white mt-3" routerLink="/">
+                Back to Home
+              </button>
+              <button class="button back_button rounded-4 text-white mt-3" (click)="print()">
+                Print Receipt
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

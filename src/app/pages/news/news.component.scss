@@ -1,0 +1,76 @@
+.breadcrumb-area {
+  background-size: cover;
+  background-position: center;
+}
+.breadcrumb-content h1 {
+  color: white;
+  font-weight: bold;
+}
+.breadcrumb-content ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.breadcrumb-content ul li {
+  display: inline;
+  margin-right: 5px;
+  color: white;
+}
+.breadcrumb-content ul li a {
+  color: white;
+  text-decoration: none;
+}
+.breadcrumb-content ul li a:hover {
+  text-decoration: underline;
+}
+.breadcrumb-content ul li::after {
+  content: "/";
+  margin-left: 5px;
+}
+.breadcrumb-content ul li:last-child::after {
+  content: ""; /* remove last slash */
+}
+.blog-widget-2 {
+  border: 1px solid #ddd; /* Add a light border */
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease; /* For hover effect */
+}
+.blog-widget-2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.blog-img {
+  overflow: hidden; /* To make image responsive */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blog-img img {
+  width: auto; /* Allow image to scale down */
+  max-height: 100%;
+  max-width: 100%;
+  display: block; /* Remove extra space below image */
+
+}
+.catagory {
+  position: absolute;
+  top: 10px;
+  color: #fff;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+.violet-bg{
+  background-color: #9c27b0; /* A violet background for the catagory tag */
+}
+.blog-content {
+  padding: 1rem;
+}
+.blog-content h6{
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.blog-content p{
+  margin-top: 0.5rem;
+}

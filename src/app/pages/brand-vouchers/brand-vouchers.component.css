@@ -1,0 +1,235 @@
+/* Section styles */
+.course__area {
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+/* Ensure spacing for left and right columns */
+.col-md-1 {
+  flex: 0 0 8.33%; /* 1/12 of the row */
+  max-width: 8.33%;
+}
+
+.category__more {
+  text-align: right; /* Align button to the right */
+}
+
+.service-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff; /* Change button text color */
+  background-color: #559def; /* Button background color */
+  border: none;
+  border-radius: 5px; /* Round corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effect */
+.service-button:hover {
+  background-color: #000000;
+}
+
+.service-button i {
+  margin-left: 5px; /* Space between text and icon */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .col-md-1 {
+    display: none; /* Hide left and right spacing on small screens */
+  }
+}
+/* Section styles */
+.course__area {
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+/* Ensuring card layout fits exactly 5 cards in a row */
+.col-lg-2-4 {
+  flex: 0 0 19%; /* Adjust to fit 5 cards in one row */
+  max-width: 19%; /* Control max width */
+}
+
+.designer-card {
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px #82a8df;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  background-color: #ffffff;
+  height: 400px; /* Card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none; /* Ensure no border around the card */
+}
+
+.designer-img {
+  height: 250px; /* Define height */
+  width: 100%; /* Ensure full width */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.designer-img a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the entire block */
+  object-position: center; /* Aligns the image within the block */
+  transition: transform 0.6s ease;
+  transform: scale(1.05); /* Slight zoom-in effect */
+  border: none;
+  outline: none;
+}
+
+/* Hover effect to zoom in smoothly */
+.designer-card:hover .designer-img a img {
+  transform: scale(1.15);
+}
+
+.designer-content {
+  margin-top: -70px;
+  padding: 25px 10px 20px;
+  text-align: center;
+  background: linear-gradient(75deg, #f5f7fa, #99baed);
+  border-radius: 15px 15px 0 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.designer-content a h3 {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 8px;
+  transition: color 0.5s ease;
+}
+
+.designer-content span {
+  font-size: 14px;
+  color: #707070;
+  display: block;
+  margin-bottom: 15px;
+  transition: color 0.5s ease;
+}
+
+.social-icon ul li {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.social-icon ul li a {
+  color: #707070;
+  font-size: 20px;
+}
+
+.social-icon ul li a:hover {
+  color: #fff;
+}
+
+.social-icon ul li:hover {
+  background-color: #1cac1e;
+}
+
+.designer-card:hover .designer-content {
+  background: linear-gradient(75deg, #0065ff, #455977);
+  box-shadow: 0px 20px 30px rgba(4, 23, 118, 0.3);
+}
+
+.designer-card:hover h3,
+.designer-card:hover span {
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1199.98px) {
+  .col-lg-2-4 {
+    flex: 0 0 23%; /* Adjust for medium screens */
+    max-width: 23%;
+  }
+}
+@media (max-width: 991.98px) {
+  .col-lg-2-4 {
+    flex: 0 0 31%; /* Adjust for small screens */
+    max-width: 31%;
+  }
+}
+@media (max-width: 767.98px) {
+  .col-lg-2-4 {
+    flex: 0 0 48%; /* Adjust for extra small screens */
+    max-width: 48%;
+  }
+}
+@media (max-width: 575.98px) {
+  .col-lg-2-4 {
+    flex: 0 0 100%; /* Stack cards on very small screens */
+    max-width: 100%;
+  }
+}
+/* New smaller discount badge design */
+.discount-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: linear-gradient(75deg, #0065ff, #455977);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 30px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discount-text {
+  display: inline-block;
+  padding: 0 8px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+}
+
+/* Adding a subtle animation on hover for interactivity */
+.designer-card:hover .discount-badge {
+  transform: rotate(360deg);
+  background: linear-gradient(75deg, #0065ff, #455977);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.input-group-text {
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+
+.form-select:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+
+/*# sourceMappingURL=brand-vouchers.component.css.map */

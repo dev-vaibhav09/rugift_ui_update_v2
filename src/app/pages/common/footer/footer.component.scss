@@ -1,0 +1,124 @@
+.logos_img{
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  //mix-blend-mode: color-burn;
+}
+
+
+
+
+.footer {
+  position: relative;
+  //background: var(--back-theme);
+  background: var(--tertiary-color);
+  color: #ddfdfd;
+  padding: 40px 20px ; /* Adjust padding for content spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-waves {
+  position: absolute;
+  top: -50px; /* Position above the footer for overlap */
+  left: 0;
+  width: 100%;
+  height: 200px; /* Adjust height for the wave impact */
+  z-index: -1; /* Send behind the footer content */
+}
+
+.waves > use {
+  animation: move-forever 4s linear infinite;
+}
+
+.waves > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 7s;
+}
+
+.waves > use:nth-child(3) {
+  animation-delay: -5s;
+  animation-duration: 6s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translateX(-90px);
+  }
+  100% {
+    transform: translateX(85px);
+  }
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer p {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #ffb320;
+  text-decoration: underline;
+}
+
+.social-icons a {
+  font-size: 24px;
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ff205f;
+}
+
+.certificates img {
+  max-width: 80px;
+  height: auto;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  font-size: 14px;
+}
+
+// Progress Bar Styles
+.progress-container {
+  width: 100%;
+  height: 21px;
+  position: relative;
+  margin: 0 0;
+
+}
+
+.progress-bg {
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-color);
+  backdrop-filter: blur(75px);
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 30%;
+  background-color: var(--secondary-color);
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}

@@ -1,0 +1,192 @@
+<app-header></app-header>
+
+<app-breadcrumb subtitle="orders" title="My Orders"></app-breadcrumb>
+
+
+<div class="d-flex justify-content-center pt-20 mb-20">
+  <div class="card rounded-4 col-md-10">
+    <div class="card-header pd-3 ">
+      <div class="row pt-20">
+        <div class="col-12">
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="search-box w-50 px-2">
+              <input (ngModelChange)="onSearch()" [(ngModel)]="searchQuery" class="form-control rounded-pill"
+                     placeholder="Search Transaction Id, Category, Remark"
+                     type="text"/>
+            </div>
+            <i class="ri-search-line search-icon px-5 bg-dark-subtle rounded-pill f">Search</i>
+          </div>
+        </div>
+      </div>
+
+      <div class="row p-2">
+        <div class="col-12">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <div class="d-flex align-items-center justify-content-center">
+              <label class="me-2" for="page">Show</label>
+              <select (change)="onPageSizeChange()" [(ngModel)]="pageSize" class="form-select rounded-4 bg-light px-4 py-1" id="page"
+                      name="page">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+              <label class="ms-2" for="page">entries</label>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body border border-dashed border-start-0 border-end-0">
+      <div class="table-responsive">
+        <table class="table table-responsive align-middle table-nowrap" id="customerTable">
+          <thead>
+          <tr class="text-center">
+            <th>SR</th>
+            <th>Date</th>
+            <th>Transaction Id</th>
+            <th>Invoice No</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngIf="!transactions || transactions.length === 0">
+            <td class="text-center" colspan="10">No transactions found.</td>
+          </tr>
+          <tr *ngFor="let transaction of paginatedTransactions let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ transaction.created_date | date: 'medium' || ' ' }}</td>
+            <td>{{ transaction.transaction_id || 'NA' }}</td>
+            <td>{{ transaction.invoice_number }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>
+              <span *ngIf="  transaction?.server_status=='SUCCESS'"
+                                  class="badge bg-success rounded-pill"> SUCCESS</span>
+              <span *ngIf="  transaction?.server_status=='FAILED'"
+                    class="badge bg-danger rounded-pill"> FAILED</span>
+              <span *ngIf="  transaction?.server_status=='INPROCESS'"
+                    class="badge bg-warning rounded-pill"> INPROCESS</span>
+            </td>
+            <td class="text-center">
+              <div class="d-flex justify-content-center gap-3 flex-row">
+                <button (click)="openOffcanvas(transaction.transaction_id)" aria-controls="offcanvasExample" class="btn btn-sm btn-primary rounded-4"
+                        data-bs-toggle="offcanvas" href="#offcanvasExample"
+                        role="button">
+                  Check Status
+                </button>
+                <button [routerLink]="['voucher/', transaction.invoice_number]"
+                        class="btn btn-sm btn-warning rounded-4">
+                  View Vouchers
+                </button>
+                <button (click)="previewHtml(transaction.invoice_number)"
+                        class="btn btn-sm btn-info rounded-4">
+                  View Receipt
+                </button>
+                <button (click)="downloadBill(transaction.invoice_number)"
+                        class="btn btn-sm btn-success rounded-4">
+                  Download
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-end" id="offcanvasExample" tabindex="-1">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Check Transaction Status</h5>
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <!-- Display Response Data in Vertical Table Format -->
+    <div *ngIf="responseData; else noData" class="mt-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Transaction Details</h5>
+
+          <!-- Responsive Table with Scroll -->
+          <div class="table-responsive">
+            <ng-scrollbar
+              class="custom-scrollbar"
+              style="max-height: 400px; width: 100%;"
+              track="vertical"
+              visibility="hover"
+            >
+              <table class="table ">
+                <tbody>
+                <tr>
+                  <td><strong>Invoice No:</strong></td>
+                  <td>{{ responseData.invoice_no }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Merchant ID:</strong></td>
+                  <td>{{ responseData.merchant_id }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Payment ID:</strong></td>
+                  <td>{{ responseData.payment_id }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Reference ID:</strong></td>
+                  <td>{{ responseData.reference_id }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Transaction ID:</strong></td>
+                  <td>{{ responseData.transaction_id }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Status Code:</strong></td>
+                  <td>{{ responseData.status_code }}</td>
+                </tr>
+                <tr>
+                  <td><strong>Response Code:</strong></td>
+                  <td>{{ responseData.response_code }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Template for no data -->
+    <ng-template #noData>
+      <div class="alert alert-warning mt-4">
+        {{ error_message }}
+      </div>
+    </ng-template>
+
+  </div>
+</div>
+
+<!-- Add Custom Styles for Mobile -->
+<style>
+  @media (max-width: 576px) {
+    .card {
+      padding: 15px;
+    }
+    .search-box input {
+      width: 100%;
+    }
+    .table thead th, .table tbody td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+</style>
+
+
+
+
+
+

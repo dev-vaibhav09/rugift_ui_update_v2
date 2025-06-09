@@ -1,0 +1,142 @@
+//.loader {
+//  animation: rotate 1s infinite;
+//  height: 50px;
+//  width: 50px;
+//}
+//
+//.loader:before,
+//.loader:after {
+//  border-radius: 50%;
+//  content: "";
+//  display: block;
+//  height: 20px;
+//  width: 20px;
+//}
+//.loader:before {
+//  animation: ball1 1s infinite;
+//  background-color: #fff;
+//  box-shadow: 30px 0 0 #ff3d00;
+//  margin-bottom: 10px;
+//}
+//.loader:after {
+//  animation: ball2 1s infinite;
+//  background-color: #ff3d00;
+//  box-shadow: 30px 0 0 #fff;
+//}
+//
+//@keyframes rotate {
+//  0% { transform: rotate(0deg) scale(0.8) }
+//  50% { transform: rotate(360deg) scale(1.2) }
+//  100% { transform: rotate(720deg) scale(0.8) }
+//}
+//
+//@keyframes ball1 {
+//  0% {
+//    box-shadow: 30px 0 0 #ff3d00;
+//  }
+//  50% {
+//    box-shadow: 0 0 0 #ff3d00;
+//    margin-bottom: 0;
+//    transform: translate(15px, 15px);
+//  }
+//  100% {
+//    box-shadow: 30px 0 0 #ff3d00;
+//    margin-bottom: 10px;
+//  }
+//}
+//
+//@keyframes ball2 {
+//  0% {
+//    box-shadow: 30px 0 0 #fff;
+//  }
+//  50% {
+//    box-shadow: 0 0 0 #fff;
+//    margin-top: -20px;
+//    transform: translate(15px, 15px);
+//  }
+//  100% {
+//    box-shadow: 30px 0 0 #fff;
+//    margin-top: 0;
+//  }
+//}
+
+
+/* Ensure the body takes full height of the viewport */
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #958e8e; /* Optional background color */
+  position: relative; /* Ensure relative positioning for layering */
+  box-shadow: 0 0 150px rgba(0, 0, 0, 0.6); /* Enhanced background shadow */
+}
+
+/* Centering the loader and making sure it appears above other content */
+.loader {
+  animation: rotate 1s infinite;
+  height: 100px; /* Increased size of the spinner */
+  width: 100px;  /* Increased size of the spinner */
+  position: fixed; /* Fixed position to keep it centered even when scrolling */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Ensure it is truly centered */
+  z-index: 9999; /* Ensures the spinner is above all other elements */
+}
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 40px;  /* Increased ball size */
+  width: 40px;   /* Increased ball size */
+}
+
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: #fff;
+  box-shadow: 50px 0 0 #ff3d00;
+  margin-bottom: 20px;  /* Increased margin for larger size */
+}
+
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: #ff3d00;
+  box-shadow: 50px 0 0 #fff;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(0.8); }
+  50% { transform: rotate(360deg) scale(1.2); }
+  100% { transform: rotate(720deg) scale(0.8); }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 50px 0 0 #ff3d00;
+  }
+  50% {
+    box-shadow: 0 0 0 #ff3d00;
+    margin-bottom: 0;
+    transform: translate(30px, 30px);  /* Adjusted for bigger size */
+  }
+  100% {
+    box-shadow: 50px 0 0 #ff3d00;
+    margin-bottom: 20px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 50px 0 0 #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 #fff;
+    margin-top: -40px;  /* Adjusted for bigger size */
+    transform: translate(30px, 30px);  /* Adjusted for bigger size */
+  }
+  100% {
+    box-shadow: 50px 0 0 #fff;
+    margin-top: 0;
+  }
+}

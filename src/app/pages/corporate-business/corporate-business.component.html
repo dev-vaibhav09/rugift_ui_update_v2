@@ -1,0 +1,120 @@
+<div class="container mt-80 mb-100">
+  <!-- Tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="selectedTab === 'registration'" (click)="switchTab('registration')">Corporate Bulk Order</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="selectedTab === 'api'" (click)="switchTab('api')">API Integration</a>
+    </li>
+  </ul>
+
+  <!-- Registration Form -->
+  <div *ngIf="selectedTab === 'registration'">
+    <div class="content">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-header">Company Information</div>
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Company Name</span>
+              <input type="text" placeholder="Enter your Company Name" formControlName="companyName" />
+              <div *ngIf="registrationForm.get('companyName')?.invalid && registrationForm.get('companyName')?.touched" class="error-text">
+                Company name is required
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="email" placeholder="Enter your email" formControlName="email" />
+              <div *ngIf="registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched" class="error-text">
+                Valid email is required
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input type="tel" placeholder="Enter your number" formControlName="phoneNumber" />
+              <div *ngIf="registrationForm.get('phoneNumber')?.invalid && registrationForm.get('phoneNumber')?.touched" class="error-text">
+                Valid phone number is required
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Name</span>
+              <input type="text" placeholder="Enter your Name" formControlName="name" />
+              <div *ngIf="registrationForm.get('name')?.invalid && registrationForm.get('name')?.touched" class="error-text">
+                Name is required
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Designation</span>
+              <input type="text" placeholder="Enter your Designation" formControlName="designation" />
+              <div *ngIf="registrationForm.get('designation')?.invalid && registrationForm.get('designation')?.touched" class="error-text">
+                Designation is required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-header">Voucher Details</div>
+          <div class="gender-details">
+            <div class="user-details">
+              <div class="input-box">
+                <span class="details">Brand</span>
+                <input type="text" placeholder="Brand Voucher" formControlName="brand" />
+                <div *ngIf="registrationForm.get('brand')?.invalid && registrationForm.get('brand')?.touched" class="error-text">
+                  Brand is required
+                </div>
+              </div>
+              <div class="input-box">
+                <span class="details">Denomination</span>
+                <input type="text" placeholder="Ex. 500-1000 ₹" formControlName="denomination" />
+                <div *ngIf="registrationForm.get('denomination')?.invalid && registrationForm.get('denomination')?.touched" class="error-text">
+                  Denomination is required
+                </div>
+              </div>
+              <div class="input-box">
+                <span class="details">Quantity</span>
+                <input type="text" placeholder="Ex. 50-100" formControlName="quantity" />
+                <div *ngIf="registrationForm.get('quantity')?.invalid && registrationForm.get('quantity')?.touched" class="error-text">
+                  Quantity is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="button">
+          <input type="submit" value="Register" [disabled]="registrationForm.invalid" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Form -->
+  <div *ngIf="selectedTab === 'api'">
+    <div class="content">
+      <div class="card">
+        <div class="card-header">API Integration Details</div>
+        <div class="card-body">
+          <p>
+            Use the following API endpoint to place bulk orders programmatically. For security, ensure you use your registered API key.
+          </p>
+          <div class="input-box">
+            <span class="details">API Key</span>
+            <input type="text" placeholder="Enter your API Key" [(ngModel)]="apiKey" name="apiKey" class="form-control" />
+          </div>
+          <div class="input-box mt-3">
+            <span class="details">API Endpoint</span>
+            <input type="text" value="https://yourdomain.com/api/place-order" readonly class="form-control" />
+          </div>
+          <div class="button">
+            <input type="submit" value="Submit" [disabled]="registrationForm.invalid" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+.carousel-item-wrapper {
+  padding-left: 40px;
+  padding-top : 40px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+
+}
+
+.carousel-item-content {
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  max-width: 700px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 0 15px rgba(126, 87, 194, 0.5);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 20px var(--secondary-color);
+    transform: perspective(800px) scale(1.08);
+    filter: brightness(1.1) saturate(1.2);
+    transition: all 0.8s ease-in-out;
+  }
+}
+
+.carousel-item-content img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(126, 87, 194, 0.5);
+  }
+}
+
+
+
+.square-image {
+  height: 100%;
+  width: 100%;
+}
+
+/* Responsive adjustments using media queries */
+@media (max-width: 1200px) { /* Large screens (Desktop) - 3 cards */
+  .carousel-item-wrapper {
+    padding: 10px;
+    width: 33.33%; /* 3 cards in a row */
+  }
+  .carousel-item-content {
+    height: 250px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .carousel-item-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .carousel-item-content {
+    height: 200px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-item-wrapper {
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 60%;
+
+  }
+  .carousel-item-content {
+    height: 200px;
+    max-width: 100%;
+  }
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+

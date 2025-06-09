@@ -1,0 +1,183 @@
+/* General Styling */
+.table-content {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Product Images */
+.cart-img {
+  max-width: 80px;
+  transition: transform 0.3s ease;
+}
+
+.cart-img:hover {
+  transform: scale(1.1);
+}
+
+/* Buttons */
+.custom-btn {
+  background-color: #3444F1;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+}
+
+.custom-btn:hover {
+  background-color: #3444F1;
+}
+
+/* Quantity Controls */
+.product-quantity-form {
+  align-items: center;
+}
+
+.cart-input {
+  width: 50px;
+}
+
+/* Coupon & Update Cart */
+.coupon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.coupon-input {
+  margin-right: 10px;
+  max-width: 300px;
+}
+
+.coupon-btn {
+  background: linear-gradient(0deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+  color: #fff;
+}
+
+.coupon-btn:hover {
+  background: linear-gradient(235deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+}
+
+.update-cart-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Cart Totals */
+.cart-page-total {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.cart-page-total h4 {
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.proceed-checkout-btn {
+  background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+  color: white;
+  border-radius: 5px;
+  padding: 12px 0;
+}
+
+/* Hover Effects */
+.cart-product-link {
+  color: #3444F1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cart-product-link:hover {
+  color: #0056b3;
+}
+
+.remove-item {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.remove-item:hover {
+  color: #ff5f5f;
+}
+
+.cart-table th {
+  color: #f2edd7; /* Apply color to table headers and data cells */
+}
+
+/* Optional: On hover, make the link stand out */
+.cart-table a:hover {
+  color: #e0d7c6; /* Slightly lighter color on hover */
+}
+
+.cart-table th {
+  background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+}
+
+/* Container for the entire quantity input (in row layout) */
+.qty-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+}
+
+/* Input field styling */
+.qty-container .input-qty {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 60px;
+  height: 40px;
+  padding: 10px;
+  margin: 0 12px;
+  border-radius: 8px;
+  border: 2px solid #b0bec5;
+  background-color: #fff;
+  color: #2c3e50; /* Darker text for contrast */
+  transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+.qty-container .input-qty:focus {
+  outline: none;
+  border-color: #3498db; /* Border color change on focus */
+  background-color: #f3faff; /* Light background on focus */
+}
+
+/* Button styling */
+.qty-btn-minus,
+.qty-btn-plus {
+  background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+  color: #fff;
+  font-size: 18px;
+  padding: 0; /* Remove padding for more precise control */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+  height: 40px;
+  width: 40px;
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+/* Button active state */
+.qty-btn-minus:active,
+.qty-btn-plus:active {
+  transform: scale(0.95); /* Shrink the button when clicked */
+}
+
+/* Disabled button styling */
+.qty-btn-minus:disabled,
+.qty-btn-plus:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Optional: Adjust the typography for the entire form */
+.qty-container {
+  font-family: "Roboto", sans-serif;
+}
+
+/*# sourceMappingURL=cart.component.css.map */

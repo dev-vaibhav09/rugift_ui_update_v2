@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.ticket-system {
+  max-width: 900px;
+  margin: 0 auto;
+  //padding: 20px;
+
+  .top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .title {
+      font-weight: normal;
+      font-size: 1.6em;
+      color: #fff;
+      margin-left: 20px;
+      margin-bottom: 50px;
+      text-align: left;
+    }
+
+    .printer {
+      width: 90%;
+      height: 25px;
+      border: 5px solid #fff;
+      border-radius: 10px;
+      box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .receipts-wrapper {
+    overflow: hidden;
+    margin-top: -10px;
+    padding-bottom: 10px;
+  }
+
+  .receipts {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translateY(-510px);
+    animation: print 2.5s forwards 500ms;
+
+    .receipt {
+      width: 88%;
+      padding: 25px 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.2);
+      margin-top: 10px;
+    }
+
+    .qr-code {
+      height: auto;
+      display: flex;
+      align-items: center;
+      border-radius: 20px;
+
+      &::before {
+        content: '';
+        //background: linear-gradient(to right, #fff 50%, #3f32e5 50%);
+        background: var(--back-hover-theme); /* Elegant gradient background */
+        height: 4px;
+        width: 90%;
+        position: absolute;
+        top: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .qr {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
+  .button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+    background-color: #755139;
+    font-size: 1rem;
+    border: 2px solid white;
+    &:hover {
+      background-color: #f2edd7;
+      color: black;
+    }
+  }
+}
+
+@keyframes print {
+  0% {
+    transform: translateY(-510px);
+  }
+  35% {
+    transform: translateY(-395px);
+  }
+  70% {
+    transform: translateY(-140px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+.receipt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.receipt-header .logo {
+  width: 100px; /* Adjust as needed */
+}
+
+.receipt-header .route {
+  flex-shrink: 0; /* Prevent shrinking of the icon container */
+}
+
+.receipt-header .status-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+}
+
+
+.back_button{
+  background: var(--back-hover-theme); /* Elegant gradient background */
+}
+
+

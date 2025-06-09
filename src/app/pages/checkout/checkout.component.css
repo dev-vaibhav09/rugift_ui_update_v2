@@ -1,0 +1,141 @@
+/* General Checkout Section Styling */
+.checkout-area {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: #f0f4f8; /* Soft off-white background for a calm feel */
+}
+
+/* Your Order Section */
+.your-order {
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff; /* White background for contrast */
+  border: 1px solid #ddd; /* Subtle border to separate content */
+}
+
+.order-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #333333;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  text-transform: uppercase; /* Bold uppercase title */
+}
+
+/* Table Styling for Order Items */
+.order-items-table .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-items-table .table th,
+.order-items-table .table td {
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #444;
+}
+
+.order-items-table .table th {
+  background-color: #f5f8fb;
+  font-weight: 600;
+  color: #0069d9;
+}
+
+.order-items-table .table td {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+}
+
+.order-items-table .table tbody tr {
+  transition: background-color 0.3s ease;
+}
+
+.order-items-table .table tbody tr:hover {
+  background-color: #f1f1f1; /* Subtle hover effect for rows */
+}
+
+.order-items-table .table tbody tr:last-child td {
+  border-bottom: 2px solid #0069d9;
+}
+
+/* Order Summary Section */
+.order-summary {
+  background: #ffffff; /* Elegant gradient background */
+  border-radius: 15px;
+  padding: 35px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+.order-summary-title {
+  font-size: 18px;
+  color: #000000; /* Light grey color for text */
+  font-weight: 600;
+}
+
+.order-summary-amount {
+  font-size: 26px;
+  font-weight: 700;
+  color: #28a745; /* Green for emphasis on total amount */
+}
+
+/* Place Order Button Styling */
+.order-button-payment {
+  margin-top: 30px;
+}
+
+.btn-primary {
+  background: linear-gradient(0deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+  border: none;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(0deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .checkout-area {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .your-order {
+    padding: 40px;
+  }
+  .order-summary {
+    padding: 25px;
+  }
+  .btn-primary {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+  .order-title {
+    font-size: 28px;
+  }
+  .order-summary-title {
+    font-size: 16px;
+  }
+  .order-summary-amount {
+    font-size: 22px;
+  }
+  .order-items-table .table th,
+  .order-items-table .table td {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
+
+/*# sourceMappingURL=checkout.component.css.map */

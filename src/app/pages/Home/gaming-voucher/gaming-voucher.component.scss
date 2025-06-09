@@ -1,0 +1,186 @@
+/* gaming-gift-cards.component.scss */
+:host {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+}
+
+.gaming-card-container {
+  position: relative;
+  max-width: 1920px;
+  margin: 0 0;
+  color: white;
+  overflow: hidden;
+}
+
+// Hero Section Styles
+.hero-section {
+  padding: 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  background: linear-gradient(280deg, var(--primary-color), var(--secondary-color) 20%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 22px;
+  line-height: 39.6px;
+  text-align: center;
+  max-width: 1590px;
+  margin: 0 auto 30px;
+}
+
+
+
+// Progress Bar Styles
+.progress-container {
+  width: 100%;
+  height: 21px;
+  position: relative;
+  margin: 30px 0;
+
+  &.top-progress {
+    margin-top: 60px;
+  }
+
+  &.bottom-progress {
+    margin-bottom: 30px;
+  }
+}
+
+.progress-bg {
+  width: 100%;
+  height: 100%;
+  background-color: var(--tertiary-color);
+  backdrop-filter: blur(75px);
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 30%;
+  background-color: var(--secondary-color);
+
+  &.left {
+    left: 0;
+  }
+
+  &.right {
+    right: 0;
+  }
+}
+
+
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+}
+
+
+// Gift Cards Carousel Styles
+.gift-cards-carousel {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gift-cards-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+  padding: 20px 0;
+}
+
+.gift-card {
+  flex: 0 0 auto;
+  width: calc(100% / 4);
+  padding: 0 10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgb(255, 255, 255);
+  }
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.control-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .arrow {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+  }
+}
+
+

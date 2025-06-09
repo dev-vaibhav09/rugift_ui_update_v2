@@ -1,0 +1,46 @@
+/* ... other styles ... */
+
+.hearts-container {
+  /* ... other styles */
+  perspective: 1000px; /* Increased perspective */
+  opacity: 0.5; /* Slightly higher opacity */
+}
+
+.heart {
+  position: absolute;
+  animation: float linear infinite;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3)); /* More prominent shadow */
+  /* Add a subtle scaling animation on hover (optional) */
+  transition: transform 0.2s ease; /* Smooth transition */
+}
+
+.heart:hover {
+  transform: scale(1.1) rotate(10deg); /* Slight scale and rotation on hover */
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) scale(0) rotate(0deg); /* Start scaled down and no rotation */
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(75vh) scale(1.2) rotate(20deg); /* Overshoot with some rotation */
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) scale(1) rotate(0deg); /* Return to normal size and no rotation */
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(25vh) scale(0.8) rotate(-10deg); /* Shrink and rotate slightly */
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) scale(0) rotate(0deg); /* Scale down and fade out with no rotation */
+    opacity: 0;
+  }
+}
+
+/* ... other styles ... */

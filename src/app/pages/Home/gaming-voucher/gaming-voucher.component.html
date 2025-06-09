@@ -1,0 +1,41 @@
+<!-- gaming-gift-cards.component.html -->
+<div class="gaming-card-container">
+  <!-- Hero Section -->
+  <div class="hero-section">
+
+
+    <!-- Progress Bars -->
+    <div class="progress-container top-progress">
+      <div class="progress-bg"></div>
+      <div class="progress-fill right"></div>
+    </div>
+
+    <h1 class="title">Buy Digital Play Vouchers</h1>
+
+    <p class="subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    <div class="gift-cards-carousel">
+      <div class="gift-cards-wrapper">
+        <div class="gift-card" *ngFor="let card of digital_voucher_list" (click)="router_link(card.brand_code)">
+          <img [src]="card.image_url" [alt]="card.brand_name + ' gift card'">
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="control-btn prev" (click)="prevSlide()">
+          <span class="arrow">‹</span>
+        </button>
+        <button class="control-btn next" (click)="nextSlide()">
+          <span class="arrow">›</span>
+        </button>
+      </div>
+    </div>
+    <div class="progress-container bottom-progress">
+      <div class="progress-bg"></div>
+      <div class="progress-fill left"></div>
+    </div>
+  </div>
+
+</div>
+
+
+

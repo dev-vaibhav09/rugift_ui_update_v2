@@ -1,0 +1,236 @@
+<app-breadcrumb title="PG Transaction" subtitle="PG Transaction"></app-breadcrumb>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <!-- Pending Transactions Form -->
+    <div class="col-md-10">
+      <div class="PendingTransactionsForm mt-20" [formGroup]="pendingTransactionForm">
+        <div class="card rounded-4">
+          <div class="card-header">
+            <div class="row align-items-center g-3">
+              <div class="col-md-3">
+                <h4 class="fw-bolder mt-3 me-3">Rugift Transaction</h4>
+              </div>
+            </div>
+          </div>
+          <div class="card-body border border-dashed border-start-0 border-end-0">
+            <div class="row g-4">
+              <!-- Start Date -->
+              <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>Start Date</mat-label>
+                  <input matInput [matDatepicker]="startPicker" formControlName="start_date">
+                  <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #startPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <!-- End Date -->
+              <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>End Date</mat-label>
+                  <input matInput [matDatepicker]="endPicker" formControlName="end_date">
+                  <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+                  <mat-datepicker #endPicker></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <!-- Submit & Reset Buttons -->
+              <div class="col-md-6 d-flex justify-content-end align-items-center">
+                <div class="example-button-container me-5">
+                  <button mat-fab extended (click)="onSubmit()" class="text-white">
+                    Submit
+                  </button>
+                </div>
+                <div class="example-button-container">
+                  <button mat-fab extended (click)="onReset()" class="text-white">
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Box Section -->
+    <div class="col-md-10 mt-20">
+      <div class="card rounded-4 mt-20">
+        <div class="card-header pd-3">
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <div class="d-flex w-100 align-items-center">
+              <input
+                type="text"
+                class="form-control rounded-pill"
+                placeholder="Search Transaction Id, Invoice No, User Name"
+                #search
+                (keyup)="onSearch(search.value)"
+              />
+              <i class="ri-search-line search-icon ms-2"></i>
+            </div>
+
+            <!-- Pagination and Export Section -->
+            <div class="d-flex align-items-center">
+              <button
+                mat-fab extended
+                type="button"
+                class="ms-3 mb-2 btn btn-success"
+                (click)="export_to_excel()"
+              >
+                Export
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table Section -->
+        <div class="card-body border border-dashed border-start-0 border-end-0">
+          <div class="table-responsive">
+            <table class="table align-middle table-nowrap text-center" id="customerTable">
+              <thead>
+              <tr>
+                <th>SR</th>
+                <th>Date</th>
+                <th>Transaction Id</th>
+                <th>User</th>
+                <th>Invoice No</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Refunded</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngIf="!pendingTransactions || pendingTransactions.length === 0">
+                <td colspan="8" class="text-center">No transactions found.</td>
+              </tr>
+              <tr *ngFor="let transaction of pendingTransactions; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ transaction.created_date | date : 'medium' || ' ' }}</td>
+                <td>{{ transaction.transaction_id || 'NA' }}</td>
+                <td>{{ transaction.user_name || ' ' }}</td>
+                <td>{{ transaction.invoice_no }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>
+              <span *ngIf="  transaction?.server_status=='SUCCESS'"
+                    class="badge bg-success rounded-pill"> SUCCESS</span>
+                  <span *ngIf="  transaction?.server_status=='FAILED'"
+                        class="badge bg-danger rounded-pill"> FAILED</span>
+                  <span *ngIf="  transaction?.server_status=='INPROCESS'"
+                        class="badge bg-warning rounded-pill"> INPROCESS</span>
+                </td>
+                <td>
+                  @if (transaction.refunded) {
+                    <span class="badge bg-success rounded-pill text-white">
+                      Yes
+                    </span>
+                  } @else {
+                    <span class="badge bg-danger rounded-pill text-white">
+                      No
+                    </span>
+                  }
+                </td>
+                <td class="text-center">
+                  <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <button class="btn btn-sm btn-primary rounded-4" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                            role="button" aria-controls="offcanvasExample"
+                            (click)="openOffcanvas(transaction.transaction_id)">
+                      Check Status
+                    </button>
+                    <button class="btn btn-sm btn-warning rounded-4"
+                            [routerLink]="['/admin/report/pg-transaction',transaction.invoice_no]">
+                      Refund
+                    </button>
+                    <button (click)="previewHtml(transaction.invoice_no)"
+                            class="btn btn-sm btn-info rounded-4">
+                      View Receipt
+                    </button>
+                    <button (click)="downloadBill(transaction.invoice_no)"
+                            class="btn btn-sm btn-success rounded-4">
+                      Download
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="row justify-content-md-between align-items-md-center mt-3">
+            <div class="col-sm-6">
+              <p class="mb-2">Showing entries 1 to 10 of {{ pendingTransactions.length }} entries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Check Transaction Status</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Display Response Data in Vertical Table Format -->
+    <div *ngIf="responseData; else noData" class="mt-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Transaction Details</h5>
+          <!-- Responsive Table with Scroll -->
+          <div class="table-responsive">
+            <ng-scrollbar
+              visibility="hover"
+              track="vertical"
+              style="max-height: 400px; width: 100%;"
+              class="custom-scrollbar"
+            >
+            <table class="table ">
+              <tbody>
+              <tr>
+                <td><strong>Invoice No:</strong></td>
+                <td>{{ responseData.invoice_no }}</td>
+              </tr>
+              <tr>
+                <td><strong>Merchant ID:</strong></td>
+                <td>{{ responseData.merchant_id }}</td>
+              </tr>
+              <tr>
+                <td><strong>Payment ID:</strong></td>
+                <td>{{ responseData.payment_id }}</td>
+              </tr>
+              <tr>
+                <td><strong>Reference ID:</strong></td>
+                <td>{{ responseData.reference_id }}</td>
+              </tr>
+              <tr>
+                <td><strong>Transaction ID:</strong></td>
+                <td>{{ responseData.transaction_id }}</td>
+              </tr>
+              <tr>
+                <td><strong>Status Code:</strong></td>
+                <td>{{ responseData.status_code }}</td>
+              </tr>
+              <tr>
+                <td><strong>Response Code:</strong></td>
+                <td>{{ responseData.response_code }}</td>
+              </tr>
+              </tbody>
+            </table>
+            </ng-scrollbar>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Template for no data -->
+    <ng-template #noData>
+      <div class="alert alert-warning mt-4">
+        {{ error_message }}
+      </div>
+    </ng-template>
+  </div>
+</div>

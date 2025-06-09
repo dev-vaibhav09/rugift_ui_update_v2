@@ -1,0 +1,466 @@
+
+
+.course__area {
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+/* Ensure spacing for left and right columns */
+.col-md-1 {
+  flex: 0 0 8.33%; /* 1/12 of the row */
+  max-width: 8.33%;
+}
+
+.category__more {
+  text-align: right; /* Align button to the right */
+}
+
+.service-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff; /* Change button text color */
+  background-color: #559def; /* Button background color */
+  border: none;
+  border-radius: 5px; /* Round corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Button hover effect */
+.service-button:hover {
+  background-color: #000000;
+}
+
+.service-button i {
+  margin-left: 5px; /* Space between text and icon */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .col-md-1 {
+    display: none; /* Hide left and right spacing on small screens */
+  }
+}
+
+
+/* Section styles */
+.course__area {
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+/* Ensuring card layout fits exactly 5 cards in a row */
+.col-lg-2-4 {
+  flex: 0 0 19%; /* Adjust to fit 5 cards in one row */
+  max-width: 19%; /* Control max width */
+}
+
+.designer-card {
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px #82a8df;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  background-color: #ffffff;
+  height: 400px; /* Card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: none; /* Ensure no border around the card */
+}
+
+/* Designer Card Styles */
+.designer-img {
+  height: 250px; /* Define height */
+  width: 100%; /* Ensure full width */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.designer-img a img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image fits within the block while maintaining aspect ratio */
+  object-position: center; /* Aligns the image within the block */
+  transition: transform 0.6s ease;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* Hover effect to zoom in smoothly */
+.designer-card:hover .designer-img a img {
+  transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+
+.designer-content {
+  margin-top: -70px;
+  padding: 25px 10px 20px;
+  text-align: center;
+  background: var(--back-theme);
+  border-radius: 15px 15px 0 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.designer-content a h3 {
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 8px;
+  transition: color 0.5s ease;
+}
+
+.designer-content span {
+  font-size: 14px;
+  color: #707070;
+  display: block;
+  margin-bottom: 15px;
+  transition: color 0.5s ease;
+}
+
+.social-icon ul li {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.social-icon ul li a {
+  color: #707070;
+  font-size: 20px;
+}
+
+.social-icon ul li a:hover {
+  color: #fff;
+}
+
+.social-icon ul li:hover {
+  background-color: #1cac1e;
+}
+
+.designer-card:hover .designer-content {
+  background: var(--back-hover-theme);
+  box-shadow: 0 20px 30px rgba(4, 23, 118, 0.3);
+}
+
+.designer-card:hover h5,
+.designer-card:hover span {
+  color: #ffffff;
+}
+
+@media (max-width: 1199.98px) {
+  .designer-img {
+    height: 200px; /* Reduce height on medium screens */
+  }
+}
+
+@media (max-width: 991.98px) {
+  .designer-img {
+    height: 180px; /* Further reduce height on smaller screens */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .designer-img {
+    height: 150px; /* Reduce height further on small screens */
+  }
+}
+
+@media (max-width: 575.98px) {
+  .designer-img {
+    height: 120px; /* Even smaller height on very small screens */
+  }
+}
+
+/* New smaller discount badge design */
+.discount-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 30px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: rotate(0deg);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discount-text {
+  display: inline-block;
+  padding: 0 8px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+}
+
+/* Adding a subtle animation on hover for interactivity */
+.designer-card:hover .discount-badge {
+  transform: rotate(360deg);
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.input-group-text {
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+}
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+.form-select:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+
+/* Empty Cart Message Styling */
+.empty-cart-message {
+  display: flex;
+  flex-direction: initial; /* Align content in a column */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  padding: 50px;
+  background-color: #ffffff; /* White background to match the order section */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 1px solid #ddd; /* Match the border of other elements */
+}
+
+.empty-cart-message .message-container {
+  max-width: 100%;
+}
+
+.empty-cart-message .icon {
+  font-size: 32px;
+  color: #4CA1AF; /* Match the gradient colors used in the buttons */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .message {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333; /* Dark grey for readability */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .btn {
+  display: inline-block;
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+
+/* Responsive adjustments for mobile view */
+/* Responsive Adjustments for Mobile */
+
+@media (max-width: 768px) {
+  .section__title{
+    font-size: 20px;
+  }
+  .service-button{
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+  .course__area{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:0 0;
+  }
+  .designer-card {
+    margin-bottom: 20px;
+    width: 270px;
+    height: 345px;
+    align-content: center;
+  }
+
+  .designer-img {
+    height: 150px; /* Adjust image height for smaller cards */
+    background-color: #ffffff;
+
+  }
+  //.designer-content {
+  //  padding:15px; /* Reduce padding for smaller screens */
+  //}
+
+  .designer-content h5 {
+    font-size: 7px; /* Slightly smaller title font */
+  }
+
+  .designer-content p {
+    font-size: 6px; /* Smaller description font */
+  }
+
+  .designer-content .btn {
+    font-size: 6px;
+    padding: 3px 6px; /* Compact button size */
+  }
+  .cart-icon{
+    font-size: 12px;
+    color: black;
+  }
+  .discount-badge {
+    top: 2px;
+    right: 2px;
+    font-size: 6px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 14px;
+  }
+  .discount-text {
+    font-size: 6px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .section__title{
+    font-size: 20px;
+  }
+  .service-button{
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+  .course__area {
+    display: flex;
+    flex-direction: row; /* This is the key for a row layout */
+    justify-content: space-evenly; /* Distributes items evenly */
+    align-items: center; /* Vertically aligns items to the center */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+    padding: 0 0;
+  }
+  .designer-card {
+    margin-bottom: 20px;
+    width: 150px;
+    height: 150px;
+    align-content: center;
+  }
+
+  .designer-img {
+    height: 100px; /* Adjust image height for smaller cards */
+    background-color: #ffffff;
+  }
+
+  //.designer-content {
+  //  padding:15px; /* Reduce padding for smaller screens */
+  //}
+
+  .designer-content h5 {
+    font-size: 7px; /* Slightly smaller title font */
+  }
+
+  .designer-content p {
+    font-size: 6px; /* Smaller description font */
+  }
+
+  .designer-content .btn {
+    font-size: 6px;
+    padding: 3px 6px; /* Compact button size */
+  }
+  .cart-icon{
+    font-size: 12px;
+    color: black;
+  }
+  .social-icon ul li {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+  .discount-badge {
+    top: 2px;
+    right: 2px;
+    font-size: 6px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 14px;
+  }
+  .discount-text {
+    font-size: 6px;
+  }
+}
+
+.search-container {
+  display: flex;
+  max-width: 600px;
+  margin: 12px auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50px;
+  padding: 4px 6px;
+  border: 1px solid var(--secondary-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2),
+  inset 0 1px 2px rgba(255, 255, 255, 0.1);
+  position: relative;
+
+  &:focus-within {
+    border-color: rgba(126, 87, 194, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(126, 87, 194, 0.3);
+  }
+}
+
+.search-container input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(131, 131, 131);
+  font-size: 0.9rem;
+  padding: 6px 0;
+
+  &::placeholder {
+    color: rgba(176, 176, 204, 0.6);
+  }
+}
+
+.search-container button {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 6px 18px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(126, 87, 194, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(126, 87, 194, 0.5);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}

@@ -1,0 +1,28 @@
+<main>
+  <app-breadcrumb class="bg-white"
+                  [title]="'News'"
+                  [subtitle]="'News'">
+  </app-breadcrumb>
+
+  <!-- News Posts Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-4" *ngFor="let item of newsItems">
+          <a [href]="item.link" target="_blank" class="text-decoration-none text-dark">
+            <div class="blog-widget-2">
+              <div class="blog-img" [style.backgroundColor]="item.backgroundColor" style="height: 200px;">
+                <img [src]="item.image" alt="blog-img">
+                <div class="catagory violet-bg">News</div>
+              </div>
+              <div class="blog-content">
+                <h6>{{ item.title }}</h6>
+                <p>{{ truncateDescription(item.description, 59) }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

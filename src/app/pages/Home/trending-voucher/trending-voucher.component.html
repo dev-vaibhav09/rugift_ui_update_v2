@@ -1,0 +1,7 @@
+<section class="course__area pt-30 pb-20">
+  <div class="container-fluid image-grid">
+    @for (item of this.trending_voucher_list; track item.brand_code ){
+      <img src="{{item.image_url}}" alt="Image 1" (click)="router_link(item.brand_code)">
+    }
+  </div>
+</section>

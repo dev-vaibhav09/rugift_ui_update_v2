@@ -1,0 +1,154 @@
+
+/*----- Main Header Area CSS -----*/
+.main-header-area {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+  background: linear-gradient(135deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  height: 80px;
+  transition: background-color 0.3s ease;
+}
+
+.main-navbar {
+  padding: 0 30px;
+}
+
+.navbar {
+  &.navbar-light {
+    background-color: transparent; /* Transparent navbar background */
+    padding: 15px 20px;
+    border-radius: 8px;
+  }
+
+  .navbar-nav {
+    margin-left: auto;
+    gap: 15px; /* Add spacing between nav items */
+  }
+
+  .nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #1abc9c;
+  }
+}
+
+/* Logo styling */
+.logo img {
+  width: 180px;
+  height: auto;
+}
+
+/* Cart icon */
+.cart-icon {
+  font-size: 30px;
+}
+
+.cart-badge {
+  font-size: 12px;
+  padding: 5px;
+  background-color: #f54b42;
+  border-radius: 50%;
+}
+
+.user-initials {
+  width: 40px;                /* Set width of the circle */
+  height: 40px;               /* Set height of the circle */
+  background-color: #34495e;  /* Background color */
+  color: #ffffff;             /* Text color */
+  border-radius: 50%;         /* Make it circular */
+  display: flex;              /* Flexbox to center text */
+  justify-content: center;    /* Horizontally center */
+  align-items: center;        /* Vertically center */
+  font-size: 18px;            /* Adjust text size */
+  font-weight: bold;          /* Bold initials */
+  text-align: center;         /* Center text */
+}
+
+.login-icon {
+  font-size: 24px;            /* Icon size */
+  color: #ffffff;             /* Icon color */
+  background-color: transparent; /* Transparent background */
+  border-radius: 50%;         /* Circle border */
+  padding: 10px;              /* Add space around the icon */
+  display: inline-flex;       /* Align icon and text inline */
+  justify-content: center;    /* Center text horizontally */
+  align-items: center;        /* Center text vertically */
+}
+
+/* When logged out, the login icon is displayed */
+#profileImage i.ri-login-circle-line {
+  font-size: 20px;
+  color: #1abc9c;
+  background-color: transparent; /* Ensure no background around icon */
+}
+
+/* Remove any white squares or extra borders */
+#profileImage img {
+  border: none; /* Remove borders if using images */
+  background-color: transparent; /* Ensure image background is transparent */
+}
+
+/* Custom dropdown background */
+.header-item .dropdown-menu {
+  background-color: #34495e;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.header-item .dropdown-item {
+  color: #ecf0f1;
+  padding: 8px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.header-item .dropdown-item:hover {
+  background-color: #1abc9c;
+  color: #fff;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    border-color: #fff;
+  }
+
+  .navbar-nav {
+    margin-left: 0;
+  }
+
+  .site-search {
+    margin-top: 10px;
+  }
+
+  .logo img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-nav {
+    display: grid;
+    justify-content: space-evenly;
+    background-color: #34495e;
+
+    .header-item .dropdown-item:hover {
+      background-color: #1abc9c;
+      color: #fff;
+    }
+  }
+
+
+  .d-flex {
+    flex-direction: column;
+
+  }
+}

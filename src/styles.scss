@@ -1,0 +1,34 @@
+@import "../public/scss/main";
+@import "../public/css/fontAwesome5Pro.css";
+@import "../public/css/elegantFont.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "swiper/swiper-bundle.css";
+
+html,
+body {
+  height: 100%;
+  color: var(--primary-color);
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*theme color*/
+:root {
+  --primary-color: #0e102c;
+  --primary-color-light: #262C78;
+  // --light-primary-color: #ffffff;
+  --secondary-color: #2396bd;
+  --tertiary-color: #1d2757;
+  --light-bg: #f5f9fc;
+  --text-color: #f5f9fc;
+  --border-color: #4e63a8;
+   --error-color: #dc3545;
+  --success-color: #28a745;
+  --text-light: #6c757d;
+  --placeholder-color: #6c757d;
+  --box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  --box-shadow-hover: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}

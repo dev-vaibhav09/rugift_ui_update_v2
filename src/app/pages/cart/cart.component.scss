@@ -1,0 +1,276 @@
+/* General Styling */
+.table-content {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Product Images */
+.cart-img {
+  max-width: 80px;
+  transition: transform 0.3s ease;
+}
+.cart-img:hover {
+  transform: scale(1.1);
+}
+
+/* Buttons */
+.custom-btn {
+  background-color: #3444F1;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+}
+.custom-btn:hover {
+  background-color: #3444F1;
+}
+
+/* Quantity Controls */
+.product-quantity-form {
+  align-items: center;
+}
+.cart-input {
+  width: 50px;
+}
+
+/* Coupon & Update Cart */
+.coupon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.coupon-input {
+  margin-right: 10px;
+  max-width: 300px;
+}
+.coupon-btn {
+  background: var(--back-theme); /* Elegant gradient background */
+  color: #fff;
+}
+.coupon-btn:hover {
+  background: var(--back-hover-theme); /* Elegant gradient background */
+}
+.update-cart-btn:hover {
+  background-color: #e0a800;
+}
+
+/* Cart Totals */
+.cart-page-total {
+  background-color: #fff;
+  border-radius: 10px;
+}
+.cart-page-total h4 {
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.proceed-checkout-btn {
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  color: white;
+  border-radius: 5px;
+  padding: 12px 0;
+}
+
+
+/* Hover Effects */
+.cart-product-link {
+  color: #3444F1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.cart-product-link:hover {
+  color: #0056b3;
+}
+
+.remove-item {
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+.remove-item:hover {
+  color: #ff5f5f;
+}
+
+.cart-table th {
+  color: #f2edd7ff; /* Apply color to table headers and data cells */
+}
+
+/* Optional: On hover, make the link stand out */
+.cart-table a:hover {
+  color: #e0d7c6; /* Slightly lighter color on hover */
+}
+.cart-table th{
+  background: var(--back-hover-theme); /* Elegant gradient background */
+}
+
+
+
+
+
+/* Container for the entire quantity input (in row layout) */
+.qty-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+}
+
+
+/* Input field styling */
+.qty-container .input-qty {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 60px;
+  height: 40px;
+  padding: 10px;
+  margin: 0 12px;
+  border-radius: 8px;
+  border: 2px solid #b0bec5;
+  background-color: #fff;
+  color: #2c3e50; /* Darker text for contrast */
+  transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+.qty-container .input-qty:focus {
+  outline: none;
+  border-color: #3498db; /* Border color change on focus */
+  background-color: #f3faff; /* Light background on focus */
+}
+
+/* Button styling */
+.qty-btn-minus,
+.qty-btn-plus {
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  color: #fff;
+  font-size: 18px;
+  padding: 0; /* Remove padding for more precise control */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+  height: 40px;
+  width: 40px;
+  display: flex; /* Use flexbox to center content */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+/* Button active state */
+.qty-btn-minus:active,
+.qty-btn-plus:active {
+  transform: scale(0.95); /* Shrink the button when clicked */
+}
+
+/* Disabled button styling */
+.qty-btn-minus:disabled,
+.qty-btn-plus:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Optional: Adjust the typography for the entire form */
+.qty-container {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* Empty Cart Message Styling */
+.empty-cart-message {
+  text-align: center;
+  padding: 50px;
+  background-color: #ffffff; /* White background to match the order section */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 1px solid #ddd; /* Match the border of other elements */
+}
+
+.empty-cart-message .message-container {
+  max-width: 400px;
+  margin:auto;
+  align-content: center;
+  justify-content: center;
+}
+
+.empty-cart-message .icon {
+  font-size: 32px;
+  color: #4CA1AF; /* Match the gradient colors used in the buttons */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .message {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333; /* Dark grey for readability */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .btn {
+  display: inline-block;
+  background: var(--back-theme); /* Elegant gradient background */
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+
+
+/* General table styling for small devices */
+@media (max-width: 768px) {
+  .cart-table table {
+    font-size: 14px;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  .cart-table .product-thumbnail img {
+    max-width: 50px;
+  }
+
+  .coupon .coupon-input {
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .coupon .coupon-btn {
+    width: 100%;
+  }
+
+  .cart-page-total {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .proceed-checkout-btn button {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 576px) {
+  .cart-table table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .coupon-area {
+    flex-direction: column;
+  }
+
+  .qty-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+}

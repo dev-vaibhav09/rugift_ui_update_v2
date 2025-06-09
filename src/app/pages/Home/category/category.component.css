@@ -1,0 +1,10 @@
+.designer-card .designer-content {
+  background: linear-gradient(75deg, #f5f7fa, #99baed);
+}
+
+.designer-card:hover .designer-content {
+  background: linear-gradient(140deg, #6ba0ef, #0743F1);
+  box-shadow: 0px 20px 30px rgba(4, 23, 118, 0.3);
+}
+
+/*# sourceMappingURL=category.component.css.map */

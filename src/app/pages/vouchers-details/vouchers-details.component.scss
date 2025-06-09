@@ -1,0 +1,284 @@
+.card {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+}
+
+.card.selected {
+  border-color: #007bff;
+  transform: scale(1.05);
+  background-color: #f8f9fa;
+}
+
+.card-body {
+  padding: 20px;
+
+}
+.p {
+  font-size: 14px;
+
+}
+.fixed-card {
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fixed-card:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.02);
+}
+
+.course__sidebar {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.custom-slider .ngx-slider {
+  width: 100%;
+  height: 10px;
+  background: #e6f3ff;
+  border-radius: 5px;
+}
+
+.custom-slider .ngx-slider .ngx-slider-pointer {
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+.redeem-step-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.step-title {
+  font-size:14px;
+}
+
+.total-pay {
+  h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .text-danger {
+    font-size: 1.75rem;
+  }
+}
+
+
+.carousel {
+  position: relative;
+  padding-bottom: 40px;
+
+
+  .carousel-inner {
+    border-radius: 8px;
+    background: #f8f9fa;
+    padding: 15px;
+    justify-content: space-evenly;
+
+  }
+
+  .carousel-item {
+    align-items: center;
+    padding: 5px;
+    position: relative;
+  }
+
+}
+.button-class {
+  background-color: #343a40;
+  color: #000000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 20px 10px;
+  text-align: center;
+  position: absolute;
+  bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  background-color: rgba(52, 58, 64, 0.8);  /* Add semi-transparent background */
+  border: none;  /* Remove any border */
+  padding: 10px 20px;
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+
+
+
+
+
+.page__title-3 {
+  font-size: 1.5rem;
+}
+
+.badge {
+  font-size: 14px;
+  background: #4CA1AF;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 15px;
+}
+
+input.form-control {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+
+
+/* Adding a subtle animation on hover for interactivity */
+.designer-card:hover .discount-badge {
+  transform: rotate(360deg);
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.input-group-text {
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+}
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+.form-select:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+
+/* Empty Cart Message Styling */
+.empty-cart-message {
+  display: flex;
+  flex-direction: initial; /* Align content in a column */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  padding: 50px;
+  background-color: #ffffff; /* White background to match the order section */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 1px solid #ddd; /* Match the border of other elements */
+}
+
+.empty-cart-message .message-container {
+  max-width: 100%;
+}
+
+.empty-cart-message .icon {
+  font-size: 32px;
+  color: #4CA1AF; /* Match the gradient colors used in the buttons */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .message {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333; /* Dark grey for readability */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .btn {
+  display: inline-block;
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+
+.back_button{
+  background: var(--back-hover-theme); /* Elegant gradient background */
+}
+
+
+/* Mobile View Adjustments */
+@media (max-width: 767px) {
+  .page__title-area {
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+
+  .course__wrapper, .course__sidebar {
+    padding: 15px;
+  }
+
+  .course__wrapper .card,
+  .course__sidebar {
+    margin-bottom: 20px;
+    box-shadow: none;
+  }
+
+  .course__wrapper .card-body,
+  .course__sidebar {
+    padding: 15px;
+  }
+
+  .col-xxl-7,
+  .col-xxl-5,
+  .col-xl-7,
+  .col-xl-5,
+  .col-lg-7 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .course__sidebar {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: none;
+  }
+
+  .custom-slider .ngx-slider {
+    height: 8px;
+  }
+
+  .custom-slider .ngx-slider .ngx-slider-pointer {
+    width: 20px;
+    height: 20px;
+  }
+
+  .redeem-step-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .step-title {
+    font-size: 12px;
+  }
+
+  .button.back_button {
+    padding: 10px;
+  }
+
+  .carousel-inner {
+    padding: 10px;
+  }
+}
