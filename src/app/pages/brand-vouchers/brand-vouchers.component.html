@@ -1,36 +1,36 @@
-
-
 <app-breadcrumb
   [title]="'Vouchers'"
   [subtitle]="'Voucher'"
-  [subtitle_link]="'/choose_category'">
+  [subtitle_link]="'/choose_category'"
+>
 </app-breadcrumb>
-
-
 
 <section class="course__area pt-0 pb-10">
   <div class="container">
-<!--    <div class="course__tab-inner  mb-50">-->
-<!--      <div class="row align-items-center rounded-pill pt-20">-->
-<!--        <div class="col-12">  <div class="row align-items-center"> <div class="col-12 col-md-8">-->
-<!--          <div class="input-group">-->
-<!--            <input-->
-<!--              type="text"-->
-<!--              class="form-control border-start-0 shadow-sm rounded-pill px-6"-->
-<!--              placeholder="Search Brand Name..."-->
-<!--              [(ngModel)]="searchQuery"-->
-<!--              (ngModelChange)="onSearch()"-->
-<!--              style="border-radius: 0 8px 8px 0;"-->
-<!--            />-->
-<!--          </div>-->
-<!--        </div>-->
+    <!--    <div class="course__tab-inner  mb-50">-->
+    <!--      <div class="row align-items-center rounded-pill pt-20">-->
+    <!--        <div class="col-12">  <div class="row align-items-center"> <div class="col-12 col-md-8">-->
+    <!--          <div class="input-group">-->
+    <!--            <input-->
+    <!--              type="text"-->
+    <!--              class="form-control border-start-0 shadow-sm rounded-pill px-6"-->
+    <!--              placeholder="Search Brand Name..."-->
+    <!--              [(ngModel)]="searchQuery"-->
+    <!--              (ngModelChange)="onSearch()"-->
+    <!--              style="border-radius: 0 8px 8px 0;"-->
+    <!--            />-->
+    <!--          </div>-->
+    <!--        </div>-->
 
-<!--        </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-    <div class="search-container mb-10">
-      <input type="text" placeholder="Search for games, platforms, or vouchers...">
+    <!--        </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="Search for games, platforms, or vouchers..."
+      />
       <button>Search</button>
     </div>
     <!-- Brand Cards Display -->
@@ -38,19 +38,52 @@
       @if(is_loading){
       <app-progress-spinner *ngIf="is_loading"></app-progress-spinner>
       } @else if (filteredCourses.length > 0) {
-        <div class="row">
-        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let brand of filteredCourses">
-          <div class="designer-card rounded-4 position-relative" (click)="toggleWishlist(brand.brand_code)">
+      <div class="row justify-content-center">
+        <div
+          class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+          *ngFor="let brand of filteredCourses"
+        >
+          <div
+            class="card-wrapper position-relative"
+            (click)="toggleWishlist(brand.brand_code)"
+          >
             <!-- Discount Badge -->
-              <span class="discount-badge" *ngIf="+brand.outward_discount > 0" >
-              <span class="discount-text">{{brand.outward_discount}}% OFF</span>
+            <span class="discount-badge" *ngIf="+brand.outward_discount > 0">
+              <span class="discount-text">
+                {{ brand.outward_discount }}% OFF
               </span>
-            <div class="designer-img">
-              <img [src]="getImageUrl(brand)" alt="Brand Image" class="img-fluid">
+            </span>
+
+            <!-- Image -->
+            <div class="card-image">
+              <img
+                [src]="getImageUrl(brand)"
+                alt="{{ brand.brand_name }}"
+                class="img-fluid"
+              />
+            </div>
+
+            <!-- Content -->
+            <div class="card-content text-center">
+              <h5 class="card-title">
+                {{
+                  brand.brand_name.length > 20
+                    ? brand.brand_name.slice(0, 20) + "..."
+                    : brand.brand_name
+                }}
+              </h5>
+
+              <p class="card-category text-uppercase">
+                {{ brand.category }}
+              </p>
+              <div class="cart-icon-wrapper">
+                <i class="ri-shopping-cart-fill fs-4 cart-icon"></i>
+              </div>
             </div>
           </div>
         </div>
-        </div>
+      </div>
+
       }@else if (filteredCourses.length <= 0) {
       <div class="row">
         <tr>
@@ -58,7 +91,9 @@
             <div class="message-container">
               <i class="ri-gift-line icon"></i>
               <p class="message">No vouchers Found.</p>
-              <p class="text-danger fs-5">{{error_message ||"Unable to load brand details.."}}</p>
+              <p class="text-danger fs-5">
+                {{ error_message || "Unable to load brand details.." }}
+              </p>
               <a href="/" class="btn">Back to Home</a>
             </div>
           </td>
@@ -66,8 +101,5 @@
       </div>
       }
     </div>
-
   </div>
 </section>
-
-

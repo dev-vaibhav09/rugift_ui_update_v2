@@ -21,9 +21,9 @@
   justify-content: center;
   color: var(--primary-color);
   border-radius: 12px;
-  
+
   overflow-x: auto; /* Keep overflow-x to allow horizontal scrolling if needed */
-  
+
   white-space: nowrap; /* Added to prevent items from wrapping */
   min-height: 50px; /* Added minimum height */
   padding: 10px 10px; /* Adjust padding as needed to control internal spacing */
@@ -76,6 +76,7 @@
     left: 10%;
     width: 80%;
     height: 3px;
+
     background: linear-gradient(
       0,
       var(--secondary-color),
@@ -90,9 +91,6 @@
 
   &.active {
     background-color: rgba(255, 255, 255, 0.08);
-
-    
-
 
     &::after {
       opacity: 1;
@@ -173,7 +171,7 @@
   min-width: 119px;
   aspect-ratio: 1;
   border-radius: 22px;
-  border: 5px #90d3e0 solid;
+  border: 3px solid var(--border-color);
   padding: 0.5rem;
   position: relative;
 }
@@ -231,7 +229,7 @@
 
 .hero-section p {
   font-size: 1.2rem;
- 
+
   color: var(--primary-color);
   max-width: 700px;
   margin: 0 auto 40px;
@@ -245,7 +243,7 @@
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50px;
   padding: 6px 6px 6px 24px;
-  border: 1px solid  var(--border-color);
+  border: 1px solid var(--border-color);
   position: relative;
 
   // Add subtle glow effect
@@ -270,11 +268,7 @@
 }
 
 .search-container button {
-  background: linear-gradient(
-    180deg,
-    var(--secondary-color),
-    var(--tertiary-color)
-  );
+  background: var(--secondary-color);
   color: var(--text-color);
   border: none;
   border-radius: 50px;
@@ -294,10 +288,6 @@
 }
 
 @media (max-width: 480px) {
-  .navigation-container {
-    margin-top: 65px;
-  }
-
   .main-navigation {
     padding: 5px 0; /* Adjust padding for smaller screens */
     min-height: 35px; /* Adjust min-height for even smaller screens */

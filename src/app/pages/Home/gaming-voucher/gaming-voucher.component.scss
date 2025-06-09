@@ -1,14 +1,14 @@
 /* gaming-gift-cards.component.scss */
 :host {
   display: block;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .gaming-card-container {
   position: relative;
   max-width: 1920px;
-  margin: 0 0;
-  color: white;
+  margin: 0 auto;
+  color: var(--primary-color);
   overflow: hidden;
 }
 
@@ -26,23 +26,18 @@
 .title {
   font-size: 3rem;
   margin-bottom: 16px;
-  background: linear-gradient(280deg, var(--primary-color), var(--secondary-color) 20%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--primary-color);
   font-weight: 800;
 }
 
 .subtitle {
-  font-family: 'Satoshi', sans-serif;
   font-size: 22px;
   line-height: 39.6px;
   text-align: center;
-  max-width: 1590px;
+  width: 1200px;
+  // max-width: 1490px;
   margin: 0 auto 30px;
 }
-
-
 
 // Progress Bar Styles
 .progress-container {
@@ -83,8 +78,6 @@
   }
 }
 
-
-
 // Media Queries for Responsiveness
 @media (max-width: 768px) {
   .title {
@@ -96,6 +89,31 @@
     line-height: 30px;
   }
 
+  .gift-card {
+  flex: 0 0 auto;
+  width: 100%; 
+  max-width: 200px; 
+  height: 250px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // ensures image covers the box without distortion
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); // fixed shadow color
+  }
+}
 
 }
 
@@ -108,9 +126,7 @@
     font-size: 16px;
     line-height: 26px;
   }
-
 }
-
 
 // Gift Cards Carousel Styles
 .gift-cards-carousel {
@@ -129,10 +145,16 @@
 
 .gift-card {
   flex: 0 0 auto;
-  width: calc(100% / 4);
+  width: 100%; 
+  max-width: 280px; 
+  height: 300px;
   padding: 0 10px;
   box-sizing: border-box;
   transition: transform 0.3s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     transform: translateY(-10px);
@@ -140,9 +162,10 @@
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; // ensures image covers the box without distortion
     border-radius: 20px;
-    box-shadow: 0 3px 10px rgb(255, 255, 255);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2); // fixed shadow color
   }
 }
 
@@ -162,7 +185,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background: var(--primary-color);
   border: none;
   display: flex;
   align-items: center;
@@ -172,15 +195,13 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: var(--primary-color-light);
   }
 
   .arrow {
-    color: white;
+    color: var(--text-color);
     font-size: 24px;
     font-weight: bold;
     line-height: 1;
   }
 }
-
-

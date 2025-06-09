@@ -1,7 +1,7 @@
 <header class="main-header">
   <div class="header-content">
     <div class="header-left">
-      <img class="logo" src="img/rugift.png" alt="Logo" routerLink="/">
+      <img class="logo" src="img/rugift.png" alt="Logo" routerLink="/" />
     </div>
     <button class="hamburger-menu" #hamburgerMenu (click)="toggleMenu()">
       <span class="line"></span>
@@ -10,11 +10,23 @@
     </button>
     <nav class="header-nav" #headerNav>
       <ul class="nav-links">
-        <li class="nav-item" routerLink="/" (click)="closeMenuIfMobile()">Home</li>
-        <li class="nav-item" routerLink="/business" (click)="closeMenuIfMobile()">Business</li>
-        <li class="nav-item" routerLink="/about" (click)="closeMenuIfMobile()">About</li>
+        <li class="nav-item" routerLink="/" (click)="closeMenuIfMobile()">
+          Home
+        </li>
+        <li
+          class="nav-item"
+          routerLink="/business"
+          (click)="closeMenuIfMobile()"
+        >
+          Business
+        </li>
+        <li class="nav-item" (click)="closeMenuIfMobile()">
+          <a href="/about" target="_blank">About</a>
+        </li>
         <li class="nav-item btn-signin">
-          <button routerLink="/auth/login" (click)="closeMenuIfMobile()">Login / Register</button>
+          <button routerLink="/auth/login" (click)="closeMenuIfMobile()">
+            Login / Register
+          </button>
         </li>
         <li>
           <div class="cart-section position-relative me-3">
@@ -25,12 +37,11 @@
               *ngIf="cartCount > 0"
               class="badge bg-danger position-absolute top-0 start-100 translate-middle cart-badge"
             >
-                  {{cartCount }}
-                </span>
+              {{ cartCount }}
+            </span>
           </div>
         </li>
       </ul>
     </nav>
   </div>
 </header>
-

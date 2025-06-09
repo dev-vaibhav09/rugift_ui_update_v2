@@ -1,23 +1,19 @@
-.logos_img{
+.logos_img {
   width: 100%;
   aspect-ratio: 1;
   object-fit: contain;
   //mix-blend-mode: color-burn;
 }
 
-
-
-
 .footer {
   position: relative;
   //background: var(--back-theme);
-  background: var(--tertiary-color);
-  color: #ddfdfd;
-  padding: 40px 20px ; /* Adjust padding for content spacing */
+
+  padding: 40px 20px; /* Adjust padding for content spacing */
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  margin-top: 2rem;
 }
 
 .footer-waves {
@@ -43,6 +39,16 @@
   animation-duration: 6s;
 }
 
+.app-store-buttons img {
+  border-radius: 8.5px;
+  overflow: hidden;
+  background: var(--border-color);
+  -webkit-border-radius: 8.5px;
+  -moz-border-radius: 8.5px;
+  -ms-border-radius: 8.5px;
+  -o-border-radius: 8.5px;
+}
+
 @keyframes move-forever {
   0% {
     transform: translateX(-90px);
@@ -53,30 +59,55 @@
 }
 
 .footer a {
-  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s;
 }
 .footer p {
-  color: #ffffff;
   text-decoration: none;
   transition: color 0.3s;
 }
 
 .footer a:hover {
-  color: #ffb320;
+  color: var(--primary-color-light);
   text-decoration: underline;
 }
 
 .social-icons a {
   font-size: 24px;
-  color: #ffffff;
   transition: color 0.3s;
+  color: var(--primary-color);
+  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  aspect-ratio: 1;
 }
 
-.social-icons a:hover {
-  color: #ff205f;
+.social-icons a:nth-child(1):hover {
+  color: var(--text-color);
+  background: #005eff;
 }
+.social-icons a:nth-child(2):hover {
+  color: var(--text-color);
+ vertical-align: middle;
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+.social-icons a:nth-child(3):hover {
+  color: var(--text-color);
+  background-color: var(--error-color);
+}
+.social-icons a:nth-child(4):hover {
+  color: var(--text-color);
+  background-color: #00d5ffc6;;
+}
+.social-icons a:nth-child(5):hover {
+  color: var(--text-color);
+  background-color: #0004fff2;
+}
+
 
 .certificates img {
   max-width: 80px;
@@ -85,6 +116,7 @@
 
 .footer-links li {
   margin-bottom: 10px;
+  color: var(--primary-color);
 }
 
 .footer-links a {
@@ -97,7 +129,6 @@
   height: 21px;
   position: relative;
   margin: 0 0;
-
 }
 
 .progress-bg {

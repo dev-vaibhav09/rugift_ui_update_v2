@@ -1,8 +1,5 @@
-
 .breadcrumb-section {
-  --primary-color: #2563eb;
-  --text-primary: #1f2937;
-  --text-secondary: #6b7280;
+
   background: transparent;
   margin-top: 5rem;
 }
@@ -31,7 +28,7 @@
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
-  content: '/';
+  content: "/";
   margin: 0 0.25rem;
   color: var(--text-secondary);
   opacity: 0.5;
@@ -54,7 +51,7 @@
 }
 
 @media (max-width: 768px) {
-  .breadcrumb-section{
+  .breadcrumb-section {
     margin-top: 4rem;
   }
   .breadcrumb-wrapper {
@@ -66,8 +63,8 @@
     font-size: 0.7rem;
   }
 }
-@media (min-width: 300px) and (max-width: 500px){
-  .breadcrumb-section{
+@media (min-width: 300px) and (max-width: 500px) {
+  .breadcrumb-section {
     margin-top: 4rem;
   }
   .breadcrumb-wrapper {
@@ -82,7 +79,7 @@
 
 @media (prefers-contrast: high) {
   .breadcrumb-section {
-    --primary-color: #0000EE;
+    --primary-color: #0000ee;
     --text-primary: #000000;
     --text-secondary: #444444;
   }
@@ -93,51 +90,33 @@
 }
 
 
-/* Modern Gaming Voucher Site Navigation & Hero Styles */
-
-// Color Palette
-$primary-color: var(--primary-color);
-$secondary-color:var(--secondary-color); // Indigo - complements primary
-$accent-color: #ff4081; // Pink accent for highlights
-$dark-bg: #1a1a2e; // Dark background
-$card-bg: #242442; // Slightly lighter card background
-$light-text: #ffffff; // White text
-$muted-text: #b0b0cc; // Muted light purple text
-$border-color: rgba(255, 255, 255, 0.1); // Subtle border
-$shadow-color: rgba(0, 0, 0, 0.25); // Shadow for depth
-
-// Gradients
-$primary-gradient: linear-gradient(135deg, $primary-color, $secondary-color);
-$accent-gradient: linear-gradient(135deg, $accent-color, adjust-hue($accent-color, 25deg));
-
 
 /* Base Styles */
 .navigation-container {
   position: relative;
-  font-family: 'Poppins', sans-serif; // Modern gaming-friendly font
+
   max-width: 1200px;
   margin: 85px auto 0;
   padding: 0 24px;
   z-index: 10;
+  box-shadow: 0 5px 24px rgba(131, 98, 164, 0.3);
 }
 
 .main-navigation {
   display: flex;
   align-items: center;
-  /* Removed justify-content: center; to allow items to flow naturally */
-  background-color: var(--primary-color);
+  justify-content: center;
   border-radius: 12px;
-  box-shadow: 0 8px 24px $shadow-color;
-  overflow-x: auto; /* Keep overflow-x to allow horizontal scrolling if needed */
-  position: relative;
-  white-space: nowrap; /* Added to prevent items from wrapping */
-  min-height: 50px; /* Added minimum height */
-  padding: 10px 10px; /* Adjust padding as needed to control internal spacing */
-
+  overflow-x: auto;
+  white-space: nowrap;
+  min-height: 50px;
+  padding: 10px 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
   // Add neon-like border glow
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -172,7 +151,7 @@ $accent-gradient: linear-gradient(135deg, $accent-color, adjust-hue($accent-colo
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 10%;
@@ -189,9 +168,7 @@ $accent-gradient: linear-gradient(135deg, $accent-color, adjust-hue($accent-colo
   &.active {
     background-color: rgba(255, 255, 255, 0.08);
 
-    .nav-link {
-      color: $light-text;
-    }
+    
 
     &::after {
       opacity: 1;
@@ -202,7 +179,6 @@ $accent-gradient: linear-gradient(135deg, $accent-color, adjust-hue($accent-colo
 
 .nav-link {
   text-decoration: none;
-  color: black;
   font-weight: 500;
   font-size: 1rem;
   transition: color 0.3s ease, transform 0.3s ease;

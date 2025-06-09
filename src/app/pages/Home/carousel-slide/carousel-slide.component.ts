@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, viewChild } from '@angular/core';
 import {CarouselModule, OwlOptions} from "ngx-owl-carousel-o";
 import { NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle } from "@angular/common";
 import { RouterLink } from "@angular/router";
@@ -19,6 +19,9 @@ import { RouterLink } from "@angular/router";
   styleUrl: './carousel-slide.component.scss'
 })
 export class CarouselSlideComponent {
+  // @ViewChild('owlCarousel', { static: false }) owlCarousel!: owlCarousel;
+
+
   slides = [
     { image: 'img/banner/banner_01.jpg',link:'https://valuedesign.co.in/' },
     { image: 'img/banner/banner_02.jpg',link:'https://valuedesign.co.in/' },
@@ -36,6 +39,9 @@ export class CarouselSlideComponent {
     dots: true,
     navSpeed: 50,
     autoplay: true,
+    autoplayTimeout:3000,
+    autoWidth: true,
+    autoplayHoverPause:true,
     navText: ['', ''],
     responsive: {
       0: {
