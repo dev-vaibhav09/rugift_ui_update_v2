@@ -57,6 +57,7 @@ export class VouchersDetailsComponent  implements AfterContentInit {
   selectedCardValue: number = 0;
   totalPay: number = 0;
   sliderValue: number = 100;
+  selectedCardValueData: string = ''; // added this for border
 
   options: Options = {
     floor: 0,
@@ -138,8 +139,11 @@ export class VouchersDetailsComponent  implements AfterContentInit {
     }
   }
 
-  selectCardValue(selectedValue: string) {
+  selectCardValue(selectedValue: string) {   
+    this.selectedCardValueData = selectedValue  // added this for border
     this.totalPay = Number(selectedValue) ;
+    
+    
   }
 
   toggleWishlist(item: ItemDetails) {

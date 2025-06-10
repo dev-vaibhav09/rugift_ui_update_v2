@@ -5,12 +5,8 @@
   [subtitle_link]="'/sign-up'">
 </app-breadcrumb>
 
-
 <section class="signup__area pb-50   pt-50">
-  <div class="container min-vh-80 d-flex justify-content-center align-items-center">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 ">
-        <div class="card signup-card shadow-lg">
+    <div class="card signup-card ">
           <div class="row g-0" >
             <!-- Illustration Image -->
             <div class="col-lg-6 d-flex align-items-center justify-content-center">
@@ -20,25 +16,25 @@
 
             <!-- Form Section -->
             <div class="col-lg-6 mt-4 mb-4">
-              <div class="sign__wrapper" style="background: #efe8e8">
+              <div class="sign__wrapper">
                 <h2 class="text-center mb-4">Register</h2>
                 <form [formGroup]="signUpForm" (ngSubmit)="sign_up()">
                   <!-- First Name -->
                   <div class="mb-3">
                     <label for="firstname">First Name</label>
-                    <input formControlName="firstname" class="form-control rounded-pill bg-light" type="text" placeholder="First Name" id="firstname" appDisableCopyPaste maxlength="25" inputmode="text" autocomplete="off" appAlphabeticInput/>
+                    <input formControlName="firstname" class="form-control rounded-pill  " type="text" placeholder="First Name" id="firstname" appDisableCopyPaste maxlength="25" inputmode="text" autocomplete="off" appAlphabeticInput/>
                   </div>
 
                   <!-- Last Name -->
                   <div class="mb-3">
                     <label for="lastname">Last Name</label>
-                    <input formControlName="lastname" class="form-control rounded-pill bg-light" type="text" placeholder="Last Name" id="lastname" appDisableCopyPaste maxlength="25" inputmode="text" autocomplete="off" appAlphabeticInput/>
+                    <input formControlName="lastname" class="form-control rounded-pill  " type="text" placeholder="Last Name" id="lastname" appDisableCopyPaste maxlength="25" inputmode="text" autocomplete="off" appAlphabeticInput/>
                   </div>
 
                   <!-- Email -->
                   <div class="mb-3">
                     <label for="email">Email Address</label>
-                    <input formControlName="email" class="form-control rounded-pill bg-light" type="email" placeholder="Enter Email" id="email" appDisableCopyPaste maxlength="100" inputmode="email" autocomplete="off"  />
+                    <input formControlName="email" class="form-control rounded-pill  " type="email" placeholder="Enter Email" id="email" appDisableCopyPaste maxlength="100" inputmode="email" autocomplete="off"  />
                   </div>
 
                   <!-- Phone Number -->
@@ -47,7 +43,7 @@
                     <div class="input-group">
                       <input
                         formControlName="mobile_no"
-                        class="form-control rounded-pill bg-light"
+                        class="form-control rounded-pill  "
                         type="text"
                         placeholder="Phone Number"
                         id="mobile_no"
@@ -86,7 +82,7 @@
                   <!-- OTP Field -->
                   <div class="mb-3" *ngIf="showOtpField">
                     <label for="otp">Enter OTP</label>
-                    <input formControlName="otp" class="form-control rounded-pill bg-light" type="text" placeholder="OTP" id="otp" maxlength="6" autocomplete="off" inputmode="numeric" appDisableCopyPaste appNumberOnly/>
+                    <input formControlName="otp" class="form-control rounded-pill  " type="text" placeholder="OTP" id="otp" maxlength="6" autocomplete="off" inputmode="numeric" appDisableCopyPaste appNumberOnly/>
                     <button class="btn btn-primary w-100 mt-3" type="submit" (click)="onVerifyOtp()" *ngIf="!verified" [disabled]="!signUpForm.valid">
                       Verify OTP
                     </button>
@@ -105,10 +101,14 @@
 
           </div>
         </div>
-      </div>
-    </div>
-
-  </div>
 </section>
+
+
+
+
+
+
+
+
 
 

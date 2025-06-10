@@ -28,7 +28,7 @@
                 <h2 class="fw-bold mb-2">{{ item.brand_name }}</h2>
                 <div
                   class="course__img d-flex justify-content-center align-items-center position-relative"
-                  style="height: 150px; width: 150px; overflow: hidden; margin: 0 auto;">
+                  style="overflow: hidden; margin: 0 auto;">
                   <img
                     [src]="item.image_url"
                     alt="{{ item.brand_name }} Image"
@@ -66,7 +66,7 @@
         <!-- Right Column: Gift Card Selection -->
         <div class="col-xxl-5 col-xl-5 col-lg-5 pt-5">
           <div class="course__sidebar p-4 shadow-lg rounded-3 bg-light position-relative ">
-            <h3 class="card-title text-center mb-4 fw-bold text-primary">Gift Card Value</h3>
+            <h3 class="card-title text-center mb-4 fw-bold">Gift Card Value</h3>
 
             <!-- Fixed Brand Type Cards -->
             <div *ngIf="item.brand_type.toLowerCase() === 'fixed'; else sliderTemplate">
@@ -75,15 +75,15 @@
                   <div
                     *ngFor="let card of denominationArray"
                     (click)="selectCardValue(card)"
-                    [class.selected]="Number(selectedCardValue) === +card"
-                    class="card fixed-card text-center p-4 rounded-4 shadow border-0"
-                    style="width: 180px; cursor: pointer;">
-                    <p class="  fw-bold fs-5 mb-0">Pay ₹ {{ card }}</p>
+                    [class.selected]="selectedCardValueData === card"
+                    class="fixed-card text-center rounded-2 shadow border-0"
+                   >
+                    <p class="fw-bold mb-0">₹ {{ card }} </p>
                   </div>
                 </div>
               </div>
 
-              <h4 class="fw-bold my-5 text-secondary text-center">Total Pay : <span class=" text-primary fw-bold mb-4">&#8377; {{ totalPay }} </span>
+              <h4 class="fw-bold my-4 text-center">Total Pay : <span class="text-success fw-bold mb-2">&#8377; {{ totalPay }} </span>
               </h4>
             </div>
 
@@ -104,12 +104,12 @@
                 <input
                   type="number"
                   [(ngModel)]="inputValue"
-                  class="form-control mt-10 mx-auto"
+                  class="form-control mx-auto"
                   placeholder="Enter amount"
                   style="width: 150px;" (input)="setCustomAmount(item)" />
                   <span class=" text-primary">{{valueNotInRange}}</span>
               </div>
-              <h4 class="fw-bold my-5 text-secondary text-center">Total Pay : <span class=" text-primary fw-bold mb-4" >&#8377; {{ sliderValue }} </span>
+              <h4 class="fw-bold my-4 text-secondary text-center">Total Pay : <span class=" text-primary fw-bold mb-2" >&#8377; {{ sliderValue }} </span>
               </h4>
             </ng-template>
 
@@ -127,7 +127,7 @@
 
           <!-- Redeem Steps Carousel -->
           <div class="pt-50" *ngIf="item.redeem_steps && item.redeem_steps.length > 0">
-            <div class="card">
+            <div class="card redmee-card">
               <h4 class="fw-bold">Redeem Steps:</h4>
               <div id="redeemStepCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
