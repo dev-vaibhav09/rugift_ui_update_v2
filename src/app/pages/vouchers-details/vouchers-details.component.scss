@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Playpen+Sans:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Italianno&family=Playpen+Sans:wght@100..800&display=swap");
 .card {
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -6,20 +8,13 @@
   border: 1px solid #ddd;
 }
 
-.redmee-card{
+.redmee-card {
   padding: 10px 15px;
 }
 
-.card h2{
+.card h2 {
   font-size: 20px;
 }
-
-.card .course__img{
-  width: 100px;
-  height: 100px;
-}
-
-
 
 .card-body {
   padding: 20px;
@@ -38,15 +33,15 @@
 .fixed-card.selected {
   transform: scale(1.05);
   border: 2px solid var(--primary-color) !important;
-  /*Oruseyourthemecolor*/box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 15px rgba(0, 13, 255, 0.4);
+
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
 }
 
-
-.fixed-card::before{
+.fixed-card.selected::before {
   content: "";
   position: absolute;
   top: 0;
@@ -56,17 +51,25 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4 11L6.55556 13.7778L12.3333 8' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
-
 }
-.fixed-card p{
+.fixed-card p {
   font-size: 15px;
   color: var(--primary-color);
-  
 }
 
 .fixed-card:hover {
   border: 1px solid var(--text-light);
   transform: scale(1.02);
+}
+
+.rangervalue .form-control {
+  border: 2px solid var(--primary-color) !important;
+  box-shadow: 0 0 15px rgba(0, 13, 255, 0.4);
+  font-weight: 800;
+}
+
+.slider-value-change {
+  color: red;
 }
 
 .button {
@@ -115,8 +118,15 @@
 
 .step-title {
   font-size: 14px;
+  line-height: 1.4;
+  position: relative;
 }
-
+.step-title::before {
+  content: "❝";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 .total-pay {
   h5 {
     font-size: 1.5rem;
@@ -125,6 +135,203 @@
 
   .text-danger {
     font-size: 1.75rem;
+  }
+}
+.voucher {
+  display: flex;
+  background: #f2f3fe;
+  max-width: 1000px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -58px;
+  position: relative;
+  z-index: 1;
+}
+.left img {
+  max-width: 280px;
+  width: 100%;
+}
+.middle {
+  position: relative;
+  z-index: 2;
+  left: -35px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.course__img {
+  width: 115px;
+  height: 120px;
+}
+.course__img img {
+  width: 100%;
+  height: 100%;
+}
+.middle h1 {
+  color: #494781;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.gift-voucher {
+  // background: ;
+  color: #4c4781;
+  padding: 10px 0px;
+  border-radius: 4px;
+  font-size: 4rem;
+  margin-top: 20px;
+  font-family: "Italianno", serif;
+  text-transform: capitalize;
+}
+
+.voucher-cutout {
+  width: 3px;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 10px,
+    #aac0d9 10px,
+    #aac0d9 20px
+  );
+  position: relative;
+  margin-right: 20px;
+  margin-left: -15px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: #4d4781;
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+
+  &::before {
+    top: -20px;
+  }
+
+  &::after {
+    bottom: -20px;
+  }
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+.right-content {
+  display: flex;
+  flex-direction: column;
+}
+.right-content h2 {
+  font-size: 2.9rem;
+  background: #4b4781;
+  color: var(--text-color);
+  padding: 36px;
+  font-family: "Baskervville";
+  position: relative;
+}
+
+.right-content h2::before,
+.right-content h2::after {
+  content: "";
+  position: absolute;
+  top: 38%;
+  width: 40px;
+  height: 40px;
+  background: #f2f3fe;
+  border-radius: 50%;
+}
+
+.right-content h2::before {
+  left: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.right-content h2::after {
+  right: -42px;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.right-content p {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .voucher {
+    padding: 0 10px;
+  }
+  .middle {
+    width: 220px;
+  }
+  .course__img {
+    width: 95px;
+    height: 110px;
+  }
+  .gift-voucher {
+    font-size: 2.5rem;
+    white-space: contain;
+  }
+  .right-content h2 {
+    font-size: 2rem;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 545px) {
+  .right-content h2 {
+    font-size: 1.5rem;
+    padding: 25px;
+  }
+
+  .gift-voucher {
+    font-size: 2rem;
+  }
+  .middle {
+    width: 230px;
+  }
+}
+@media (max-width: 480px) {
+  
+  .middle {
+    width: 200px;
+  }
+}
+@media (max-width: 410px) {
+  .course__img {
+    width: 75px;
+    height: 90px;
+  }
+
+  .middle{
+    margin-right: -2px;
+  }
+  
+   .gift-voucher {
+    font-size: 1.6rem;
   }
 }
 
@@ -149,7 +356,6 @@
 .carousel-control-prev,
 .carousel-control-next {
   border: none; /* Remove any border */
-  
 }
 
 .carousel-control-prev {
@@ -177,7 +383,6 @@ input.form-control {
   border-radius: 8px;
   padding: 10px;
 }
-
 
 /* Adding a subtle animation on hover for interactivity */
 .designer-card:hover .discount-badge {
@@ -244,7 +449,7 @@ input.form-control {
 }
 
 .btn {
-  background: var(--secondary-color);
+  background: var(--primary-color);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

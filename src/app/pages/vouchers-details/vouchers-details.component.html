@@ -1,26 +1,23 @@
-
-
 <app-breadcrumb
   [title]="'Description'"
   [subtitle]="'Voucher'"
   [subtitle_link]="'/choose_category'"
-  [subsubtitle]="'Description'">
+  [subsubtitle]="'Description'"
+>
 </app-breadcrumb>
 
 <section class="page__title-area pt-50 pb-90">
   <div class="container">
     @if(is_loading){
-      <app-progress-spinner *ngIf="is_loading"></app-progress-spinner>
-    } @else if (matchingProducts)
-    {
-      <div class="row" *ngFor="let item of matchingProducts">
-
-        <!-- Left Column: Description and Image -->
-        <div class="col-xxl-7 col-xl-7 col-lg-7">
-          <div class="course__wrapper">
-
-            <!-- Discount & Brand Info Card -->
-            <div class="card shadow-lg mb-4">
+    <app-progress-spinner *ngIf="is_loading"></app-progress-spinner>
+    } @else if (matchingProducts) {
+    <div class="row" *ngFor="let item of matchingProducts">
+      <!-- Left Column: Description and Image -->
+      <div class="col-xxl-7 col-xl-7 col-lg-7">
+        <div class="course__wrapper">
+          <h2 class="fw-bold mb-2">{{ item.brand_name }}</h2>
+          <!-- Discount & Brand Info Card -->
+          <!-- <div class="card shadow-lg mb-4 card-voucher-container">
               <div class="card-body text-center">
                   <span class="badge fs-6   mb-2" *ngIf="item.is_discount_applicable">
                     {{item.outward_discount}}% OFF
@@ -36,155 +33,231 @@
                     style="height: 200%; width: 250%; object-fit: contain; ">
                 </div>
               </div>
+            </div> -->
+
+          <div class="voucher shadow-lg mb-4">
+            <div class="left">
+              <img src="img/gift/gift.webp" alt="Gifts" />
+            </div>
+            <div class="middle">
+              <!-- <h1>SHOPPING<br />VOUCHER</h1> -->
+              <div class="course__img" style="overflow: hidden; margin: 0 auto">
+                <img
+                  [src]="item.image_url"
+                  alt="{{ item.brand_name }} Image"
+                  class=""
+                />
+              </div>
+
+              <div class="gift-voucher">Gift voucher</div>
             </div>
 
+            <div class="voucher-cutout"></div>
 
-
-            <!-- Description Card -->
-            <div class="card shadow-lg mb-4">
-              <div class="card-body">
-                <h4 class="fw-bold">Description :</h4>
-
-                <ng-scrollbar style="max-height: 200px">
-                  <p>{{ item.description }}</p>
-                </ng-scrollbar>
+            <div class="right">
+              <div class="right-content">
+                <h2>{{ item.outward_discount }}%<br />OFF</h2>
               </div>
             </div>
+          </div>
 
-            <!-- Terms & Conditions Card -->
-            <div class="card shadow-lg mb-4" >
-              <div class="card-body">
-                <h4 class="fw-bold">Terms & Conditions :</h4>
-                <ng-scrollbar style="max-height: 200px">
+          <!-- Description Card -->
+          <div class="card shadow-lg mb-4">
+            <div class="card-body">
+              <h4 class="fw-bold">Description :</h4>
+
+              <ng-scrollbar style="max-height: 200px">
+                <p>{{ item.description }}</p>
+              </ng-scrollbar>
+            </div>
+          </div>
+
+          <!-- Terms & Conditions Card -->
+          <div class="card shadow-lg mb-4">
+            <div class="card-body">
+              <h4 class="fw-bold">Terms & Conditions :</h4>
+              <ng-scrollbar style="max-height: 200px">
                 <p [innerHTML]="renderHtml(item.terms_and_conditions)"></p>
-                </ng-scrollbar>
+              </ng-scrollbar>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Gift Card Selection -->
+      <div class="col-xxl-5 col-xl-5 col-lg-5 pt-5">
+        <div
+          class="course__sidebar p-4 shadow-lg rounded-3 bg-light position-relative"
+        >
+          <h3 class="card-title text-center mb-4 fw-bold">Gift Card Value</h3>
+
+          <!-- Fixed Brand Type Cards -->
+          <div
+            *ngIf="
+              item.brand_type.toLowerCase() === 'fixed';
+              else sliderTemplate
+            "
+          >
+            <div class="row justify-content-center">
+              <div class="col-12 d-flex flex-wrap justify-content-center gap-4">
+                <div
+                  *ngFor="let card of denominationArray"
+                  (click)="selectCardValue(card)"
+                  [class.selected]="selectedCardValueData === card"
+                  class="fixed-card text-center rounded-2 shadow border-0"
+                >
+                  <p class="fw-bold mb-0">₹ {{ card }}</p>
+                </div>
               </div>
+            </div>
+
+            <h4 class="fw-bold my-4 text-center">
+              Total Pay :
+              <span class="text-success fw-bold mb-2"
+                >&#8377; {{ totalPay }}
+              </span>
+            </h4>
+          </div>
+
+          <!-- Slider Template for Dynamic Pricing -->
+          <ng-template #sliderTemplate>
+            <div class="text-center my-4">
+              <h4 class="fw-bold mb-3">Select Amount</h4>
+              <div class="custom-slider">
+                <ngx-slider
+                  class="slider-value-change"
+                  [(value)]="sliderValue"
+                  [options]="options"
+                  (valueChange)="updatedValue(sliderValue)"
+                >
+                </ngx-slider>
+              </div>
+            </div>
+            <div class="rangervalue mx-auto">
+              <input
+                type="number"
+                [(ngModel)]="inputValue"
+                class="form-control mx-auto text-center"
+                placeholder="Enter amount"
+                style="width: 150px"
+                (input)="setCustomAmount(item)"
+              />
+              <span class="text-primary">{{ valueNotInRange }}</span>
+            </div>
+            <h4 class="fw-bold my-4 text-center">
+              Total Pay :
+              <span class="text-success fw-bold mb-2"
+                >&#8377; {{ sliderValue }}
+              </span>
+            </h4>
+          </ng-template>
+
+          <!-- Total Pay Section -->
+          <div class="row mt-5 text-center">
+            <div class="col-md-12">
+              <button
+                class="button px-5 py-2"
+                (click)="toggleWishlist(item)"
+                [disabled]="!valueVerify"
+              >
+                <i class="bi bi-cart me-2"></i> Add to Cart
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Gift Card Selection -->
-        <div class="col-xxl-5 col-xl-5 col-lg-5 pt-5">
-          <div class="course__sidebar p-4 shadow-lg rounded-3 bg-light position-relative ">
-            <h3 class="card-title text-center mb-4 fw-bold">Gift Card Value</h3>
-
-            <!-- Fixed Brand Type Cards -->
-            <div *ngIf="item.brand_type.toLowerCase() === 'fixed'; else sliderTemplate">
-              <div class="row justify-content-center">
-                <div class="col-12 d-flex flex-wrap justify-content-center gap-4">
-                  <div
-                    *ngFor="let card of denominationArray"
-                    (click)="selectCardValue(card)"
-                    [class.selected]="selectedCardValueData === card"
-                    class="fixed-card text-center rounded-2 shadow border-0"
-                   >
-                    <p class="fw-bold mb-0">₹ {{ card }} </p>
+        <!-- Redeem Steps Carousel -->
+        <div
+          class="pt-50"
+          *ngIf="item.redeem_steps && item.redeem_steps.length > 0"
+        >
+          <div class="card redmee-card">
+            <h4 class="fw-bold">Redeem Steps:</h4>
+            <div
+              id="redeemStepCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div
+                  class="carousel-item"
+                  *ngFor="let step of item.redeem_steps; let i = index"
+                  [class.active]="i === 0"
+                >
+                  <div class="redeem-step d-flex align-items-center mb-3">
+                    <img
+                      [src]="
+                        !step.image ? 'img/contact/default_img.png' : step.image
+                      "
+                      alt="Step image"
+                      class="redeem-step-img rounded shadow-sm me-3"
+                    />
+                    <p class="step-title">{{ step.title }}</p>
                   </div>
                 </div>
               </div>
-
-              <h4 class="fw-bold my-4 text-center">Total Pay : <span class="text-success fw-bold mb-2">&#8377; {{ totalPay }} </span>
-              </h4>
-            </div>
-
-            <!-- Slider Template for Dynamic Pricing -->
-            <ng-template #sliderTemplate >
-
-              <div class="text-center my-4">
-                <h4 class="fw-bold mb-3 text-secondary">Select Amount</h4>
-                <div class="custom-slider" >
-                  <ngx-slider
-                    [(value)]="sliderValue"
-                    [options]="options"
-                    (valueChange)="updatedValue(sliderValue)">
-                  </ngx-slider>
-                    </div>
-              </div>
-              <div class="text-center mx-auto">
-                <input
-                  type="number"
-                  [(ngModel)]="inputValue"
-                  class="form-control mx-auto"
-                  placeholder="Enter amount"
-                  style="width: 150px;" (input)="setCustomAmount(item)" />
-                  <span class=" text-primary">{{valueNotInRange}}</span>
-              </div>
-              <h4 class="fw-bold my-4 text-secondary text-center">Total Pay : <span class=" text-primary fw-bold mb-2" >&#8377; {{ sliderValue }} </span>
-              </h4>
-            </ng-template>
-
-            <!-- Total Pay Section -->
-            <div class="row mt-5 text-center">
-              <div class="col-md-12">
+              <div
+                class="justify-content-between"
+                style="position: relative; display: flex"
+              >
                 <button
-                  class="button   px-5 py-2"
-                  (click)="toggleWishlist(item)" [disabled]="!valueVerify">
-                  <i class="bi bi-cart me-2"></i> Add to Cart
+                  class="button-class"
+                  type="button"
+                  data-bs-target="#redeemStepCarousel"
+                  data-bs-slide="prev"
+                >
+                  <span class="btn px-2 py-1">Previous</span>
+                </button>
+                <button
+                  class="button-class"
+                  type="button"
+                  data-bs-target="#redeemStepCarousel"
+                  data-bs-slide="next"
+                >
+                  <span class="btn px-3 py-1">Next</span>
                 </button>
               </div>
             </div>
           </div>
-
-          <!-- Redeem Steps Carousel -->
-          <div class="pt-50" *ngIf="item.redeem_steps && item.redeem_steps.length > 0">
-            <div class="card redmee-card">
-              <h4 class="fw-bold">Redeem Steps:</h4>
-              <div id="redeemStepCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item" *ngFor="let step of item.redeem_steps; let i = index"
-                       [class.active]="i === 0">
-                    <div class="redeem-step d-flex align-items-center mb-3">
-                      <img [src]="!step.image?'img/contact/default_img.png':step.image" alt="Step image"
-                           class="redeem-step-img rounded shadow-sm me-3">
-                      <p class="step-title">{{ step.title }}</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="justify-content-center" style="position: relative;">
-                  <button class="carousel-control-prev button-class" type="button"
-                          data-bs-target="#redeemStepCarousel" data-bs-slide="prev">
-                    <span class="btn   px-2 py-1">Previous</span>
-                  </button>
-                  <button class="carousel-control-next button-class" type="button"
-                          data-bs-target="#redeemStepCarousel" data-bs-slide="next">
-                    <span class="btn   px-3 py-1">Next</span>
-                  </button>
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="pt-50" *ngIf="!item.important_instruction ">
-            <div class="card" >
-              <div class="card-body">
-                <h4 class="fw-bold">Important Instructions :</h4>
-                <div *ngIf="item.important_instruction && Object.keys(item.important_instruction).length > 0">
-                  <ul>
-                    <li *ngFor="let key of Object.keys(item.important_instruction)">
-                      <p class=""> -  {{ item.important_instruction[key] }} </p>
-                    </li>
-                  </ul>
-                </div>
+        </div>
+        <div class="pt-50" *ngIf="!item.important_instruction">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="fw-bold">Important Instructions :</h4>
+              <div
+                *ngIf="
+                  item.important_instruction &&
+                  Object.keys(item.important_instruction).length > 0
+                "
+              >
+                <ul>
+                  <li
+                    *ngFor="let key of Object.keys(item.important_instruction)"
+                  >
+                    <p class="">- {{ item.important_instruction[key] }}</p>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     } @else {
-      <div class="row">
-        <tr *ngIf="!matchingProducts">
-          <td colspan="10" class="empty-cart-message">
-            <div class="message-container">
-              <i class="ri-gift-line icon"></i>
-              <p class="message">No vouchers Found.</p>
-              <p class=" text-primary fs-5">{{error_message ? 'Unable to load brand details.' : ''}}</p>
-              <a href="/" class="btn">Back to Home</a>            </div>
-          </td>
-        </tr>
-      </div>
+    <div class="row">
+      <tr *ngIf="!matchingProducts">
+        <td colspan="10" class="empty-cart-message">
+          <div class="message-container">
+            <i class="ri-gift-line icon"></i>
+            <p class="message">No vouchers Found.</p>
+            <p class="text-primary fs-5">
+              {{ error_message ? "Unable to load brand details." : "" }}
+            </p>
+            <a href="/" class="btn">Back to Home</a>
+          </div>
+        </td>
+      </tr>
+    </div>
     }
-
   </div>
 </section>
-
-
