@@ -32,6 +32,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         if (event instanceof NavigationStart) {
           this.loading = true;
         } else if (event instanceof NavigationEnd || event instanceof NavigationCancel) {
+           window.scrollTo({ top: 0, behavior: 'smooth' });
           setTimeout(() => {
             this.loading = false;
           }, 1000)

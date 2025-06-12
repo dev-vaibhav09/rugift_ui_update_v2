@@ -1,0 +1,124 @@
+.first-last-name-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.first-last-name-container .input-box:nth-child(1) {
+  width: 100%;
+}
+.first-last-name-container .input-box:nth-child(2) {
+  width: 100%;
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+
+  .details {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    border: 1px solid var(--tertiary-color);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+
+    &::placeholder {
+      color: var(--placeholder-color);
+    }
+
+    &:focus {
+      border: 1px solid var(--secondary-color);
+      box-shadow: 0 0 0 4px rgba(35, 150, 189, 0.1);
+      outline: none;
+    }
+
+    &.ng-invalid.ng-touched {
+      border-color: var(--error-color);
+      background-color: rgba(220, 53, 69, 0.03);
+    }
+
+    &.ng-valid.ng-touched {
+      border-color: var(--success-color);
+      background-color: rgba(40, 167, 69, 0.03);
+    }
+  }
+  textarea {
+    border: 1px solid var(--tertiary-color);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+
+    &::placeholder {
+      color: var(--placeholder-color);
+    }
+
+    &:focus {
+      border: 1px solid var(--secondary-color);
+      box-shadow: 0 0 0 4px rgba(35, 150, 189, 0.1);
+      outline: none;
+    }
+
+    &.ng-invalid.ng-touched {
+      border-color: var(--error-color);
+      background-color: rgba(220, 53, 69, 0.03);
+    }
+
+    &.ng-valid.ng-touched {
+      border-color: var(--success-color);
+      background-color: rgba(40, 167, 69, 0.03);
+    }
+  }
+}
+
+.form-control {
+  font-size: 1rem; /* Ensure inputs are easy to read */
+  background: transparent;
+  border: 1px solid var(--tertiary-color);
+  border-radius: 8px;
+  padding: 14px 18px;
+
+  transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+  color: var(--text-light);
+}
+
+.form-control:focus {
+  background: transparent;
+  border-color: #0984e3; /* Highlight color on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(9, 132, 227, 0.5); /* Subtle focus effect */
+}
+.text-danger{
+    font-size: 13px;
+}
+
+.e-btn{
+    background: var(--secondary-color);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+.e-btn:hover{
+    transform: translateY(-2px);
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+}

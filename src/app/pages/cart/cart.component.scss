@@ -7,17 +7,17 @@
   margin-bottom: 4.3rem;
 }
 
-table{
-    background: var(--light-primary-color);
-    padding: 40px;
-    border-radius: 20px;
-    position: relative;
-    max-width: 1200px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(35, 150, 189, 0.1);
-    overflow: hidden;
+table {
+  background: var(--light-primary-color);
+  padding: 40px;
+  border-radius: 20px;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(35, 150, 189, 0.1);
+  overflow: hidden;
 }
 
 /* Product Images */
@@ -34,16 +34,13 @@ table{
   transform: scale(1.1);
 }
 thead {
-  background: var(--primary-color-light);
+  background: var(--primary-color);
 }
 thead tr th {
   padding: 1rem;
   font-size: 1rem;
   letter-spacing: 1px;
 }
-
-
-
 
 /* Quantity Controls */
 .product-quantity-form {
@@ -102,9 +99,8 @@ thead tr th {
   // -ms-transition: font-size 0.1s ease;
   // -o-transition: font-size 0.1s ease;
 }
-.remove-item:hover{
+.remove-item:hover {
   font-size: 1.5rem;
- 
 }
 
 .cart-table th {
@@ -119,7 +115,7 @@ thead tr th {
   background: var(--back-hover-theme); /* Elegant gradient background */
 }
 
-.total-amt{
+.total-amt {
   font-weight: 800;
 }
 
@@ -197,20 +193,20 @@ thead tr th {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
- 
-
- 
 }
-tbody, td, tfoot, th, thead, tr {
-    border-color: none !important;
-     border-style: none; 
-    border-width: 0; 
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  border-color: none !important;
+  border-style: none;
+  border-width: 0;
 }
 
-
-tbody tr{
+tbody tr {
   border-bottom: 1px solid var(--primary-color-light); /* Light border for rows */
-
 }
 
 .empty-cart-message .message-container {
@@ -221,15 +217,47 @@ tbody tr{
   padding: 16px 8px;
 }
 
-.cart-item td{
+.cart-item td {
   padding: 1rem;
 }
 
+
 .empty-cart-message .icon {
-  font-size: 32px;
-  color: #4ca1af; /* Match the gradient colors used in the buttons */
+  font-size: 48px;
+  color: #4ca1af;
   margin-bottom: 20px;
+  animation: gift_icon_shake 1s ease-in-out infinite;
+  -webkit-animation: gift_icon_shake 1s ease-in-out infinite;
 }
+
+
+@keyframes gift_icon_shake {
+  0% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(6deg);
+  }
+  30% {
+    transform: rotate(-6deg);
+  }
+  45% {
+    transform: rotate(4deg);
+  }
+  60% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  90% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
 
 .empty-cart-message .message {
   font-size: 23px;
@@ -239,8 +267,7 @@ tbody tr{
   margin: 10px 0;
 }
 
-.btn{
- 
+.btn {
   // width: 100%;
   background-color: var(--primary-color);
   padding: 8px 12px;
@@ -248,8 +275,6 @@ tbody tr{
   display: inline-block;
   color: var(--text-color);
   transition: all 0.3s ease;
-
-
 }
 .btn:hover {
   transform: translateY(-2px);
@@ -260,27 +285,25 @@ tbody tr{
 }
 
 .empty-cart-message .btn {
-    padding: 6px 40px;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 20px rgba(35, 150, 189, 0.3);
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
-    border: none;
+  padding: 6px 40px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(35, 150, 189, 0.3);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  border: none;
 }
 
 /* General table styling for small devices */
 @media (max-width: 768px) {
-
   thead tr th {
-  padding: 1.2rem;
-  font-size: 1rem;
- 
-}
+    padding: 1.2rem;
+    font-size: 1rem;
+  }
   .cart-table table {
     font-size: 14px;
   }
@@ -312,7 +335,6 @@ tbody tr{
     width: 100%;
     padding: 10px;
   }
-  
 }
 
 /* Extra small devices (phones) */
@@ -331,24 +353,24 @@ tbody tr{
   .qty-container {
     gap: 8px;
   }
-  
-  .qty-btn-minus,
-.qty-btn-plus {
-  font-size: 15px;
-}
 
-.qty-container .input-qty {
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  width: 40px;
-  height: 30px;
-  padding: 1px;
-  margin: 0 12px;
-  border-radius: 8px;
-  border: 2px solid #b0bec5;
-  background-color: #fff;
-  color: #2c3e50; /* Darker text for contrast */
-  transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
-}
+  .qty-btn-minus,
+  .qty-btn-plus {
+    font-size: 15px;
+  }
+
+  .qty-container .input-qty {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    width: 40px;
+    height: 30px;
+    padding: 1px;
+    margin: 0 12px;
+    border-radius: 8px;
+    border: 2px solid #b0bec5;
+    background-color: #fff;
+    color: #2c3e50; /* Darker text for contrast */
+    transition: border 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+  }
 }

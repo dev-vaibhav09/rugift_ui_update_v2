@@ -1,99 +1,99 @@
-
-<app-breadcrumb
+<!-- <app-breadcrumb
   [title]="'Checkout'"
   [subtitle]="'Cart'"
   [subtitle_link]="'/cart'"
   [subsubtitle]="'Checkout'"
-  [subsubtitle_link]="'/checkout'">
-</app-breadcrumb>
+  [subsubtitle_link]="'/checkout'"
+>
+</app-breadcrumb> -->
+
+
+<!-- checkout -->
 @if(is_loading){
-  <app-progress-spinner *ngIf="is_loading"></app-progress-spinner>
+<app-progress-spinner *ngIf="is_loading"></app-progress-spinner>
 }@else{
-<section class="checkout-area py-5">
-  <div class="container">
-    <form action="#">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="your-order mb-4 p-5 shadow-lg rounded bg-light">
-            <h3 class="order-title mb-4 ">Your Order</h3>
+<div class="order-container">
+  <h2 class="order-title">
+    Shopping Cart<span class="text-primary"> ({{ carts.length }})</span>
+  </h2>
+  <main>
+    <section class="cart">
+      <tr *ngIf="!carts || carts.length === 0">
+        <td colspan="10" class="empty-cart-message">
+          <div class="message-container">
+            <i class="ri-gift-line icon"></i>
+            <p class="message">No vouchers have been added yet.</p>
+            <a href="/choose_category" class="btn">Browse Vouchers</a>
+          </div>
+        </td>
+      </tr>
 
-            <!-- Table for Order Items -->
-            <div class="order-items-table table-responsive">
-              <table class="table table-bordered table-striped">
-                <thead>
-                <tr class="table-header">
-                  <th>Brand</th>
-                  <th>Discount</th>
-                  <th>Quantity</th>
-                  <th>Unit Price</th>
-                  <th>Total</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngIf="!carts || carts.length === 0">
-                  <td colspan="10" class="empty-cart-message">
-                    <div class="message-container">
-                      <i class="ri-gift-line icon"></i>
-                      <p class="message">No vouchers have been added yet.</p>
-                      <a href="/choose_category" class="btn">Browse Vouchers</a>
-                    </div>
-                  </td>
-                </tr>
-                <tr *ngFor="let item of carts">
-                  <td>{{ item.brand_name }}</td>
-                  <td>
-                    @if (item.is_discount_applicable){
-                      {{ item.outward_discount }} %
-                    }
-                    @else{
-                      0 %
-                    }
-                    </td>
-                  <td>{{ item.no_of_card }}</td>
-                  <td>₹{{ item.selectedDenomination.toFixed(2) }}</td>
-                  <td>₹{{ item.subtotal.toFixed(2) }}</td>
-                </tr>
-                </tbody>
-              </table>
+      <div *ngFor="let item of carts" class="cart-item">
+        <div class="product-thumbnail">
+          <a>
+            <img
+              class="product-img"
+              src="{{ item.image_url }}"
+              alt="{{ item.brand_name }}"
+            />
+          </a>
+        </div>
+        <p class="title">
+          {{ item.brand_name }}
+          <span
+            >Quantity: {{ item.no_of_card }} x ₹{{
+              item.selectedDenomination.toFixed(2)
+            }}</span
+          >
+        </p>
+        <p class="currency">
+          @if (item.is_discount_applicable){ {{ item.outward_discount }}% }
+          @else{ 0% }
+        </p>
+        <p class="price">₹{{ item.subtotal.toFixed(2) }}</p>
+      </div>
+    </section>
+    <section class="checkout">
+      <h2 class="mb-4">Order Summery</h2>
+      <div class="">
+        <div>
+          <div class="order d-flex justify-content-between  align-items-center my-2">
+            <div class="text-start">Actual Value</div>
+            <div class="text-end">
+              ₹{{ actualValue | number : "1.2-2" || "0.00" }}
             </div>
-
-            <!-- Order Summary Section -->
-            <div class="order-summary mt-6 p-4 shadow-lg rounded bg-light text-dark">
-
-              <!-- Order Details Table -->
-              <table class="table table-striped">
-                <tbody>
-                <tr>
-                  <th class="text-start">Actual Value</th>
-                  <td class="text-end fw-semibold">₹{{ actualValue | number:'1.2-2' || '0.00' }}</td>
-                </tr>
-                <tr>
-                  <th class="text-start">Discounted Amount</th>
-                  <td class="text-end text-danger fw-semibold">₹{{ totaldiscountedAmount | number:'1.2-2' || '0.00' }}</td>
-                </tr>
-                <tr>
-                  <th class="text-start">Total</th>
-                  <td class="text-end text-success fw-bold">₹{{ totalWishlistPrice | number:'1.2-2' || '0.00' }}</td>
-                </tr>
-                </tbody>
-              </table>
-
-              <!-- Divider -->
-              <hr class="my-4">
-
-              <!-- Place Order Button -->
-              <div class="order-button-payment text-center mt-4" *ngIf="carts.length!==0">
-                <button class="btn btn-primary" type="button" (click)="isButtonDisabled = true; placeOrder()"
-                        [disabled]="isButtonDisabled">Place Order</button>
-              </div>
+          </div>
+          <div class="order d-flex justify-content-between  align-items-center my-2">
+            <div class="text-start">Discounted Amount</div>
+            <div class="text-end text-success">
+              -₹{{ totaldiscountedAmount | number : "1.2-2" || "0.00" }}
             </div>
-
-
+          </div>
+          <hr class="my-4" />
+          <div class="order d-flex justify-content-between  align-items-center my-2">
+            <div class="text-start total total-price fw-semibold">Total</div>
+            <div class="text-end total-price text-primary fw-bold">
+              ₹{{ totalWishlistPrice | number : "1.2-2" || "0.00" }}
+            </div>
           </div>
         </div>
       </div>
-    </form>
-  </div>
-</section>
-}
 
+      <!-- Place Order Button -->
+      <div
+        class="order-button-payment text-center mt-4"
+        *ngIf="carts.length !== 0"
+      >
+        <button
+          class="btn"
+          type="button"
+          (click)="isButtonDisabled = true; placeOrder()"
+          [disabled]="isButtonDisabled"
+        >
+          Place Order
+        </button>
+      </div>
+    </section>
+  </main>
+</div>
+}

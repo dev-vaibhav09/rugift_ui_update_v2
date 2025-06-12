@@ -5,10 +5,11 @@
   transition: transform 0.3s ease;
   /*Forhovereffect*/border-radius:20px ;
   overflow: hidden;
+  position: relative;
 }
 .blog-widget-2:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--btn-box-shadow);
 }
 .blog-img {
   overflow: hidden; /* To make image responsive */
@@ -25,12 +26,20 @@
 }
 .catagory {
   position: absolute;
-  top: 10px;
-  color: #fff;
+  top:-80px;
+  color: var(--text-color);
   padding: 5px 10px;
   text-transform: uppercase;
   font-size: 0.7rem;
   font-weight: bold;
+  transition: 0.5s ;
+  -webkit-transition: 0.5s ;
+  -moz-transition: 0.5s ;
+  -ms-transition: 0.5s ;
+  -o-transition: 0.5s ;
+}
+.blog-widget-2:hover .catagory {
+ top: 10px;
 }
 .violet-bg{
   background-color: var(--primary-color); /* A violet background for the catagory tag */

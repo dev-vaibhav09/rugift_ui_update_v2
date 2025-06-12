@@ -33,6 +33,7 @@ interface OrderData {
 }
 
 interface CartItem {
+  image_url: string,
   brand_name: string;
   selectedDenomination: number;
   outward_discount:string;
@@ -105,6 +106,7 @@ export class CheckoutComponent implements OnInit {
       }
 
       this.payload.push({
+        "image_url": item.image_url,
         "brand_code": item.brand_code,
         "no_of_card": item.no_of_card,
         "subtotal": item.subtotal,

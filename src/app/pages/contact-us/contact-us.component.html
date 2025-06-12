@@ -1,65 +1,132 @@
-
-<app-breadcrumb
-  [title]="'Contact Us'"
-  [subtitle]="'Contact Us'"
-  [subtitle_link]="'/'">
-</app-breadcrumb>
 <section class="contact__area pt-115 pb-120">
   <div class="container">
     <div class="row">
       <div class="col-xxl-7 col-xl-7 col-lg-6">
         <div class="contact__wrapper">
           <div class="section__title-wrapper mb-40">
-            <h2 class="section__title">Get in <span class="yellow-bg yellow-bg-big">touch<img src="img/shape/yellow-bg.png" alt=""></span></h2>
-            <p>Have a question or just want to say hi? We'd love to hear from you.</p>
+            <h2 class="section__title">
+              Get in <span class="text-primary">touch</span>
+            </h2>
+            <p>
+              Have a question or just want to say hi? We'd love to hear from
+              you.
+            </p>
           </div>
           <div class="contact__form">
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"> <!-- Corrected -->
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+              <!-- Corrected -->
               <div class="row">
-                <div class="col-xxl-6 col-xl-6 col-md-6">
-                  <div class="contact__form-input">
-                    <input type="text" placeholder="Your Name" formControlName="name">
-                    <small *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                <div class="first-last-name-container">
+                  <!-- Your Name -->
+                  <div class="input-box">
+                    <span class="details">Your Name</span>
+                    <input
+                      class="input-field-container"
+                      type="text"
+                      placeholder="Your Name"
+                      formControlName="name"
+                    />
+
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        contactForm.get('name')?.invalid &&
+                        contactForm.get('name')?.touched
+                      "
+                    >
                       Name is required and should be at least 2 characters.
                     </small>
                   </div>
-                </div>
-                <div class="col-xxl-6 col-xl-6 col-md-6">
-                  <div class="contact__form-input">
-                    <input type="email" placeholder="Your Email" formControlName="email">
-                    <small *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+
+                  <!-- Your Email -->
+                  <div class="input-box">
+                    <span class="details">Your Email</span>
+                    <input
+                      class="input-field-container"
+                      type="email"
+                      placeholder="Your Email"
+                      formControlName="email"
+                    />
+                    <small
+                      class="text-danger"
+                      *ngIf="
+                        contactForm.get('email')?.invalid &&
+                        contactForm.get('email')?.touched
+                      "
+                    >
                       Enter a valid email.
                     </small>
                   </div>
                 </div>
-                <div class="col-xxl-12">
-                  <div class="contact__form-input">
-                    <input type="text" placeholder="Subject" formControlName="subject">
-                    <small *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
-                      Subject is required.
-                    </small>
-                  </div>
+                <!-- subject -->
+                <div class="input-box">
+                  <span class="details">Subject</span>
+                  <input
+                    class="input-field-container"
+                    type="text"
+                    placeholder="Subject"
+                    formControlName="subject"
+                  />
+                  <small
+                    class="text-danger"
+                    *ngIf="
+                      contactForm.get('subject')?.invalid &&
+                      contactForm.get('subject')?.touched
+                    "
+                  >
+                    Subject is required.
+                  </small>
                 </div>
-                <div class="col-xxl-12">
-                  <div class="contact__form-input">
-                    <textarea placeholder="Enter Your Message" formControlName="message"></textarea>
-                    <small *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-                      Message must be at least 10 characters.
-                    </small>
-                  </div>
+
+                <!-- Message -->
+                <div class="input-box">
+                  <span class="details">Message</span>
+                  <textarea
+                    placeholder="Enter Your Message"
+                    formControlName="message"
+                  ></textarea>
+                  <small
+                    class="text-danger"
+                    *ngIf="
+                      contactForm.get('message')?.invalid &&
+                      contactForm.get('message')?.touched
+                    "
+                  >
+                    Message must be at least 10 characters.
+                  </small>
                 </div>
-                <div class="col-xxl-12">
-                  <div class="contact__form-agree d-flex align-items-center mb-20">
-                    <input class="e-check-input" type="checkbox" id="e-agree" formControlName="terms">
-                    <label class="e-check-label" for="e-agree">I agree to the <a href="#">Terms & Conditions</a></label>
-                    <small *ngIf="contactForm.get('terms')?.invalid && contactForm.get('terms')?.touched">
+
+                <div class="col-xxl-12 mb-20">
+                  <div
+                    class="contact__form-agree d-flex align-items-center"
+                  >
+                    <input
+                      class="input-field-container"
+                      class="e-check-input"
+                      type="checkbox"
+                      id="e-agree"
+                      formControlName="terms"
+                    />
+                    <label class="e-check-label" for="e-agree"
+                      >I agree to the <a href="#">Terms & Conditions</a></label
+                    >
+                   
+                  </div>
+                   <small
+                      class="text-danger"
+                      *ngIf="
+                        contactForm.get('terms')?.invalid &&
+                        contactForm.get('terms')?.touched
+                      "
+                    >
                       You must agree to the terms and conditions.
                     </small>
-                  </div>
                 </div>
                 <div class="col-xxl-12">
                   <div class="contact__btn">
-                    <button type="submit" class="e-btn">Send your message</button>
+                    <button type="submit" class="e-btn">
+                      Send your message
+                    </button>
                   </div>
                 </div>
               </div>
@@ -68,12 +135,26 @@
         </div>
       </div>
 
-      <div class="col-xxl-4 offset-xxl-1 col-xl-4 offset-xl-1 col-lg-5 offset-lg-1">
+      <div
+        class="col-xxl-4 offset-xxl-1 col-xl-4 offset-xl-1 col-lg-5 offset-lg-1"
+      >
         <div class="contact__info white-bg p-relative z-index-1">
           <div class="contact__shape">
-            <img class="contact-shape-1" src="img/contact/contact-shape-1.png" alt="">
-            <img class="contact-shape-2" src="img/contact/contact-shape-2.png" alt="">
-            <img class="contact-shape-3" src="img/contact/contact-shape-3.png" alt="">
+            <img
+              class="contact-shape-1"
+              src="img/contact/contact-shape-1.png"
+              alt=""
+            />
+            <img
+              class="contact-shape-2"
+              src="img/contact/contact-shape-2.png"
+              alt=""
+            />
+            <img
+              class="contact-shape-3"
+              src="img/contact/contact-shape-3.png"
+              alt=""
+            />
           </div>
           <div class="contact__info-inner white-bg">
             <ul>
@@ -81,15 +162,23 @@
                 <div class="contact__info-item d-flex align-items-start mb-35">
                   <div class="contact__info-icon mr-15">
                     <svg class="map" viewBox="0 0 24 24">
-                      <path class="st0" d="M21,10c0,7-9,13-9,13s-9-6-9-13c0-5,4-9,9-9S21,5,21,10z"/>
-                      <circle class="st0" cx="12" cy="10" r="3"/>
+                      <path
+                        class="st0"
+                        d="M21,10c0,7-9,13-9,13s-9-6-9-13c0-5,4-9,9-9S21,5,21,10z"
+                      />
+                      <circle class="st0" cx="12" cy="10" r="3" />
                     </svg>
                   </div>
                   <div class="contact__info-text">
                     <h4>Head Office</h4>
-                    <p><a target="_blank" href="https://maps.app.goo.gl/vpfMJ5CPrnarpBNo8">Crescent Business Solutions Pvt Ltd, Sigma IT Park,
-                      Rabele, Navi Mumbai, Maharashtra 400701</a></p>
-
+                    <p>
+                      <a
+                        target="_blank"
+                        href="https://maps.app.goo.gl/vpfMJ5CPrnarpBNo8"
+                        >Crescent Business Solutions Pvt Ltd, Sigma IT Park,
+                        Rabele, Navi Mumbai, Maharashtra 400701</a
+                      >
+                    </p>
                   </div>
                 </div>
               </li>
@@ -97,13 +186,20 @@
                 <div class="contact__info-item d-flex align-items-start mb-35">
                   <div class="contact__info-icon mr-15">
                     <svg class="mail" viewBox="0 0 24 24">
-                      <path class="st0" d="M4,4h16c1.1,0,2,0.9,2,2v12c0,1.1-0.9,2-2,2H4c-1.1,0-2-0.9-2-2V6C2,4.9,2.9,4,4,4z"/>
-                      <polyline class="st0" points="22,6 12,13 2,6 "/>
+                      <path
+                        class="st0"
+                        d="M4,4h16c1.1,0,2,0.9,2,2v12c0,1.1-0.9,2-2,2H4c-1.1,0-2-0.9-2-2V6C2,4.9,2.9,4,4,4z"
+                      />
+                      <polyline class="st0" points="22,6 12,13 2,6 " />
                     </svg>
                   </div>
                   <div class="contact__info-text">
-                    <h4>Email </h4>
-                    <p><a href="mailto:support@educal.com">info&#64;rucards.in</a></p>
+                    <h4>Email</h4>
+                    <p>
+                      <a href="mailto:support@educal.com"
+                        >info&#64;rucards.in</a
+                      >
+                    </p>
                   </div>
                 </div>
               </li>
@@ -111,7 +207,10 @@
                 <div class="contact__info-item d-flex align-items-start mb-35">
                   <div class="contact__info-icon mr-15">
                     <svg class="call" viewBox="0 0 24 24">
-                      <path class="st0" d="M22,16.9v3c0,1.1-0.9,2-2,2c-0.1,0-0.1,0-0.2,0c-3.1-0.3-6-1.4-8.6-3.1c-2.4-1.5-4.5-3.6-6-6  c-1.7-2.6-2.7-5.6-3.1-8.7C2,3.1,2.8,2.1,3.9,2C4,2,4.1,2,4.1,2h3c1,0,1.9,0.7,2,1.7c0.1,1,0.4,1.9,0.7,2.8c0.3,0.7,0.1,1.6-0.4,2.1  L8.1,9.9c1.4,2.5,3.5,4.6,6,6l1.3-1.3c0.6-0.5,1.4-0.7,2.1-0.4c0.9,0.3,1.8,0.6,2.8,0.7C21.3,15,22,15.9,22,16.9z"/>
+                      <path
+                        class="st0"
+                        d="M22,16.9v3c0,1.1-0.9,2-2,2c-0.1,0-0.1,0-0.2,0c-3.1-0.3-6-1.4-8.6-3.1c-2.4-1.5-4.5-3.6-6-6  c-1.7-2.6-2.7-5.6-3.1-8.7C2,3.1,2.8,2.1,3.9,2C4,2,4.1,2,4.1,2h3c1,0,1.9,0.7,2,1.7c0.1,1,0.4,1.9,0.7,2.8c0.3,0.7,0.1,1.6-0.4,2.1  L8.1,9.9c1.4,2.5,3.5,4.6,6,6l1.3-1.3c0.6-0.5,1.4-0.7,2.1-0.4c0.9,0.3,1.8,0.6,2.8,0.7C21.3,15,22,15.9,22,16.9z"
+                      />
                     </svg>
                   </div>
                   <div class="contact__info-text">
@@ -124,9 +223,21 @@
             <div class="contact__social pl-40">
               <h4>Follow Us</h4>
               <ul>
-                <li><a href="https://www.facebook.com/www.rucards.in" class="fb" ><i class="ri-facebook-circle-line"></i></a></li>
-                <li><a href="https://instagram.com/rucards.in" class="pin" ><i class="ri-instagram-line"></i></a></li>
-                <li><a href="https://www.youtube.com/@rucards4944" class="pin" ><i class="ri-youtube-line"></i></a></li>
+                <li>
+                  <a href="https://www.facebook.com/www.rucards.in" class="fb"
+                    ><i class="ri-facebook-circle-line"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://instagram.com/rucards.in" class="pin"
+                    ><i class="ri-instagram-line"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/@rucards4944" class="pin"
+                    ><i class="ri-youtube-line"></i
+                  ></a>
+                </li>
               </ul>
             </div>
           </div>
