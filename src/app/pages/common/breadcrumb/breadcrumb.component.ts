@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {ApiService} from "../../../shared/services/api.service";
 
 @Component({
   selector: 'app-breadcrumb',
   standalone: true,
-    imports: [RouterLink, NgIf, NgForOf],
+    imports: [RouterLink, NgIf, NgForOf,NgClass],
   templateUrl: './breadcrumb.component.html',
   styleUrls: ['./breadcrumb.component.scss'],
 })
@@ -43,6 +43,10 @@ export class BreadcrumbComponent implements OnInit {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ');
   }
+
+  isActiveCategory(category: string): boolean {
+  return this.router.url === `/vouchers/${category}`;
+}
 
 
   router_link(item: string) {

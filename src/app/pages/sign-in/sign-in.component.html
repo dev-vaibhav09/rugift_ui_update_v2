@@ -1,99 +1,116 @@
+<!-- <app-header></app-header> -->
 
+<section class="signin__area mx-auto">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="row">
+      <!-- Illustration Image -->
+      <div class="left-section col-lg-6 d-none d-lg-block">
+        <div class="img-container">
+          <img
+            src="img/signin_1.gif"
+            alt="Sign-in Illustration"
+            class="signin-vector img-fluid"
+          />
+        </div>
+      </div>
 
-<app-header></app-header>
-<app-breadcrumb
-  [title]="'Sign In'"
-  [subtitle]="'Sign In'"
-  [subtitle_link]="'/sign-in'">
-</app-breadcrumb>
+      <!-- Form Section -->
+      <div class="col-lg-6">
+        <div class="sign__wrapper">
+          <h3 class="text-center mb-4">
+            Welcome To <span class="text-primary">Rucards</span>
+          </h3>
+          <form [formGroup]="signInForm" (ngSubmit)="onVerifyAgain()">
+            <!-- Phone Number -->
+            <div class="sign__input-wrapper mb-3">
+              <div class="input-box">
+                <span class="details">Phone Number</span>
+                <input
+                  formControlName="phoneNumber"
+                  class="form-control bg-light rounded-pill"
+                  type="text"
+                  placeholder="Phone Number"
+                  id="mobile_no"
+                  appMobileNumberValidator
+                  appDisableCopyPaste
+                  maxlength="10"
+                  inputmode="numeric"
+                  autocomplete="off"
+                />
+                <div
+                  *ngIf="
+                    signInForm
+                      .get('phoneNumber')
+                      ?.hasError('invalidMobileNumber')
+                  "
+                  class="text-danger"
+                >
+                  {{
+                    signInForm
+                      .get("phoneNumber")
+                      ?.getError("invalidMobileNumber")
+                  }}
+                </div>
+              </div>
 
-<section class="signin__area pb-100 pt-50">
-  <div class="container min-vh-80 d-flex justify-content-center align-items-center">
-    <div class="row w-100">
-      <div class="col-lg-10">
-        <div class="card signin-card shadow-lg">
-          <div class="row g-0" >
-            <!-- Illustration Image -->
-            <div class="col-lg-6 d-none d-lg-block">
-              <img src="img/signin_1.gif" alt="Sign-in Illustration" class="signin-vector img-fluid " />
-            </div>
-
-            <!-- Form Section -->
-            <div class="col-lg-6  pt-70" >
-              <div class="sign__wrapper"  style="background: #efe8e8">
-                <h3 class="text-center mb-4">Welcome To Rucards!</h3>
-                <form [formGroup]="signInForm" (ngSubmit)="onVerifyAgain()">
-                  <!-- Phone Number -->
-                  <div class="sign__input-wrapper mb-3">
-                    <h5>Phone Number</h5>
-                    <div class="sign__input d-flex position-relative">
-                      <input
-                        formControlName="phoneNumber"
-                        class="form-control bg-light rounded-pill"
-                        type="text"
-                        placeholder="Phone Number"
-                        id="mobile_no"
-                        appMobileNumberValidator
-                        appDisableCopyPaste maxlength="10" inputmode="numeric" autocomplete="off"
-                      />
-                    </div>
-                    <div *ngIf="signInForm.get('phoneNumber')?.hasError('invalidMobileNumber')" class="text-danger">
-                      {{ signInForm.get('phoneNumber')?.getError('invalidMobileNumber') }}
-                    </div>
-
-                    <div class="text-center">
-                      <p>Don't have an account?
-                        <a [routerLink]="['/sign-up']" class="btn btn-link">Sign Up</a>
-                      </p>
-                    </div>
-                    <!-- Verify Button -->
-                    <div *ngIf="!showOtpField" class="text-center mt-3">
-                      <button
-                        class="btn btn-primary w-50"
-                        type="button"
-                        (click)="generate()"
-                        [disabled]="!signInForm.get('phoneNumber')?.valid"
-                      >
-                        Verify
-                      </button>
-                    </div>
-                  </div>
-
-                  <!-- OTP Field -->
-                  <div class="sign__input-wrapper mb-3" *ngIf="showOtpField">
-                    <h5>Enter OTP</h5>
-                    <div class="sign__input position-relative">
-                      <input
-                        formControlName="otp"
-                        class="form-control bg-light rounded-pill"
-                        type="text"
-                        placeholder="OTP"
-                        id="otp"
-                        maxlength="6" autocomplete="off" inputmode="numeric" appDisableCopyPaste appNumberOnly
-                      />
-                    </div>
-                  </div>
-
-                  <!-- Resend and Verify Again -->
-                  <div class="d-flex justify-content-between align-items-center mb-3" *ngIf="showOtpField">
-                    <button
-                      class="btn"
-                      [ngClass]="verified ? 'btn-success' : 'btn-secondary'"
-                      type="button"
-                      (click)="onVerifyAgain()"
-                    >
-                      Verify OTP
-                    </button>
-                    <a (click)="onResend()">Resend?</a>
-                  </div>
-                </form>
+              <div class="text-center">
+                <p>
+                  Don't have an account?
+                  <a [routerLink]="['/sign-up']" class="btn-link"
+                    >Sign Up</a
+                  >
+                </p>
+              </div>
+              <!-- Verify Button -->
+              <div *ngIf="!showOtpField" class="text-center mt-3">
+                <button
+                  class="btn btn-primary w-50"
+                  type="button"
+                  (click)="generate()"
+                  [disabled]="!signInForm.get('phoneNumber')?.valid"
+                >
+                  Verify
+                </button>
               </div>
             </div>
-          </div>
+
+            <!-- OTP Field -->
+            <div class="sign__input-wrapper mb-3" *ngIf="showOtpField">
+              <h5>Enter OTP</h5>
+              <div class="sign__input position-relative">
+                <input
+                  formControlName="otp"
+                  class="form-control bg-light rounded-pill"
+                  type="text"
+                  placeholder="OTP"
+                  id="otp"
+                  maxlength="6"
+                  autocomplete="off"
+                  inputmode="numeric"
+                  appDisableCopyPaste
+                  appNumberOnly
+                />
+              </div>
+            </div>
+
+            <!-- Resend and Verify Again -->
+            <div
+              class="d-flex justify-content-between align-items-center mb-3"
+              *ngIf="showOtpField"
+            >
+              <button
+                class="btn"
+                [ngClass]="verified ? 'btn-success' : 'btn-secondary'"
+                type="button"
+                (click)="onVerifyAgain()"
+              >
+                Verify OTP
+              </button>
+              <a (click)="onResend()">Resend?</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-

@@ -15,7 +15,7 @@
       <!-- Left Column: Description and Image -->
       <div class="col-xxl-7 col-xl-7 col-lg-7">
         <div class="course__wrapper">
-          <h2 class="fw-bold mb-2">{{ item.brand_name }}</h2>
+          <h2 class="brand-title fw-bold mb-2">{{ item.brand_name }}</h2>
           <!-- Discount & Brand Info Card -->
           <!-- <div class="card shadow-lg mb-4 card-voucher-container">
               <div class="card-body text-center">
@@ -68,7 +68,7 @@
               <h4 class="fw-bold">Description :</h4>
 
               <ng-scrollbar style="max-height: 200px">
-                <p>{{ item.description }}</p>
+                <p style="color: var(--primary-color);">{{ item.description }}</p>
               </ng-scrollbar>
             </div>
           </div>
@@ -78,7 +78,7 @@
             <div class="card-body">
               <h4 class="fw-bold">Terms & Conditions :</h4>
               <ng-scrollbar style="max-height: 200px">
-                <p [innerHTML]="renderHtml(item.terms_and_conditions)"></p>
+                <p style="color: var(--primary-color);" [innerHTML]="renderHtml(item.terms_and_conditions)"></p>
               </ng-scrollbar>
             </div>
           </div>
@@ -107,7 +107,7 @@
                   [class.selected]="selectedCardValueData === card"
                   class="fixed-card text-center rounded-2 shadow border-0"
                 >
-                  <p class="fw-bold mb-0">₹ {{ card }}</p>
+                  <p  class="fw-bold mb-0">₹ {{ card }}</p>
                 </div>
               </div>
             </div>
@@ -185,15 +185,15 @@
                   *ngFor="let step of item.redeem_steps; let i = index"
                   [class.active]="i === 0"
                 >
-                  <div class="redeem-step d-flex align-items-center mb-3">
+                  <div class="redeem-step d-flex align-items-center">
                     <img
                       [src]="
                         !step.image ? 'img/contact/default_img.png' : step.image
                       "
                       alt="Step image"
-                      class="redeem-step-img rounded shadow-sm me-3"
+                      class="redeem-step-img rounded shadow-sm"
                     />
-                    <p class="step-title">{{ step.title }}</p>
+                    <p class="step-title">❝ {{ step.title }} ❞</p>
                   </div>
                 </div>
               </div>
@@ -235,7 +235,7 @@
                   <li
                     *ngFor="let key of Object.keys(item.important_instruction)"
                   >
-                    <p class="">- {{ item.important_instruction[key] }}</p>
+                    <p style="color: var(--primary-color);" class="">- {{ item.important_instruction[key] }}</p>
                   </li>
                 </ul>
               </div>
@@ -250,8 +250,8 @@
         <td colspan="10" class="empty-cart-message">
           <div class="message-container">
             <i class="ri-gift-line icon"></i>
-            <p class="message">No vouchers Found.</p>
-            <p class="text-primary fs-5">
+            <p style="color: var(--primary-color);" class="message">No vouchers Found.</p>
+            <p style="color: var(--primary-color);" class="fs-5">
               {{ error_message ? "Unable to load brand details." : "" }}
             </p>
             <a href="/" class="btn">Back to Home</a>

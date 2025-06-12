@@ -5,7 +5,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   cursor: pointer;
-  border: 1px solid #ddd;
+  border: 1px solid var(--text-color);
 }
 
 .redmee-card {
@@ -68,10 +68,6 @@
   font-weight: 800;
 }
 
-.slider-value-change {
-  color: red;
-}
-
 .button {
   width: 100%;
   background-color: var(--primary-color);
@@ -113,20 +109,23 @@
   width: 60px;
   height: 60px;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 27px;
+}
+
+.brand-title::first-letter {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--secondary-color);
 }
 
 .step-title {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.4;
   position: relative;
+  color: var(--primary-color);
 }
-.step-title::before {
-  content: "❝";
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+
+
 .total-pay {
   h5 {
     font-size: 1.5rem;
@@ -315,7 +314,6 @@
   }
 }
 @media (max-width: 480px) {
-  
   .middle {
     width: 200px;
   }
@@ -326,11 +324,11 @@
     height: 90px;
   }
 
-  .middle{
+  .middle {
     margin-right: -2px;
   }
-  
-   .gift-voucher {
+
+  .gift-voucher {
     font-size: 1.6rem;
   }
 }
@@ -438,7 +436,7 @@ input.form-control {
 .empty-cart-message .btn {
   display: inline-block;
   background: var(--back-hover-theme); /* Elegant gradient background */
-  color: #ffffff;
+  color: var(--text-color);
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 700;
@@ -491,7 +489,7 @@ input.form-control {
   }
 
   .course__sidebar {
-    background-color: #ffffff;
+    background-color: var(--text-color);
     border-radius: 8px;
     box-shadow: none;
   }

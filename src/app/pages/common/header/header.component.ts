@@ -2,7 +2,7 @@ import {AfterContentInit, Component, ElementRef, HostListener, Input, OnInit, Vi
 import {WishlistService} from "../../../shared/services/wishlist.service";
 import {SessionStorageService} from "../../../shared/services/session-storage.service";
 import {User} from "../../../shared/interfaces/user";
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 import {NgIf} from "@angular/common";
 
 @Component({
@@ -10,7 +10,8 @@ import {NgIf} from "@angular/common";
   standalone: true,
   imports: [
     RouterLink,
-    NgIf
+    NgIf,
+    RouterLinkActive
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'

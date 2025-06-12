@@ -1,4 +1,9 @@
 /* Ensure the body takes full height of the viewport */
+
+body{
+  overflow: hidden !important;
+}
+
 .loader-container {
   margin: 0;
   overflow: hidden;

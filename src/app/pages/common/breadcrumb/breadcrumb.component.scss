@@ -1,5 +1,36 @@
 /* Modern Gaming Voucher Site Navigation & Hero Styles */
 @import url("https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap");
+.active-router {
+  display: inline-block;
+  padding: 10px 10px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(
+      0,
+      var(--secondary-color),
+      var(--tertiary-color)
+    );
+    border-radius: 3px 3px 0 0;
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+}
+
+.active-router.nav-link {
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
 
 /* Base Styles */
 .navigation-container {
@@ -75,7 +106,7 @@
     bottom: 0;
     left: 10%;
     width: 80%;
-    height: 3px;
+    // height: 3px;
 
     background: linear-gradient(
       0,
@@ -87,15 +118,6 @@
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  &.active {
-    background-color: rgba(255, 255, 255, 0.08);
-
-    &::after {
-      opacity: 1;
-      transform: scaleX(1);
-    }
   }
 }
 
@@ -344,7 +366,6 @@
     justify-content: flex-start;
     padding: 4px;
     min-height: 40px; /* Adjust min-height for smaller screens */
- 
   }
 
   .nav-item {
@@ -391,16 +412,14 @@
 
 /* Desktop Styles */
 @media (min-width: 1024px) {
-
   .hero-section {
     padding: 10px 0;
   }
-
 }
 @media (max-width: 1024px) {
-    .navigation-container {
-   margin: 85px 16px 0;
- }
+  .navigation-container {
+    margin: 85px 16px 0;
+  }
   .hero-section {
     grid-template-columns: repeat(1, 1fr);
   }

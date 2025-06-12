@@ -1,114 +1,175 @@
+<section class="signup__area">
+  <div class="card signup-card">
+    <div class="row-con g-0">
+      <!-- Illustration Image -->
+      <div class="left-section col-lg-6 d-none d-lg-block">
+        <div class="img-container">
+          <img
+            src="img/signup.gif"
+            alt="Sign-in Illustration"
+            class="signin-vector img-fluid"
+          />
+        </div>
+      </div>
 
-<app-breadcrumb
-  [title]="'Sign Up'"
-  [subtitle]="'Sign Up'"
-  [subtitle_link]="'/sign-up'">
-</app-breadcrumb>
+      <!-- Form Section -->
+      <div class="col-lg-6 mt-4 mb-4">
+        <div class="sign__wrapper__container">
+          <h3 class="text-center mb-4">
+            Register Your <span class="text-primary">Account</span>
+          </h3>
+          <form [formGroup]="signUpForm" (ngSubmit)="sign_up()">
+            <div class="first-last-name-container">
+              <!-- First Name -->
+              <div class="input-box">
+                <span class="details">First Name</span>
+                <input
+                  formControlName="firstname"
+                  class="form-control rounded-pill"
+                  type="text"
+                  placeholder="First Name"
+                  id="firstname"
+                  appDisableCopyPaste
+                  maxlength="25"
+                  inputmode="text"
+                  autocomplete="off"
+                  appAlphabeticInput
+                />
+              </div>
 
-<section class="signup__area pb-50   pt-50">
-    <div class="card signup-card ">
-          <div class="row g-0" >
-            <!-- Illustration Image -->
-            <div class="col-lg-6 d-flex align-items-center justify-content-center">
-              <img src="img/signup.gif" alt="Sign-in Illustration" class="signin-vector img-fluid rounded-pill" />
-            </div>
-
-
-            <!-- Form Section -->
-            <div class="col-lg-6 mt-4 mb-4">
-              <div class="sign__wrapper">
-                <h2 class="text-center mb-4">Register</h2>
-                <form [formGroup]="signUpForm" (ngSubmit)="sign_up()">
-                  <!-- First Name -->
-                  <div class="mb-3">
-                    <label for="firstname">First Name</label>
-                    <input formControlName="firstname" class="form-control rounded-pill  " type="text" placeholder="First Name" id="firstname" appDisableCopyPaste maxlength="25" inputmode="text" autocomplete="off" appAlphabeticInput/>
-                  </div>
-
-                  <!-- Last Name -->
-                  <div class="mb-3">
-                    <label for="lastname">Last Name</label>
-                    <input formControlName="lastname" class="form-control rounded-pill  " type="text" placeholder="Last Name" id="lastname" appDisableCopyPaste maxlength="25" inputmode="text" autocomplete="off" appAlphabeticInput/>
-                  </div>
-
-                  <!-- Email -->
-                  <div class="mb-3">
-                    <label for="email">Email Address</label>
-                    <input formControlName="email" class="form-control rounded-pill  " type="email" placeholder="Enter Email" id="email" appDisableCopyPaste maxlength="100" inputmode="email" autocomplete="off"  />
-                  </div>
-
-                  <!-- Phone Number -->
-                  <div class="mb-3">
-                    <label for="mobile_no">Phone Number</label>
-                    <div class="input-group">
-                      <input
-                        formControlName="mobile_no"
-                        class="form-control rounded-pill  "
-                        type="text"
-                        placeholder="Phone Number"
-                        id="mobile_no"
-                        appMobileNumberValidator
-                        appDisableCopyPaste maxlength="10" inputmode="numeric" autocomplete="off"
-                      />
-                    </div>
-                    <div *ngIf="signUpForm.get('mobile_no')?.hasError('invalidMobileNumber')" class="text-danger">
-                      {{ signUpForm.get('mobile_no')?.getError('invalidMobileNumber') }}
-                    </div>
-                  </div>
-
-                  <!-- Terms and Conditions -->
-                  <div class="form-check mb-4">
-                    <input class="form-check-input" type="checkbox" formControlName="agree" id="m-agree" />
-                    <label class="form-check-label page-link" for="m-agree">
-                      I agree to the
-                      <a href="https://rucards.in/terms-and-conditions.php" target="_blank" rel="noopener noreferrer" class="btn btn-link">
-                        Terms & Conditions
-                      </a>.
-                    </label>
-                  </div>
-                  <!-- Send OTP -->
-                  <div class="mb-3">
-                    <button
-                      class="btn btn-primary w-100 mt-3"
-                      type="button"
-                      (click)="onSendOtp()"
-                      [disabled]="!signUpForm.get('mobile_no')?.valid"
-                      *ngIf="!showOtpField"
-                    >
-                      Send OTP
-                    </button>
-                  </div>
-
-                  <!-- OTP Field -->
-                  <div class="mb-3" *ngIf="showOtpField">
-                    <label for="otp">Enter OTP</label>
-                    <input formControlName="otp" class="form-control rounded-pill  " type="text" placeholder="OTP" id="otp" maxlength="6" autocomplete="off" inputmode="numeric" appDisableCopyPaste appNumberOnly/>
-                    <button class="btn btn-primary w-100 mt-3" type="submit" (click)="onVerifyOtp()" *ngIf="!verified" [disabled]="!signUpForm.valid">
-                      Verify OTP
-                    </button>
-                    <button class="btn btn-secondary w-30 mt-3 center">
-                      <a (click)="onResend()">Resend?</a>
-                    </button>
-                  </div>
-
-                  <!-- Sign In Link -->
-                  <div class="text-center">
-                    <p>Already have an account? <a [routerLink]="['/sign-in']" class="btn btn-link">Sign In</a></p>
-                  </div>
-                </form>
+              <!-- Last Name -->
+              <div class="input-box">
+                <span class="details">Last Name</span>
+                <input
+                  formControlName="lastname"
+                  class="form-control rounded-pill"
+                  type="text"
+                  placeholder="Last Name"
+                  id="lastname"
+                  appDisableCopyPaste
+                  maxlength="25"
+                  inputmode="text"
+                  autocomplete="off"
+                  appAlphabeticInput
+                />
               </div>
             </div>
 
-          </div>
+            <!-- Email -->
+            <div class="input-box">
+              <span class="details">Email Address</span>
+              <input
+                formControlName="email"
+                class="form-control rounded-pill"
+                type="email"
+                placeholder="Enter Email"
+                id="email"
+                appDisableCopyPaste
+                maxlength="100"
+                inputmode="email"
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input
+                formControlName="mobile_no"
+                class="form-control rounded-pill"
+                type="text"
+                placeholder="Phone Number"
+                id="mobile_no"
+                appMobileNumberValidator
+                appDisableCopyPaste
+                maxlength="10"
+                inputmode="numeric"
+                autocomplete="off"
+              />
+              <div
+                *ngIf="
+                  signUpForm.get('mobile_no')?.hasError('invalidMobileNumber')
+                "
+                class="text-danger"
+              >
+                {{
+                  signUpForm.get("mobile_no")?.getError("invalidMobileNumber")
+                }}
+              </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                formControlName="agree"
+                id="m-agree"
+              />
+              <label class="form-check-label page-link" for="m-agree">
+                I agree to the
+                <a
+                  href="https://rucards.in/terms-and-conditions.php"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-link"
+                >
+                  Terms & Conditions </a
+                >.
+              </label>
+            </div>
+            <!-- Send OTP -->
+            <div class="mb-3">
+              <button
+                class="btn"
+                type="button"
+                (click)="onSendOtp()"
+                [disabled]="!signUpForm.get('mobile_no')?.valid"
+                *ngIf="!showOtpField"
+              >
+                Send OTP
+              </button>
+            </div>
+
+            <!-- OTP Field -->
+            <div class="mb-3" *ngIf="showOtpField">
+              <label class="otp" for="otp">Enter OTP</label>
+              <input
+                formControlName="otp"
+                class="form-control rounded-pill"
+                type="text"
+                placeholder="OTP"
+                id="otp"
+                maxlength="6"
+                autocomplete="off"
+                inputmode="numeric"
+                appDisableCopyPaste
+                appNumberOnly
+              />
+              <div class="verify-container">
+                <button
+                  class="btn verify-otp-btn"
+                  type="submit"
+                  (click)="onVerifyOtp()"
+                  *ngIf="!verified"
+                  [disabled]="!signUpForm.valid"
+                >
+                  Verify OTP
+                </button>
+                <a (click)="onResend()">Resend?</a>
+              </div>
+            </div>
+
+            <!-- Sign In Link -->
+            <div class="text-center">
+              <p>
+                Already have an account?
+                <a [routerLink]="['/sign-in']" class="btn-link">Sign In</a>
+              </p>
+            </div>
+          </form>
         </div>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-
-
-
-
-
-
-
-
