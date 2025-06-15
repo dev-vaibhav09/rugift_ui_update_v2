@@ -135,6 +135,10 @@ export class CategoryComponent implements OnInit{
       .join(' ');
   }
 
+   isActiveCategory(category: string): boolean {
+  return this.router.url === `/vouchers/${category}`;
+}
+
 
   router_link(item: string) {
     this.router.navigate(['/vouchers',item]);
