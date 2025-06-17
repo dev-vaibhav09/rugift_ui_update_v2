@@ -1,5 +1,5 @@
 .signin__area {
-  margin-top: 92px;
+    margin-top: 140px;
 }
 .signin-card {
   background: linear-gradient(135deg, #2c3e50, #4ca1af);
@@ -11,6 +11,7 @@
 }
 .container .row {
   box-shadow: var(--btn-box-shadow);
+  min-width: 950px;
   min-height: 400px;
   overflow: hidden;
   padding: 10px 0;
@@ -127,6 +128,12 @@
   padding: 14px 18px;
 }
 
+.left-section{
+  width: 50%;
+}
+.right-section{
+  width: 50%;
+}
 .btn:hover {
   transform: translateY(-2px);
   -webkit-transform: translateY(-2px);
@@ -146,5 +153,23 @@
 
   .signin-vector {
     display: none;
+  }
+
+  .right-section{
+    width: 100%;
+  }
+
+  .signin__area {
+    margin-top: 92px;
+}
+}
+
+@media (max-width:993px) {
+  .container .row{
+      min-width: 60%;
+  }
+
+  .right-section{
+    width: 100%;
   }
 }

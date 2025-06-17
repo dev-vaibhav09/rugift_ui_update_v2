@@ -11,7 +11,7 @@ span {
 .order-container {
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 140px;
   min-height: 80vh;
 
   .order-title {
@@ -67,6 +67,48 @@ main {
       font-size: 1.25rem;
       font-weight: 700;
     }
+  }
+}
+
+.empty-cart-message .icon {
+  font-size: 48px;
+  color: #4ca1af;
+  margin-bottom: 20px;
+  animation: gift_icon_shake 1s ease-in-out infinite;
+  -webkit-animation: gift_icon_shake 1s ease-in-out infinite;
+  text-align: center;
+}
+
+.empty-cart-message .message{
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+
+@keyframes gift_icon_shake {
+  0% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(6deg);
+  }
+  30% {
+    transform: rotate(-6deg);
+  }
+  45% {
+    transform: rotate(4deg);
+  }
+  60% {
+    transform: rotate(-4deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  90% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0);
   }
 }
 
@@ -162,6 +204,10 @@ main {
   .btn {
     padding: 14px 28px;
     font-size: 16px;
+  }
+
+  .order-container {
+    margin-top: 100px;
   }
 }
 

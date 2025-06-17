@@ -12,7 +12,7 @@
 
   .voucher-card {
     width: 200px;
-    height: 250px;
+    height: 200px;
     border-radius: 20px;
     overflow: hidden;
     border: 4px solid var(--secondary-color);
@@ -39,8 +39,11 @@
   // Responsive behavior
   @media (max-width: 768px) {
     .voucher-card {
-      width: calc(50% - 10px);
-      height: 200px;
+      // width: calc(50% - 10px);
+      // height: 200px;
+
+      width: 180px;
+      height: 180px;
     }
     
    
@@ -48,9 +51,14 @@
   }
 
   @media (max-width: 480px) {
+
+    .container-section{
+      justify-content: space-evenly;
+    }
     .voucher-card {
-      width: 100%;
-      height: 180px;
+       width: 150px;
+      height: 150px;
+      gap: 0;
     }
   }
 }

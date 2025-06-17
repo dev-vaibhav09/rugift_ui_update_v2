@@ -37,7 +37,7 @@ thead {
   background: var(--primary-color);
 }
 thead tr th {
-  padding: 1rem;
+  padding: 0.7rem;
   font-size: 1rem;
   letter-spacing: 1px;
 }
@@ -301,7 +301,7 @@ tbody tr {
 /* General table styling for small devices */
 @media (max-width: 768px) {
   thead tr th {
-    padding: 1.2rem;
+    padding: 0.7rem;
     font-size: 1rem;
   }
   .cart-table table {

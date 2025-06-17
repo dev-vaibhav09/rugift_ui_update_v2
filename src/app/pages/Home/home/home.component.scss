@@ -1,56 +1,53 @@
-.gradient-background{
-   position: relative;
-   padding: 0 1rem;
+.gradient-background {
+  position: relative;
+  padding: 0 1rem;
 }
 
-.ballons img{
-    position: absolute;
-    z-index: 1;
-    animation: scaling infinite linear;
-    opacity: 0.8;
-    -webkit-animation: scaling 3s infinite linear;
+.ballons img {
+  position: absolute;
+  z-index: 1;
+  animation: scaling infinite linear;
+  opacity: 0.8;
+  -webkit-animation: scaling 3s infinite linear;
 }
 
 @keyframes scaling {
-    0%{
-        transform: scale(1);
-        -webkit-transform: scale(1);
-        -moz-transform: scale(1);
-        -ms-transform: scale(1);
-        -o-transform: scale(1);
-}
-50%{
-    transform: scale(1.1);
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-}
-100%{
+  0% {
     transform: scale(1);
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     -o-transform: scale(1);
-}
-    
+  }
+  50% {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+  }
 }
 
-
-.ballons img:nth-child(1){
-   right: 0;
-    top: 0;
+.ballons img:nth-child(1) {
+  right: 0;
+  top: 0;
 }
-.ballons img:nth-child(2){
- right: 50%;
-    top: 47px;
+.ballons img:nth-child(2) {
+  left: 0%;
+  top: 5%;
 }
 
 @media (max-width: 768px) {
-    .ballons img:nth-child(1){
-        width: 80px;
-        height: 80px;
-        object-fit: contain;
-    }
-    
+  .ballons img:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
 }

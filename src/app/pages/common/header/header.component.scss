@@ -2,11 +2,11 @@
 
 .main-header {
   padding: 10px 5px;
-  width: 100%;
+  width: 99.1%;
   left: 0;
   top: 0;
   position: fixed;
-  box-shadow: 0 5px 24px rgba(131, 98, 164, 0.3);
+  // box-shadow: 0 5px 24px rgba(131, 98, 164, 0.3);
   outline-offset: -3px;
   backdrop-filter: blur(10px);
   z-index: 100;
@@ -153,6 +153,7 @@
     width: 100%; /* Ensure full width of the menu */
     padding: 0 20px; /* Add some padding */
     align-items: flex-start; /* Align items to the left */
+    margin-top: -80px;
   }
 
   .nav-item {
@@ -229,7 +230,7 @@
   }
 
   .nav-item {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .btn-signin button {
@@ -245,5 +246,7 @@
   background: var(--primary-color);
   border-radius: 8px;
 }
+
+
 
 

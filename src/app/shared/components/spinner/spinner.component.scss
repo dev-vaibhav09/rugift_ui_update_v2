@@ -9,8 +9,9 @@ body{
   overflow: hidden;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.1); /* Optional background color */
-  position: relative; /* Ensure relative positioning for layering */
+  background-color: rgba(0, 0, 0, 0.6); /* Optional background color */
+  position: fixed; /* Ensure relative positioning for layering */
+  z-index: 50000;
 }
 
 /* Centering the loader and making sure it appears above other content */
@@ -18,7 +19,7 @@ body{
   animation: rotate 1s infinite;
   height: 100px;
   width: 100px;
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 45%;
   z-index: 9999;

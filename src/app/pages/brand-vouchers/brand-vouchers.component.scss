@@ -85,147 +85,6 @@
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 480px) {
- .search-container {
-    flex-direction: column;
-    padding: 15px;
-    border-radius: 15px;
-  }
-
-  .search-container input {
-    width: 100%;
-    margin-bottom: 12px;
-    padding: 10px 5px;
-  }
-
-  .search-container button {
-    width: 100%;
-    border-radius: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  .col-md-1 {
-    display: none; /* Hide left and right spacing on small screens */
-  }
-
-  .search-container {
-    max-width: 90%;
-  }
-}
-
-
-
-/* Section styles */
-.course__area {
-  padding-top: 50px;
-  padding-bottom: 10px;
-}
-
-/* Ensuring card layout fits exactly 5 cards in a row */
-.col-lg-2-4 {
-  flex: 0 0 19%; /* Adjust to fit 5 cards in one row */
-  max-width: 19%; /* Control max width */
-}
-
-.input-group-text {
-  border-right: 0;
-  border-radius: 8px 0 0 8px;
-}
-.form-control:focus {
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-  border-color: #007bff;
-}
-.form-select:focus {
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-  border-color: #007bff;
-}
-
-/* Empty Cart Message Styling */
-.empty-cart-message {
-  display: flex;
-  flex-direction: initial; /* Align content in a column */
-  align-items: center; /* Center horizontally */
-  justify-content: center; /* Center vertically */
-  text-align: center;
-  padding: 50px;
-  background-color: #ffffff; /* White background to match the order section */
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  border: 1px solid #ddd; /* Match the border of other elements */
-}
-
-.empty-cart-message .message-container {
-  max-width: 100%;
-}
-
-.empty-cart-message .icon {
-  font-size: 32px;
-  color: #4ca1af; /* Match the gradient colors used in the buttons */
-  margin-bottom: 20px;
-}
-
-.empty-cart-message .message {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333333; /* Dark grey for readability */
-  margin-bottom: 20px;
-}
-
-.empty-cart-message .btn {
-  display: inline-block;
-  background: var(--back-hover-theme); /* Elegant gradient background */
-  color: #ffffff;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-/* Responsive adjustments for mobile view */
-/* Responsive Adjustments for Mobile */
-
-@media (max-width: 768px) {
-  .section__title {
-    font-size: 20px;
-  }
-  .service-button {
-    padding: 4px 7px;
-    font-size: 10px;
-  }
-  .course__area {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0;
-  }
-}
-
-@media (max-width: 500px) {
-  .section__title {
-    font-size: 20px;
-  }
-  .service-button {
-    padding: 4px 7px;
-    font-size: 10px;
-  }
-  .course__area {
-    display: flex;
-    flex-direction: row; /* This is the key for a row layout */
-    justify-content: space-evenly; /* Distributes items evenly */
-    align-items: center; /* Vertically aligns items to the center */
-    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
-    padding: 0 0;
-  }
-}
-
-
-
 .card-wrapper {
   background-color: var(--light-bg);
   border-radius: 20px;
@@ -306,5 +165,158 @@
         color: #fff;
       }
     }
+  }
+}
+
+/* Section styles */
+.course__area {
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+/* Ensuring card layout fits exactly 5 cards in a row */
+.col-lg-2-4 {
+  flex: 0 0 19%; /* Adjust to fit 5 cards in one row */
+  max-width: 19%; /* Control max width */
+}
+
+.input-group-text {
+  border-right: 0;
+  border-radius: 8px 0 0 8px;
+}
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+.form-select:focus {
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+  border-color: #007bff;
+}
+
+/* Empty Cart Message Styling */
+.empty-cart-message {
+  display: flex;
+  flex-direction: initial; /* Align content in a column */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  text-align: center;
+  padding: 50px;
+  background-color: #ffffff; /* White background to match the order section */
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 1px solid #ddd; /* Match the border of other elements */
+}
+
+.empty-cart-message .message-container {
+  max-width: 100%;
+}
+
+.empty-cart-message .icon {
+  font-size: 32px;
+  color: #4ca1af; /* Match the gradient colors used in the buttons */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .message {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333; /* Dark grey for readability */
+  margin-bottom: 20px;
+}
+
+.empty-cart-message .btn {
+  display: inline-block;
+  background: var(--back-hover-theme); /* Elegant gradient background */
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments for mobile view */
+/* Responsive Adjustments for Mobile */
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+  .col-md-1 {
+    display: none; /* Hide left and right spacing on small screens */
+  }
+
+  .search-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section__title {
+    font-size: 20px;
+  }
+  .service-button {
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+  .course__area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .card-wrapper {
+    width: 60%;
+
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .section__title {
+    font-size: 20px;
+  }
+  .service-button {
+    padding: 4px 7px;
+    font-size: 10px;
+  }
+  .course__area {
+    display: flex;
+    flex-direction: row; /* This is the key for a row layout */
+    justify-content: space-evenly; /* Distributes items evenly */
+    align-items: center; /* Vertically aligns items to the center */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if needed */
+    padding: 0 0;
+  }
+
+  
+}
+
+@media (max-width: 480px) {
+  .search-container {
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .search-container input {
+    width: 100%;
+    // margin-bottom: 12px;
+    padding: 10px 5px;
+  }
+
+  .search-container button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 6px 14px;
+  }
+
+  .card-wrapper {
+    width: 80%;
   }
 }

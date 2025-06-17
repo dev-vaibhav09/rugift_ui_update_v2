@@ -68,6 +68,7 @@
   height: 3px;
   background: var(--secondary-color);
   border-radius: 10px;
+  left: 42% ;
 }
 
 .about-us-card-container-section {
@@ -89,7 +90,7 @@
   font-weight: 700;
   overflow: hidden;
   border: 1px solid rgb(194 192 255 / 90%);
-  border-top: 5px solid #af65e0;
+  border-top: 5px solid var(--secondary-color);
   box-shadow: var(--btn-box-shadow);
 }
 

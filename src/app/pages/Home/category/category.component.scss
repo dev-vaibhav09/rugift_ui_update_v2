@@ -37,13 +37,14 @@
   position: relative;
   border-radius: 15px;
   max-width: 1200px;
-  margin: 85px auto 0;
+  margin: 90px auto 0;
   z-index: 10;
-  box-shadow: 0 5px 24px rgba(131, 98, 164, 0.3);
+  box-shadow: 0 1px 24px var(--primary-color);
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
+  background-color: var(--text-color);
 }
 
 .main-navigation {
@@ -52,7 +53,7 @@
   justify-content: center;
   color: var(--primary-color);
   border-radius: 12px;
-
+  background-color: var(--text-color);
   overflow-x: auto; /* Keep overflow-x to allow horizontal scrolling if needed */
 
   white-space: nowrap; /* Added to prevent items from wrapping */
@@ -61,18 +62,6 @@
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
   // Add neon-like border glow
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
-    border: 1px solid var(--text-secondary);
-    box-shadow: 0 0 15px var(--tertiary-color);
-    pointer-events: none;
-  }
 }
 
 .main-navigation::-webkit-scrollbar {
@@ -173,7 +162,7 @@
     border-radius: 50%;
     top: 25%;
     left: 25%;
-    background: rgb(223, 28, 213);
+    background: rgb(49, 49, 183);
     opacity: 0.1;
     filter: blur(80px);
     //z-index: -1;
@@ -309,52 +298,7 @@
   }
 }
 
-@media (max-width: 480px) {
-  .main-navigation {
-    padding: 5px 0; /* Adjust padding for smaller screens */
-    min-height: 35px; /* Adjust min-height for even smaller screens */
-  }
 
-  .nav-item {
-    padding: 5px 5px;
-  }
-
-  .nav-link {
-    font-size: 0.7rem;
-    text-align: center;
-  }
-
-  .hero-section {
-    padding: 30px 12px;
-    margin-top: 20px;
-  }
-
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-
-  .hero-section p {
-    font-size: 0.95rem;
-    margin-bottom: 25px;
-  }
-
-  .search-container {
-    flex-direction: column;
-    padding: 15px;
-    border-radius: 15px;
-  }
-
-  .search-container input {
-    width: 100%;
-    margin-bottom: 12px;
-    padding: 10px 5px;
-  }
-
-  .search-container button {
-    width: 100%;
-    border-radius: 10px;
-  }
-}
 
 /* Mobile Styles */
 @media (max-width: 767px) {
@@ -408,6 +352,10 @@
   .hero-section .right-section-container .img-text-container h3 {
     font-size: 10px;
   }
+
+  .hero-section .left-section-container .brands-images-section-container img {
+    width: 110px;
+  }
 }
 
 /* Desktop Styles */
@@ -418,7 +366,7 @@
 }
 @media (max-width: 1024px) {
   .navigation-container {
-    margin: 85px 16px 0;
+    margin: 90px 16px 0;
   }
   .hero-section {
     grid-template-columns: repeat(1, 1fr);
@@ -434,5 +382,53 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero-section {
     padding: 10px 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-navigation {
+    padding: 5px 0; /* Adjust padding for smaller screens */
+    min-height: 35px; /* Adjust min-height for even smaller screens */
+  }
+
+  .nav-item {
+    padding: 5px 5px;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .hero-section {
+    padding: 30px 12px;
+    margin-top: 20px;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .search-container input {
+    width: 100%;
+    // margin-bottom: 12px;
+    padding: 10px 5px;
+  }
+
+  .search-container button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 6px 14px;
   }
 }

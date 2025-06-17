@@ -37,7 +37,7 @@
   position: relative;
   border-radius: 15px;
   max-width: 1200px;
-  margin: 85px auto 0;
+  margin: 90px auto 0;
   z-index: 10;
   box-shadow: 0 5px 24px rgba(131, 98, 164, 0.3);
   -webkit-border-radius: 15px;
@@ -320,7 +320,7 @@
   }
 
   .nav-link {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     text-align: center;
   }
 
@@ -364,12 +364,8 @@
 
   .main-navigation {
     justify-content: flex-start;
-    padding: 4px;
+   
     min-height: 40px; /* Adjust min-height for smaller screens */
-  }
-
-  .nav-item {
-    padding: 10px 5px;
   }
 
   .hero-section {
@@ -418,7 +414,7 @@
 }
 @media (max-width: 1024px) {
   .navigation-container {
-    margin: 85px 16px 0;
+    margin: 90px 16px 0;
   }
   .hero-section {
     grid-template-columns: repeat(1, 1fr);
@@ -436,3 +432,8 @@
     padding: 10px 50px;
   }
 }
+
+
+
+
+
