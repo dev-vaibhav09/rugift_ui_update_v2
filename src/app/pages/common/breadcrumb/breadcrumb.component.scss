@@ -364,7 +364,7 @@
 
   .main-navigation {
     justify-content: flex-start;
-   
+
     min-height: 40px; /* Adjust min-height for smaller screens */
   }
 
@@ -413,6 +413,11 @@
   }
 }
 @media (max-width: 1024px) {
+  .main-navigation {
+    padding: 0 2.5rem;
+    justify-content: start;
+  }
+
   .navigation-container {
     margin: 90px 16px 0;
   }
@@ -432,8 +437,3 @@
     padding: 10px 50px;
   }
 }
-
-
-
-
-

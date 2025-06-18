@@ -39,7 +39,7 @@
   max-width: 1200px;
   margin: 90px auto 0;
   z-index: 10;
- box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
@@ -297,8 +297,6 @@
   }
 }
 
-
-
 /* Mobile Styles */
 @media (max-width: 767px) {
   .navigation-container {
@@ -364,6 +362,10 @@
   }
 }
 @media (max-width: 1024px) {
+  .main-navigation {
+    padding: 0 2.5rem;
+    justify-content: start;
+  }
   .navigation-container {
     margin: 90px 16px 0;
   }
