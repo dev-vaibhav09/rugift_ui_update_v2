@@ -1,6 +1,52 @@
-
-.example-button-container button {
-  background: linear-gradient(0deg, #2C3E50, #4CA1AF); /* Elegant gradient background */
-
+button {
+  width: 100%;
+  background-color: var(--primary-color);
+  padding: 8px 12px;
+  border-radius: 10px;
+  display: inline-block;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
 }
+button:hover {
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+}
+
+.container-fluid {
+  margin-top: 140px;
+}
+
+.form-control {
+  padding: 1rem;
+}
+.form-control:focus {
+  outline: none;
+  border: none;
+}
+
+.search-container {
+  position: relative;
+}
+.search-container i {
+  position: absolute;
+  right: 27px;
+  font-size: 21px;
+}
+
+.export-btn {
+  margin-right: 20px;
+  margin-top: 4px;
+}
+@media (max-width: 768px) {
+  .container-fluid {
+    margin-top: 92px;
+  }
+}
+
 

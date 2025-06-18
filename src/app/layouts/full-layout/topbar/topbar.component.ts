@@ -1,48 +1,46 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
-import {RouterLink} from "@angular/router";
-import {User} from "../../../shared/interfaces/user";
-import {WishlistService} from "../../../shared/services/wishlist.service";
-import {SessionStorageService} from "../../../shared/services/session-storage.service";
-import {NgIf} from "@angular/common";
+import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { User } from '../../../shared/interfaces/user';
+import { WishlistService } from '../../../shared/services/wishlist.service';
+import { SessionStorageService } from '../../../shared/services/session-storage.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [
-    RouterLink,
-    NgIf
-  ],
+  imports: [RouterLink, NgIf, RouterLinkActive],
   templateUrl: './topbar.component.html',
-  styleUrl: './topbar.component.scss'
+  styleUrl: './topbar.component.scss',
 })
 export class TopbarComponent implements OnInit {
+  @Input() header__white: string | undefined;
 
-  @Input () header__white : string | undefined
-
-  headerSticky : boolean = false;
+  headerSticky: boolean = false;
   cartCount = 0;
 
-
-// sticky nav
+  // sticky nav
   user: User | null = null;
-  @HostListener('window:scroll',['$event']) onscroll () {
-    if(window.scrollY > 80){
-      this.headerSticky = true
-    }
-    else{
-      this.headerSticky = false
+  @HostListener('window:scroll', ['$event']) onscroll() {
+    if (window.scrollY > 80) {
+      this.headerSticky = true;
+    } else {
+      this.headerSticky = false;
     }
   }
 
   constructor(
     private wishlistService: WishlistService,
-    private sessionStorageService :SessionStorageService
-  ) {
-  }
+    private sessionStorageService: SessionStorageService
+  ) {}
 
   ngOnInit(): void {
-    this.getCartCount()
-    this.user= this.sessionStorageService.getCurrentUser()
+    this.getCartCount();
+    this.user = this.sessionStorageService.getCurrentUser();
+
+    // overlay
+    window.addEventListener('click', () => {
+      this.isOverlayOpen = false;
+    });
   }
 
   getCartCount() {
@@ -58,8 +56,15 @@ export class TopbarComponent implements OnInit {
     }
     return '';
   }
-  logout(){
+  logout() {
     this.sessionStorageService.logout();
     window.location.reload();
   }
+
+  isOverlayOpen = false;
+  // handleOverlay
+  handleOverlay(event: MouseEvent) {
+  event.stopPropagation(); // Prevent the click from bubbling up to the window
+  this.isOverlayOpen = !this.isOverlayOpen;
+}
 }

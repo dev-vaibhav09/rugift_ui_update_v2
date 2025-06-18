@@ -1,27 +1,54 @@
-
-<header class="main-header-area gradient-background ">
+<header class="main-header-area">
   <div class="main-navbar">
     <div class="container-fluid">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <div class="logo px-4">
-            <a routerLink="dashboard">
-              <img src="img/Rugift_logo.png" class="black-logo" alt="Logo" />
-            </a>
+          <div class="header-left">
+            <img
+              style="cursor: pointer"
+              class="logo"
+              src="img/rugift.png"
+              alt="Logo"
+              routerLink="/"
+            />
           </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link text-white" routerLink="dashboard">Dashboard</a>
+                <a
+                  class="nav-link"
+                  routerLink="dashboard"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  >Dashboard</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white" routerLink="report/pg-transaction">PG Transaction</a>
+                <a
+                  class="nav-link"
+                  routerLink="report/pg-transaction"
+                  routerLinkActive="active"
+                  >PG Transaction</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link text-white " routerLink="report/vd-transaction">VD Transaction</a>
+                <a
+                  class="nav-link"
+                  routerLink="report/vd-transaction"
+                  routerLinkActive="active"
+                  >VD Transaction</a
+                >
               </li>
               <li class="nav-item">
                 <div class="site-search">
@@ -31,38 +58,61 @@
             </ul>
             <div class="d-flex align-items-center">
               <div class="dropdown ms-3 header-item">
-                <a class="text-white" id="user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a
+                  class=""
+                  id="user-dropdown"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
                   <span class="d-flex align-items-center">
                     <div id="profileImage">
                       <ng-container *ngIf="user; else defaultIcon">
-                        <span class="user-initials">{{ getUserInitials() }}</span>
+                        <span (click)="handleOverlay($event)" style="cursor: pointer" class="user-initials">{{
+                          getUserInitials()
+                        }}</span>
                       </ng-container>
                       <ng-template #defaultIcon>
-                        <a class=" text-white" routerLink="../auth/login">Login</a>
+                        <a class="text-white" routerLink="../auth/login"
+                          >Login</a
+                        >
                       </ng-template>
                     </div>
                   </span>
-
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="user-dropdown">
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="user-dropdown"
+                >
                   <li *ngIf="user">
-                    <h6 class="dropdown-header text-warning">Welcome {{ user.firstname }}</h6>
+                    <span class="dropdown-header">
+                      👋🏻
+                      <span class="text-primary user-name">{{
+                        user.firstname
+                      }}</span>
+                    </span>
                   </li>
                   <li *ngIf="!user">
                     <a class="dropdown-item" routerLink="/sign-in">
-                      <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-2"></i>
+                      <i
+                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-2"
+                      ></i>
                       <span class="align-middle">Login</span>
                     </a>
                   </li>
                   <li>
                     <a class="dropdown-item" routerLink="/contact">
-                      <i class="mdi mdi-email text-muted fs-16 align-middle me-2"></i>
+                      <i
+                        class="mdi mdi-email text-muted fs-16 align-middle me-2"
+                      ></i>
                       <span class="align-middle">Contact Us</span>
                     </a>
                   </li>
                   <li *ngIf="user">
                     <a class="dropdown-item" (click)="logout()">
-                      <i class="mdi mdi-logout text-muted fs-16 align-middle me-2"></i>
+                      <i
+                        class="mdi mdi-logout text-muted fs-16 align-middle me-2"
+                      ></i>
                       <span class="align-middle">Logout</span>
                     </a>
                   </li>
@@ -75,3 +125,7 @@
     </div>
   </div>
 </header>
+
+<div *ngIf="isOverlayOpen" class="overlay">
+    
+</div>

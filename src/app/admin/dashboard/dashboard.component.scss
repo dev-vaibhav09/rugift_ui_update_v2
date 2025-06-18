@@ -1,9 +1,14 @@
 
+.container{
+  max-width: 1200px;
 
+}
 .dashboard-header h1 {
-  font-size: 3rem;
+  font-size: 2.3rem;
   font-weight: 700;
-  color: #333;
+  color: var(--primary-color);
+   margin-top: 60px;
+   margin-bottom: 30px;
 }
 
 .dashboard-header p {
@@ -21,7 +26,6 @@
 }
 
 .card-header {
-  padding: 15px;
   background-color: #007bff;
   border-bottom: 2px solid #e9ecef;
 }
@@ -31,16 +35,18 @@
 }
 
 .card-header.bg-secondary {
-  background-color: #6c757d !important;
+  background-color: var(--primary-color) !important;
 }
 
 .card-header.bg-success {
-  background-color: #28a745 !important;
+  background-color: var(--primary-color) !important;
 }
 
-.card-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+.card-titles {
+
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0;
 }
 
 .card-body {

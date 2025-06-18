@@ -39,7 +39,7 @@
   max-width: 1200px;
   margin: 90px auto 0;
   z-index: 10;
-  box-shadow: 0 1px 24px var(--primary-color);
+ box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
@@ -58,7 +58,6 @@
 
   white-space: nowrap; /* Added to prevent items from wrapping */
   min-height: 50px; /* Added minimum height */
-  padding: 10px 10px; /* Adjust padding as needed to control internal spacing */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
   // Add neon-like border glow

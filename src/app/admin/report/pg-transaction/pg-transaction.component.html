@@ -1,6 +1,5 @@
-<app-breadcrumb title="PG Transaction" subtitle="PG Transaction"></app-breadcrumb>
 
-<div class="container-fluid">
+<div class="container-fluid pb-150">
   <div class="row justify-content-center">
     <!-- Pending Transactions Form -->
     <div class="col-md-10">
@@ -9,7 +8,7 @@
           <div class="card-header">
             <div class="row align-items-center g-3">
               <div class="col-md-3">
-                <h4 class="fw-bolder mt-3 me-3">Rugift Transaction</h4>
+                <h4 class="fw-bolder mt-3 me-3">Rugift <span class="text-primary">Transaction</span></h4>
               </div>
             </div>
           </div>
@@ -37,12 +36,12 @@
 
               <!-- Submit & Reset Buttons -->
               <div class="col-md-6 d-flex justify-content-end align-items-center">
-                <div class="example-button-container me-5">
+                <div class="col-md-3 example-button-container me-5">
                   <button mat-fab extended (click)="onSubmit()" class="text-white">
                     Submit
                   </button>
                 </div>
-                <div class="example-button-container">
+                <div class="col-md-3 example-button-container">
                   <button mat-fab extended (click)="onReset()" class="text-white">
                     Reset
                   </button>
@@ -59,7 +58,7 @@
       <div class="card rounded-4 mt-20">
         <div class="card-header pd-3">
           <div class="d-flex justify-content-between align-items-center gap-2">
-            <div class="d-flex w-100 align-items-center">
+            <div class="d-flex w-100 align-items-center search-container">
               <input
                 type="text"
                 class="form-control rounded-pill"
@@ -71,11 +70,11 @@
             </div>
 
             <!-- Pagination and Export Section -->
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center text-white export-btn">
               <button
                 mat-fab extended
                 type="button"
-                class="ms-3 mb-2 btn btn-success"
+                class="ms-3 mb-2"
                 (click)="export_to_excel()"
               >
                 Export
@@ -169,7 +168,7 @@
 </div>
 
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+<div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Check Transaction Status</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -234,3 +233,4 @@
     </ng-template>
   </div>
 </div>
+

@@ -10,7 +10,7 @@
   outline-offset: -3px;
   backdrop-filter: blur(10px);
   z-index: 100;
-  border-bottom: 1px solid rgba(17, 118, 255, 0.4);;
+  border-bottom: 1px solid rgba(17, 118, 255, 0.4);
 }
 
 .active-router{
@@ -46,6 +46,10 @@
   color: var(--primary-color);
   transition: color 0.3s ease;
 
+}
+
+.nav-item a{
+  text-shadow: 0px 1px 1px white;
 }
 
 .nav-item:not(.btn-signin):hover {
